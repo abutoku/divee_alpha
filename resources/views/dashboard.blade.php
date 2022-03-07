@@ -1,17 +1,34 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+    <section class="flex mt-8 mb-8">
+        <div>HOME</div>
+        <div>タイムライン</div>
+    </section>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                </div>
-            </div>
+    <section class="mb-6">
+        <h1>infomation</h1>
+    </section>
+
+    <section>
+
+        <div class="flex">
+            <div>マイページ</div>
+            <div>生物ログ</div>
         </div>
-    </div>
+
+        <div class="flex">
+            <div>Map</div>
+            <div>海情報</div>
+        </div>
+
+        <div class="flex">
+            <div>図鑑</div>
+            <div>QRコード</div>
+        </div>
+
+        <div>
+            <div>記事作成</div>
+        </div>
+
+    </section>
+    
 </x-app-layout>
