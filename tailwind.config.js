@@ -8,13 +8,13 @@ module.exports = {
     ],
 
     theme: {
-        colors: {
-            diveblue:'#015DC6',
-            paper:'#FAF9F8',
-        },
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+            },
+            colors: {
+                diveblue: '#015DC6',
+                paper: '#eae8e1',
             },
         },
     },
