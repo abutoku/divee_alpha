@@ -24,7 +24,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+//Profileコントローラーのルート
+Route::resource('profile', ProfileController::class);
+
 });//ユーザー認証ここまで
+
 
 Route::get('/', function () {
     return view('welcome');

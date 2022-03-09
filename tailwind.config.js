@@ -14,6 +14,7 @@ module.exports = {
             },
             colors: {
                 diveblue: '#015DC6',
+                divenavy:'#3E5155',
                 paper: '#eae8e1',
             },
         },
