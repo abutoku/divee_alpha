@@ -1,15 +1,12 @@
-{{-- ヘッダー要素・コンポーネント ⏬⏬--}}
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ __('image change') }}
-        </h2>
+    {{-- ヘッダーロゴ部分 --}}
+    <x-slot name="iconArea">
+        <a href={{ route('dashboard') }}>
+            <x-text-logo/>
+        </a>
     </x-slot>
-{{-- ヘッダー要素・コンポーネント ⏫⏫--}}
 
 {{-- -----プロフィールの写真登録----- --}}
-
-
 
         <div>
             {{-- 入力フォーム --}}
