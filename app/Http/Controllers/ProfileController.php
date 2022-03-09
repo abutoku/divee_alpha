@@ -65,10 +65,9 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     //プロフィール登録の関数
+     //プロフィール登録
     public function store(Request $request)
     {
-        //dd($request);
         // バリデーション
         $validator = Validator::make($request->all(), [
             'card_rank' => 'required',
@@ -82,7 +81,7 @@ class ProfileController extends Controller
                 ->withErrors($validator);
         }
 
-        //DBに保存
+        //DBに保存 profile_imageは仮画像を設定
         $result = Profile::create([
             "card_rank" => $request->card_rank,
             "dive_count" => $request->dive_count,
@@ -90,8 +89,7 @@ class ProfileController extends Controller
             "user_id" => Auth::user()->id
         ]);
 
-
-        // profile.index」にリクエスト送信（一覧ページに移動）
+        // profile.index にリクエスト送信（一覧ページに移動）
         return redirect()->route('dashboard');
     }
 
@@ -107,7 +105,6 @@ class ProfileController extends Controller
         $profile = Profile::where('user_id',$id)->first();
         //profile.indexに$profileと$userを渡す
         return view('profile.show', ['profile' => $profile]);
-
     }
 
     /**

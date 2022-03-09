@@ -1,4 +1,9 @@
 <x-app-layout>
+
+    <x-slot name="iconArea">
+
+    </x-slot>
+
     <section class="flex mt-8 mb-8">
         <div>HOME</div>
         <div>タイムライン</div>
@@ -11,7 +16,10 @@
     <section>
 
         <div class="flex">
-            <div>マイページ</div>
+            <a href="{{ route('profile.show', Auth::user()->id ) }}">
+                <div>マイページ</div>
+            </a>
+
             <div>生物ログ</div>
         </div>
 
@@ -30,5 +38,5 @@
         </div>
 
     </section>
-    
+
 </x-app-layout>
