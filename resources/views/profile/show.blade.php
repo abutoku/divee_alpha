@@ -1,12 +1,10 @@
-
-{{-- ヘッダー要素・コンポーネント ⏬⏬--}}
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('My Profile') }}
-        </h2>
+
+    <x-slot name="iconArea">
+        <a href={{ route('dashboard') }}>
+            <x-text-logo/>
+        </a>
     </x-slot>
-{{-- ヘッダー要素・コンポーネント ⏫⏫--}}
 
     {{-- -----マイプロフィール画面----- --}}
 
@@ -46,15 +44,4 @@
     @endif
 
 </div>
-<script src="{{ mix('js/vanilla-tilt.js') }}"></script>
-<script>
-    VanillaTilt.init(document.querySelectorAll("#card"), {
-      max: 10,
-      speed: 10,
-    //   glare: true,
-      "max-glare": 1,
-    });
-  </script>
 </x-app-layout>
-
-
