@@ -17,8 +17,9 @@ class ProfileFactory extends Factory
         return [
             'card_rank' =>$this->faker->text($maxNbChars = 5),
             'dive_count' =>$this->faker->numberBetween($min = 20, $max = 500),
-            'profile_image' => null,
+            'profile_image' => 'uploads/null.png',
             'user_id' => \App\Models\User::factory()->create()->id
         ];
     }
 }
+
