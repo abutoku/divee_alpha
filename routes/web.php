@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+//Profileコントローラーの読み込み
+use App\Http\Controllers\ProfileController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +16,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//ユーザー認証されていないと表示されない設定
+Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+});//ユーザー認証ここまで
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
 
 require __DIR__.'/auth.php';
