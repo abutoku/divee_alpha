@@ -22,6 +22,16 @@ $('#mask').on('click', function () {
   $('#mask').hide(); //メニュー背景隠す
 
   $('#menu_contents').hide(); //メニュー中身隠す
+}); //---プロフィール写真が選択されたらプレビューを表示---
+
+$('#profile_image').on('change', function (e) {
+  var reader = new FileReader();
+
+  reader.onload = function (e) {
+    $("#demo_img").attr('src', e.target.result);
+  };
+
+  reader.readAsDataURL(e.target.files[0]);
 });
 /******/ })()
 ;

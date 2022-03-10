@@ -9,40 +9,51 @@
 
     {{-- -----マイプロフィール画面----- --}}
 
-    {{-- マイプロフィール表示部分 --}}
-    <div class="flex flex-col" >
-        <section class="md:flex bg-white rounded-lg p-6 text-center my-4 mx-2 drop-shadow-md" id="card">
-            {{-- プロフィールイメージ --}}
-            <!-- <img src="{{ Storage::url($profile->profile_image) }}" class="rounded-full h-32 w-32"> -->
-            <img src="{{ Storage::url($profile->profile_image) }}" class="h-48 w-48 md:h-100 md:w-100 rounded-full mx-auto md:mx-0 md:mr-6 object-cover">
-            {{-- ユーザー名 --}}
-            <h1 class="md:text-left mt-2 mr-2"><b>{{ $profile->user->name }}</b></h1>
+    <!-- wrapper -->
+    <div class="w-[400px] sm:w-[600px] mx-auto">
 
-            <table class="md:text-left w-full justify-center mt-2 ">
-                {{-- カードランク --}}
-                <tr class="flex flex-col w-300 h-300 bg-white" >
-                    <td>CARD RANK:</td>
-                    <td><b class="text-3xl">{{ $profile->card_rank }}</b></td>
-                </tr>
+        {{-- プロフィール表示部分 --}}
+        <section class="pt-10">
+            <div  class="flex justify-center items-end w-full">
+                {{-- プロフィール画像 --}}
+                <div class="mr-10 flex justify-center items-center flex-col w-full ">
 
-                {{-- ダイブ本数 ランクProの場合は表示しない--}}
+                    <img src="{{ Storage::url($profile->profile_image) }}" class="h-48 w-48 mb-2 rounded-full object-cover bg-white">
+
+                    {{-- profile.edit プロフィール写真変更ページへのリンク --}}
+                    @if ($profile->user_id === Auth::user()->id)
+                        <a href="{{ route('profile.edit',$profile->id)  }}" class="text-xs">
+                        プロフィール画像変更</p>
+                    @endif
+
+                </div>
+
+                {{-- カードランク表示 Proの場合は表示なし --}}
                 @if($profile->card_rank !== 'Pro')
-                    <tr class="flex flex-col">
-                        <td>DIVE COUNT:</td>
-                        <td><b class="text-3xl">{{ $profile->dive_count }}</b></td>
-                    </tr>
+                    <div class="flex items-end self-end">
+                        <b class="text-7xl">{{ $profile->dive_count }}</b>
+                        <p>DIVE</p>
+                    </div>
                 @endif
 
-            </table>
+            </div>
+
+            {{-- ユーザー名 --}}
+            <div class="flex justify-between items-end">
+                <h1 class="text-4xl mt-10 mr-8"><b>{{ $profile->user->name }}</h1>
+            </div>
+
+            {{-- カードランク --}}
+            <div class="mt-6">
+                <div class="flex items-end w-300 h-300" >
+                    <p class="mr-2 text-base">CARD RANK:</p>
+                    <b class="text-3xl">{{ $profile->card_rank }}</b>
+                </div>
+            </div>
+
         </section>
         {{-- マイプロフィール表示部分ここまで --}}
 
-        {{-- profile.edit プロフィール写真変更ページへのリンク --}}
-        @if ($profile->user_id === Auth::user()->id)
-            <form action="{{ route('profile.edit',$profile->id)  }}" method="get" class="mx-auto">
-                <x-button class="my-2">プロフィール画像変更</x-button>
-            </form>
-        @endif
-
     </div>
+    <!-- wrapperここまで -->
 </x-app-layout>

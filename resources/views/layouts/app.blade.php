@@ -20,7 +20,7 @@
     <div class="bg-paper h-[1800px]">
 
         <!-- ハンバーガーメニュー -->
-        <div id="menu_contents" class="bg-paper w-[320px] h-[800px] absolute p-8 z-30">
+        <div id="menu_contents" class="bg-paper w-[320px] h-[800px] absolute p-8 z-40">
 
             <div>
                 <!-- ユーザー名表示 -->
@@ -40,6 +40,10 @@
 
                     <a href="#">
                         <li class="mb-6">ランキング</li>
+                    </a>
+
+                    <a href="{{ route('profile.edit',Auth::user()->profile->id) }}">
+                        <li class="mb-6">プロフィール画像変更</li>
                     </a>
 
                     <a href="#">
@@ -71,7 +75,7 @@
         <!-- menu_contentsここまで -->
 
         <!-- ハンバーガーメニューの背景 -->
-        <div id="mask" class="w-full h-full fixed bg-black bg-opacity-50 z-10">
+        <div id="mask" class="w-full h-full fixed bg-black bg-opacity-50 z-30">
             <!-- クローズボタン -->
             <div class="absolute left-[350px]">
                 <svg class="h-12 w-12 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
