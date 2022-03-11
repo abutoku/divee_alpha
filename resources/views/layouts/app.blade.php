@@ -17,11 +17,10 @@
 
 <body>
     {{-- 全体の背景色 --}}
-    <div class="bg-paper h-[1800px]">
+    <div class="bg-paper min-h-[1000px]">
 
         <!-- ハンバーガーメニュー -->
-        <div id="menu_contents" class="bg-paper w-[320px] h-[800px] absolute p-8 z-40">
-
+        <div id="menu_contents" class="bg-paper w-[320px] min-h-[1000px] absolute p-8 z-40">
             <div>
                 <!-- ユーザー名表示 -->
                 <a href="{{ route('profile.show', Auth::user()->id ) }}" class="flex justify-center items-center mt-10">
@@ -34,7 +33,7 @@
             <div class="mt-12">
                 <ul>
 
-                    <a href="#">
+                    <a href="{{ route('profile.index') }}">
                         <li class="mb-6">メンバー一覧</li>
                     </a>
 
@@ -69,7 +68,6 @@
                         {{ __('ログアウト') }}
                     </x-button>
                 </form>
-
             </div>
         </div>
         <!-- menu_contentsここまで -->
