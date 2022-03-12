@@ -15,11 +15,11 @@ class Comment extends Model
         'updated_at',
     ];
 
-    //logモデルのリレーションリレーション（logモデルに属する）
-    // $comment->log
-    public function log()
+    //postモデルのリレーションリレーション（logモデルに属する）
+    // $comment->post
+    public function post()
     {
-        return $this->belongsTo(Log::class);
+        return $this->belongsTo(Post::class);
     }
 
     //userモデルのリレーションリレーション（userモデルに属する）

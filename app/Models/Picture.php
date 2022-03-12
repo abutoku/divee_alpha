@@ -19,7 +19,7 @@ class Picture extends Model
     // $picture->log
     public function log()
     {
-        return $this->belongsTo(Log::class);
+        return $this->belongsTo(Post::class);
     }
 
     //userモデルのリレーションリレーション（userモデルに属する）
