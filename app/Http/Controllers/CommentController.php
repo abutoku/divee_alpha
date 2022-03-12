@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 //認証の読み込み
 use Illuminate\Support\Facades\Auth;
 //Logモデルの読み込み
-use App\Models\Log;
+use App\Models\Post;
 //userモデルの読み込み
 use App\Models\User;
 //Commentモデルの読み込み
@@ -45,7 +45,7 @@ class CommentController extends Controller
      */
 
     //コメント投稿の関数
-    public function store(Request $request,Log $log)
+    public function store(Request $request,Post $post)
     {
         // バリデーション
         $request->validate([
@@ -54,7 +54,7 @@ class CommentController extends Controller
 
         // 現在ログインしているユーザーのidとログのidをマージ
         $data = $request->merge(['user_id' => Auth::user()->id])->all();
-        $data = $request->merge(['log_id' => $log->id])->all();
+        $data = $request->merge(['post_id' => $post->id])->all();
 
         //DB保存
         $result = Comment::create($data);
@@ -111,6 +111,6 @@ class CommentController extends Controller
         $comment->delete();
         //ログ詳細ページへ戻る
         return redirect()
-            ->route('log.show', $comment->log);
+            ->route('post.show', $comment->post);
     }
 }

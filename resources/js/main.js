@@ -18,7 +18,7 @@ $('#mask').on('click', function () {
     $('#menu_contents').hide(); //メニュー中身隠す
 });
 
-//---プロフィール写真が選択されたらプレビューを表示---
+//---プロフィール写真が選択されたらプレビューを表示---//
 
 $('#profile_image').on('change', function (e) {
     var reader = new FileReader();
@@ -28,7 +28,7 @@ $('#profile_image').on('change', function (e) {
     reader.readAsDataURL(e.target.files[0]);
 });
 
-//---投稿写真が選択されたらプレビューを表示---
+//---投稿写真が選択されたらプレビューを表示-----------//
 
 $('#post_picture').on('change', function (e) {
     var reader = new FileReader();
@@ -37,3 +37,19 @@ $('#post_picture').on('change', function (e) {
     }
     reader.readAsDataURL(e.target.files[0]);
 });
+
+//---サムネイル変更画面-----------------------------//
+
+//一覧画面は消しておく
+$('#thumbnail_view').hide();
+$('#delete_view').hide();
+
+//サムネイル変更をクリックすると登録写真一覧を表示
+$('#select_picture').on('click', function () {
+    $('#thumbnail_view').show();
+})
+
+//写真を削除をクリックすると登録写真一覧を表示
+$('#delete_picture').on('click', function () {
+    $('#delete_view').show();
+})

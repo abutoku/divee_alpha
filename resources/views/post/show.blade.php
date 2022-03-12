@@ -5,11 +5,19 @@
             <x-text-logo/>
         </a>
     </x-slot>
+
 {{-- -----ログの中身とコメント表示ページ ---}}
 
-{{-- ---------写真表示部分---------------- --}}
 <div class="flex justify-center">
-    <div class="px-2 mx-2 my-4 rounded-lg shadow-lg bg-white max-w-sm w-full">
+    <div class="p-4 mt-12 rounded-lg shadow-lg bg-white w-[350px] sm:w-[600px]">
+
+    {{-- ---------写真表示部分---------------- --}}
+        <div class="flex mt-2">
+            <div class="rounded-full h-8 w-8 flex items-center justify-center overflow-hidden">
+                <img src="{{ Storage::url($post->user->profile->profile_image) }}" alt="profilepic">
+            </div>
+            <span class="pt-1 ml-2 font-bold text-sm">{{$post->user->name}}</span>
+        </div>
 
 {{-- -------ログの詳細表示部分------------ --}}
     <section class="flex flex-col mt-4 ">
@@ -79,31 +87,32 @@
         </form>
         @endif{{-- ボタン表示の条件分岐ここまで--}}
 
-            {{-- もしlogのuser_idとログイン中のユーザーのidが一致したら写真追加ボタンを表示 --}}
-    @if ($post->user_id === Auth::user()->id)
-    <form action="{{ route('picture.edit',$post->id) }}" method="get">
-        <button>写真を追加</button>
-    </form>
-    @endif
-    {{-- 写真追加ボタン表示の条件分岐ここまで--}}
-        {{-- ------ログの更新、削除ボタン表示部分ここまで----------- --}}
+        {{-- もしlogのuser_idとログイン中のユーザーのidが一致したら写真追加ボタンを表示 --}}
+        @if ($post->user_id === Auth::user()->id)
+        <form action="{{ route('picture.edit',$post->id) }}" method="get">
+            <button>写真を追加</button>
+        </form>
+        @endif
+        {{-- 写真追加ボタン表示の条件分岐ここまで--}}
+
+    {{-- ------ログの更新、削除ボタン表示部分ここまで----------- --}}
 
     </div>
 
     {{-- -------コメント入力欄------ --}}
 <hr>
-    <h2 class="mt-10 font-bold">commment</h2>
+    <h2 class="mt-10">コメント</h2>
     <form method="post" action="{{ route('comment.store', $post ) }}" class="flex flex-col">
         @csrf
-        <textarea name="comment"></textarea>
-        <x-button class="my-2 text-center mx-auto">Add</x-button>
+        <textarea name="comment" class="rounded-lg border-2 border-divenavy"></textarea>
+        <x-button class="my-2 text-center mx-auto">送信</x-button>
     </form>
     {{-- -------コメント入力欄ここまで------ --}}
 
     {{-- -------投稿コメント表示場所--------- --}}
 
     <div class="mt-5">
-        {{-- 繰り返し処理でリストを表示 $log->commetnsで取得可能--}}
+        {{-- 繰り返し処理でリストを表示 $post->commetnsで取得可能--}}
         {{-- comments()とすることで条件の指定が可能 --}}
         @foreach ($post->comments()->latest()->get() as $comment)
         <!-- <hr> -->
