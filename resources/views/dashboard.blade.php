@@ -11,8 +11,8 @@
     <section class="flex mt-8 mb-8 justify-center sm:justify-start">
         <div class="rounded-2xl py-1 w-[200px] mr-4 border-2 border-divenavy bg-divenavy text-white flex justify-around">
             HOME</div>
-        <div class="rounded-2xl py-1 w-[200px] border-2 border-divenavy flex justify-around">
-            タイムライン</div>
+        <a href="{{ route('post.index') }}" class="rounded-2xl py-1 w-[200px] border-2 border-divenavy flex justify-around">
+            タイムライン</a>
     </section>
 
     <!-- infomaiton -->
@@ -44,7 +44,7 @@
         </div>
 
         <div class="flex justify-around">
-            <div class="bg-white rounded-lg drop-shadow-md h-24 mb-6 flex justify-center items-center w-11/12">記事作成</div>
+            <a  href="{{ route('post.create') }}" class="bg-white rounded-lg drop-shadow-md h-24 mb-6 flex justify-center items-center w-11/12">記事作成</a>
         </div>
 
     </section>

@@ -17,9 +17,9 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->string('comment');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('log_id');
+            $table->unsignedBigInteger('post_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('log_id')->references('id')->on('logs')->onDelete('cascade');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->timestamps();
             //posts テーブルに存在しない id が入り込まないように、外部キー制約をつける
             //テーブルでレコードが削除されたら関連するコメントも削除されるように onDelete('cascade') という設定

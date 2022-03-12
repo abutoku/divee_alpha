@@ -2,8 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
+//Loginコントローラーの読み込み
+use App\Http\Controllers\Auth\LoginController;
 //Profileコントローラーの読み込み
 use App\Http\Controllers\ProfileController;
+//Postコントローラーの読み込み
+use App\Http\Controllers\PostController;
+//Profileコントローラーの読み込み
+use App\Http\Controllers\PictureController;
+//Commentコントローラーの読み込み
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +32,32 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+//Postにfavorit追加のルート
+Route::post('post/{post}/favorites', [PostController::class, 'store'])->name('favorites');
+//Postのfavorit解除のルート
+Route::post('post/{post}/unfavorites', [PostController::class, 'destroy'])->name('unfavorites');
+
+//my log のルート
+Route::get('/post/mypage', [PostController::class, 'mydata'])->name('post.mypage');
+//Postコントローラーのルート
+Route::resource('post', PostController::class);
+
 //Profileコントローラーのルート
 Route::resource('profile', ProfileController::class);
+
+//サムネイル変更のルート
+Route::post('picture/{picture}/change', [PictureController::class,'change'])
+->name('picture.change');
+//Pictureコントローラーのルート
+Route::resource('picture', PictureController::class);
+
+//comment storeへのルート
+Route::post('log/{log}/comment', [CommentController::class,'store'])
+->name('comment.store');
+//comment destroyへのルート
+Route::delete('comment/{comment}', [CommentController::class,'destroy'])
+->name('comment.destroy');
+
 
 });//ユーザー認証ここまで
 

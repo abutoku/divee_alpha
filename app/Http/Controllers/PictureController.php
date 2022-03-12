@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 //認証の読み込み
 use Illuminate\Support\Facades\Auth;
 //Logモデルの読み込み
-use App\Models\Log;
+use App\Models\Post;
 //userモデルの読み込み
 use App\Models\User;
 //pictureモデルの読み込み
@@ -71,8 +71,8 @@ class PictureController extends Controller
      //画像追加画面へ
     public function edit($id)
     {
-        $log = Log::find($id);
-        return view ('picture.edit', ['log' => $log]);
+        $post = Post::find($id);
+        return view ('picture.edit', ['post' => $post]);
     }
 
     /**
@@ -111,17 +111,17 @@ class PictureController extends Controller
             $result = Picture::create([
                 "picture" => $path,
                 "user_id" => Auth::user()->id,
-                "log_id" => $id,
+                "post_id" => $id,
             ]);
         }
 
         //サムネイルの登録
         //idが一致するログのレコードを取得
-        $log = Log::find($id);
+        $post = Post::find($id);
         //サムネイルがnullだったら$pathを登録
-        if($log->thumbnail == null){
-            $log->thumbnail = $path;
-            $log->save();
+        if($post->thumbnail == null){
+            $post->thumbnail = $path;
+            $post->save();
         }
         //profile.showへ移動（現在ログインしているユーザー情報）
         return redirect()->route('picture.edit', $id);
@@ -141,8 +141,8 @@ class PictureController extends Controller
         $pic = Picture::find($id);
 
         //削除する画像がサムネイルの場合はサムネイルのパスを変更
-        if($pic->picture == $pic->log->thumbnail){
-            Log::find($pic->log_id)->update(['thumbnail' => 'uploads/no_image.png']);
+        if($pic->picture == $pic->post->thumbnail){
+            Post::find($pic->post_id)->update(['thumbnail' => 'uploads/no_image.png']);
         }
 
         //ストレージから画像を削除
@@ -158,7 +158,7 @@ class PictureController extends Controller
     public function change($id)
     {
         $picture = Picture::find($id);
-        $result = Log::find($picture->log_id)->update(['thumbnail' => $picture->picture]);
+        $result = Post::find($picture->log_id)->update(['thumbnail' => $picture->picture]);
 
         return redirect()->route('log.show',$picture->log_id);
     }
