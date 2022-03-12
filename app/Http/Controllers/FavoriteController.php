@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 //Logモデルの読み込み
-use App\Models\Log;
+use App\Models\Post;
 //認証の読み込み
 use Illuminate\Support\Facades\Auth;
 
@@ -40,10 +40,10 @@ class FavoriteController extends Controller
      */
 
     //いいね登録の関数
-    public function store(Log $log)
+    public function store(Post $post)
     {
         //中間テーブルへの追加
-        $log->users()->attach(Auth::id());
+        $post->users()->attach(Auth::id());
         //今まで表示していたページに戻る
         return back();
     }
@@ -90,10 +90,10 @@ class FavoriteController extends Controller
      */
 
     //いいね解除の関数
-    public function destroy(Log $log)
+    public function destroy(Post $post)
     {
         //中間テーブルからの削除
-        $log->users()->detach(Auth::id());
+        $post->users()->detach(Auth::id());
         //今まで表示していたページに戻る
         return back();
     }

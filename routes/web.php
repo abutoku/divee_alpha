@@ -12,6 +12,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\PictureController;
 //Commentコントローラーの読み込み
 use App\Http\Controllers\CommentController;
+//Favoriteコントローラーの読み込み
+use App\Http\Controllers\FavoriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,14 +30,18 @@ use App\Http\Controllers\CommentController;
 //ユーザー認証されていないと表示されない設定
 Route::group(['middleware' => 'auth'], function () {
 
+Route::get('/', function () {
+    return redirect('dashboard');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 //Postにfavorit追加のルート
-Route::post('post/{post}/favorites', [PostController::class, 'store'])->name('favorites');
+Route::post('post/{post}/favorites', [FavoriteController::class, 'store'])->name('favorites');
 //Postのfavorit解除のルート
-Route::post('post/{post}/unfavorites', [PostController::class, 'destroy'])->name('unfavorites');
+Route::post('post/{post}/unfavorites', [FavoriteController::class, 'destroy'])->name('unfavorites');
 
 //my log のルート
 Route::get('/post/mypage', [PostController::class, 'mydata'])->name('post.mypage');
@@ -52,7 +58,7 @@ Route::post('picture/{picture}/change', [PictureController::class,'change'])
 Route::resource('picture', PictureController::class);
 
 //comment storeへのルート
-Route::post('log/{log}/comment', [CommentController::class,'store'])
+Route::post('post/{post}/comment', [CommentController::class,'store'])
 ->name('comment.store');
 //comment destroyへのルート
 Route::delete('comment/{comment}', [CommentController::class,'destroy'])
