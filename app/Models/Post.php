@@ -20,33 +20,33 @@ class Post extends Model
 
     public static function getAllOrderByDate()
     {
-        //selfは Logモデルのこと,orderBy()はSQLと同じ
+        //selfは Postモデルのこと,orderBy()はSQLと同じ
         return self::orderBy('date', 'desc')->get();
     }
 
     //userモデルのリレーション(userモデルに属する)
-    //$log->user
+    //$post->user
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
     //Userモデルのリレーション（多対多）
-    //$log->users
+    //$post->users
     public function users()
     {
         return $this->belongsToMany(User::class)->withTimestamps();
     }
 
     //Commentモデルのリレーション（1対多）
-    //$log->comments
+    //$post->comments
     public function comments()
     {
         return $this->hasMany(Comment::class);
     }
 
     //Pictureモデルのリレーション（1対多）
-    //$log->pictures
+    //$post->pictures
     public function pictures()
     {
         return $this->hasMany(Picture::class);

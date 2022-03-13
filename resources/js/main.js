@@ -53,3 +53,5 @@ $('#select_picture').on('click', function () {
 $('#delete_picture').on('click', function () {
     $('#delete_view').show();
 })
+
+

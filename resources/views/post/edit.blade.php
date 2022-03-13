@@ -9,29 +9,30 @@
     {{-- ------ログの更新（編集）画面------- --}}
 
     {{-- ------入力フォーム-------------- --}}
-    <form action="{{ route('post.update',$post->id) }}" method="POST">
-        @method('put')
-        @csrf
-        <table>
-            <tr>
-                {{-- 日付 --}}
-                <th>date</th>
-                <td><input type="date" name="date" value="{{ $post->date}}"></td>
-            </tr>
-            <tr>
-                {{-- コメント --}}
-                <th>comment</th>
-                <td>
-                    <textarea name="message">{{ $post->message}}</textarea>
-                </td>
-            </tr>
-        </table>
+    <div class="flex justify-center mt-10">
+        <form action="{{ route('post.update',$post->id) }}" method="POST" class="mt-10">
+            @method('put')
+            @csrf
+            <div>
+                <div>date</div>
+                <div><input type="date" name="date" value="{{ $post->date}}" class="rounded-lg border-2 border-divenavy w-[250px] sm:w-[300px] mb-6"></div>
+            </div>
 
-        <x-button class="mb-12">更新</x-button>
-    </form>
+            <div>
+                <div>コメント</div>
+                <div><textarea name="message" class="rounded-lg border-2 border-divenavy h-36 w-[250px] sm:w-[300px]">{{ $post->message}}</textarea></div>
+            </div>
+
+            <x-button class="mt-6 mb-12">更新</x-button>
+        </form>
+    </div>
     {{-- ------入力フォームここまで-------------- --}}
 
-    <x-button id="select_picture">サムネイル変更</x-button>
+<hr>
+<div class="flex justify-center items-center mt-10">
+    
+    <x-button id="select_picture" class="mr-6">サムネイル変更</x-button>
+    <x-button id="delete_picture">写真を削除</x-button>
 
     <div id="thumbnail_view">
         <p>一覧画面に表示する画像を選択してください</p>
@@ -45,10 +46,8 @@
         @endforeach
     </div>
 
-    <x-button id="delete_picture">写真を削除</x-button>
 
     <div id="delete_view">
-
         <p>削除する画像を選んでください</p>
 
         @foreach ($post->pictures as $picture)
@@ -62,29 +61,11 @@
         @endforeach
 
     </div>
+</div>
 
-
+<div class="flex justify-center mt-10">
     {{-- 戻るボタン --}}
     <a href="{{ route('post.index') }}"><x-button>back</x-button></a>
-
-    <script>
-
-        //一覧画面は消しておく
-        $('#thumbnail_view').hide();
-        $('#delete_view').hide();
-
-        //サムネイル変更をクリックすると登録写真一覧を表示
-        $('#select_picture').on('click',function(){
-            $('#thumbnail_view').show();
-        })
-
-        //写真を削除をクリックすると登録写真一覧を表示
-        $('#delete_picture').on('click',function(){
-            $('#delete_view').show();
-        })
-
-    </script>
-
-
+</div>
 
 </x-app-layout>

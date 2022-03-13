@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 //Storegeの読み込み
 use Illuminate\Support\Facades\Storage;
-
 //Validatorの読み込み
 use Illuminate\Support\Facades\Validator;
 //認証の読み込み
@@ -67,7 +66,7 @@ class PictureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
+    
      //画像追加画面へ
     public function edit($id)
     {
@@ -158,8 +157,8 @@ class PictureController extends Controller
     public function change($id)
     {
         $picture = Picture::find($id);
-        $result = Post::find($picture->log_id)->update(['thumbnail' => $picture->picture]);
+        $result = Post::find($picture->post_id)->update(['thumbnail' => $picture->picture]);
 
-        return redirect()->route('log.show',$picture->log_id);
+        return redirect()->route('post.show',$picture->post_id);
     }
 }

@@ -8,32 +8,30 @@
     {{-- ------新規ログの入力画面------- --}}
 
     {{-- ------入力フォーム-------------- --}}
-    <div class="flex justify-center">
-    <div class="px-2 mx-2 my-4 rounded-lg shadow-lg bg-white max-w-sm w-full">
-    <form action="{{ route('post.store') }}" method="POST">
-        @csrf
-        <table class="mt-2">
-            <tr>
+    <div class="flex justify-center mt-10">
+        
+        <div class="px-2 pb-8 rounded-lg shadow-lg bg-white flex justify-center w-[400px] sm:w-[600px]">
+            <form action="{{ route('post.store') }}" method="POST">
+                @csrf
                 {{-- 日付 --}}
-                <th>date</th>
-                <td><input type="date" name="date"></td>
-            </tr>
-            {{-- コメント --}}
-            <tr>
-                <th>comment</th>
-                <td>
-                    <textarea name="message"></textarea>
-                </td>
-            </tr>
-        </table>
-        <x-button class="my-3">登録</x-button>
-    </form>
-
-
+                <div class="mt-8">
+                    <div>
+                        <div class="pr-8">date</div>
+                        <input type="date" name="date" class="w-[250px] sm:w-[300px] rounded-lg border-2 border-divenavy">
+                    </div>
+                {{-- コメント --}}
+                    <div>
+                        <div class="pr-8 mt-6">コメント</div>
+                        <textarea name="message" class="rounded-lg border-2 border-divenavy  h-36 w-[250px] sm:w-[300px]"></textarea>
+                    </div>
+                </div>
+                {{-- 登録ボタン --}}
+                <x-button class="my-8">登録</x-button><br>
+                <a href="{{ route('post.index') }}" >back</a>
+            </form>
+        </div>
+        {{-- ログ一覧に戻るボタン --}}
     </div>
-    {{-- ログ一覧に戻るボタン --}}
-</div>
-<a href="{{ route('post.index') }}">back</a>
 
     {{-- ------入力フォームここまで-------------- --}}
 </x-app-layout>
