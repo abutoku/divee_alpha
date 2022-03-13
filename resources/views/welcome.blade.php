@@ -1,12 +1,49 @@
-<x-title-page>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Divee</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ url('css/style.css') }}">
+
+    <style>
+    .main {
+        background-color: #015DC6;
+        height: 1200px;
+    }
+    .wrapper {
+        padding-top:80px;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .top-logo {
+        display: flex;
+        justify-content: center;
+    }
+
+    .sigin-in {
+        display: flex;
+        justify-content: center;
+        text-color:white;
+    }
+    
+    </style>
+
+</head>
+<body>
 
     {{-- 全体の背景 --}}
-    <div class="bg-diveblue h-[1200px]">
+    <div class="main">
         {{-- wrapper --}}
-        <div class="w-11/12 pt-24 mr-auto ml-auto">
+        <div class="wrapper">
 
             {{-- ロゴマークの読み込み --}}
-            <div class="flex justify-center">
+            <div class="top-logo">
                 <x-application-logo/>
             </div>
 
@@ -26,8 +63,8 @@
                         </a>
                     </div>
                 {{-- 新規登録リンク --}}
-                    <div class="flex justify-center">
-                        <a href="{{ route('register') }}" class="ml-20 text-sm text-white dark:text-gray-500 underline">
+                    <div class="sigin-in">
+                        <a href="{{ route('register') }}" class="dark:text-gray-500 underline">
                         新規登録はこちら</a>
                     </div>
                 @endauth
@@ -35,4 +72,5 @@
         {{-- wrapperここまで --}}
     </div>
     {{-- 全体ここまで --}}
-</x-title-page>
+</body>
+</html>
