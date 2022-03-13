@@ -15,9 +15,9 @@ class Picture extends Model
         'updated_at',
     ];
 
-    //logモデルのリレーションリレーション（logモデルに属する）
-    // $picture->log
-    public function log()
+    //logモデルのリレーションリレーション（postモデルに属する）
+    // $picture->post
+    public function post()
     {
         return $this->belongsTo(Post::class);
     }

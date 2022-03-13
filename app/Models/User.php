@@ -51,10 +51,10 @@ class User extends Authenticatable
     }
 
     //logモデルのリレーション（多対多）
-    //$user->logs
-    public function logs()
+    //$user->posts
+    public function posts()
     {
-        return $this->belongsToMany(Log::class)->withTimestamps();
+        return $this->belongsToMany(Post::class)->withTimestamps();
     }
 
     //Profileモデルのリレーション（1対1）
@@ -77,4 +77,5 @@ class User extends Authenticatable
     {
         return $this->hasMany(Picture::class);
     }
+
 }

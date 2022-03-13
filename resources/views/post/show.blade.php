@@ -13,7 +13,7 @@
 
     {{-- ---------写真表示部分---------------- --}}
         <div class="flex mt-2">
-            <div class="rounded-full h-8 w-8 flex items-center justify-center overflow-hidden">
+            <div class="rounded-full object-cover h-8 w-8 flex items-center justify-center overflow-hidden">
                 <img src="{{ Storage::url($post->user->profile->profile_image) }}" alt="profilepic">
             </div>
             <span class="pt-1 ml-2 font-bold text-sm">{{$post->user->name}}</span>

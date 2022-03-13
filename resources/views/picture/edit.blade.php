@@ -6,7 +6,7 @@
         </a>
     </x-slot>
 
-<div>
+<div class="mt-12 flex justify-center">
     {{-- 入力フォーム --}}
     <form action="{{ route('picture.update',$post->id) }}" method="post" enctype="multipart/form-data">
         @method('put')
@@ -18,18 +18,20 @@
         {{-- 登録ボタン --}}
         <x-button class="mb-12">登録</x-button>
     </form>
-    <a href="{{ route('post.index') }}"><x-button>登録終了</x-button></a>
     {{-- 入力フォームここまで --}}
 </div>
+<div class="flex justify-center">
+    <a href="{{ route('post.index') }}"><x-button>登録終了</x-button></a>
+</div>
+
 
     {{-- ---------写真表示部分---------------- --}}
-
+<div class="flex justify-center">
     @foreach ($post->pictures as $picture)
-        <img src="{{ Storage::url($picture->picture) }}" class="h-48 object-cover">
+        <img src="{{ Storage::url($picture->picture) }}" class="h-48 mt-8 object-cover">
     @endforeach
-
+</div>
     {{-- ---------写真表示部分ここまで---------------- --}}
 
 
-{{-- プロフィール写真が選択されたらプレビューを表示ここまで --}}
 </x-app-layout>

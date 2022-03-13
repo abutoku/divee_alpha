@@ -15,7 +15,7 @@ class Comment extends Model
         'updated_at',
     ];
 
-    //postモデルのリレーションリレーション（logモデルに属する）
+    //postモデルのリレーションリレーション（postモデルに属する）
     // $comment->post
     public function post()
     {
