@@ -10,7 +10,7 @@
 
     <!-- tailwind_css -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <!-- tailwind_file -->
+    <!-- css_file -->
     <link rel="stylesheet" href="{{ url('css/style.css') }}">
 
 </head>
