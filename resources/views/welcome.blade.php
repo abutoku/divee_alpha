@@ -8,7 +8,7 @@
     <title>Divee</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ url('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ url('css/style.css') }}">
 
 </head>
