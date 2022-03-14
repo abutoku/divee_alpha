@@ -12,26 +12,59 @@
     <link rel="stylesheet" href="{{ url('css/style.css') }}">
 
     <style>
-    .main {
+
+    /* 背景色 */
+    body {
         background-color: #015DC6;
+    }
+    .main {
         height: 1200px;
+    }
+    /* リンクのスタイルを初期化 */
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+        text-decoration: none;
+        color: white;
     }
     .wrapper {
         padding-top:80px;
         width: 90%;
         margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
-    .top-logo {
+    .top-contents{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width:200px;
+    }
+    .btn-area {
+        margin-top: 120px;
         display: flex;
         justify-content: center;
     }
 
-    .sigin-in {
+    .top-btn {
         display: flex;
         justify-content: center;
-        text-color:white;
+        align-items: center;
+        width: 200px;
+        height:60px;
+        border-radius: 10px;
+        margin-bottom: 24px;
+        background-color:white;
     }
-    
+    .sigin-in {
+        color:white;
+        text-decoration:underline;
+        margin-left:auto;
+    }
     </style>
 
 </head>
@@ -43,34 +76,37 @@
         <div class="wrapper">
 
             {{-- ロゴマークの読み込み --}}
-            <div class="top-logo">
+            <div>
                 <x-application-logo/>
             </div>
 
-            {{-- ログインボタン部分 --}}
+            <div class="top-contents">
+
+                {{-- ログインボタン部分 --}}
                 @auth
                 {{-- すでにログイン済みであればHOMEへ --}}
-                <div class="mt-24 flex justify-center">
-                    <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 no-underline">
-                    <div class="mb-4  text-diveblue bg-white w-[200px] h-12 rounded-xl flex justify-center items-center">HOMEへ</div>
+                <div class="btn-area">
+                    <a href="{{ url('/dashboard') }}" class="top-btn" style="color:#015DC6;">
+                        HOMEへ
                     </a>
                 </div>
                 @else
                 {{-- ログインリンク --}}
-                    <div class="mt-24 flex justify-center">
-                        <a href="{{ route('login') }}">
-                            <div class="mb-4  text-diveblue bg-white w-[200px] h-12 rounded-xl flex justify-center items-center">ログイン</div>
-                        </a>
-                    </div>
+                <div class="btn-area">
+                    <a href="{{ route('login') }}" class="top-btn" style="color:#015DC6;">
+                        ログイン
+                    </a>
+                </div>
                 {{-- 新規登録リンク --}}
-                    <div class="sigin-in">
-                        <a href="{{ route('register') }}" class="dark:text-gray-500 underline">
-                        新規登録はこちら</a>
-                    </div>
+                <div class="sigin-in">
+                    <a href="{{ route('register') }}">新規登録はこちら</a>
+                </div>
                 @endauth
+            </div>
         </div>
-        {{-- wrapperここまで --}}
-    </div>
+
+            {{-- wrapperここまで --}}
+        </div>
     {{-- 全体ここまで --}}
 </body>
 </html>
