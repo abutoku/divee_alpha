@@ -10,8 +10,8 @@
 {{-- メンバーのカードランクとダイブ本数の一覧 --}}
 <section class="bg-paper text-divenavy mt-6">
 
-    <div class="flex flex-col justify-center h-full">
-        <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200 ">
+    <div class="flex flex-col justify-center h-full ">
+        <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200 p-6">
             <header class="mt-2 mx-2 px-5 py-4 border-b border-t border-gray-100 bg-gradient-to-r from-blue-700 via-purple-500 to-blue-900 text-white font-bold rounded-xl drop-shadow-md">
                 <h2>Pro</h2>
             </header>
@@ -36,7 +36,7 @@
             <div class="flex items-center px-5 py-4">
                 <img src="{{ Storage::url($x->profile_image) }}" class="rounded-lg h-12 w-12">
                 <div class="mx-4">{{ $x->user->name }}</div>
-                <div>{{ $x->dive_count }}</div>
+                <div class="ml-auto font-bold">{{ $x->dive_count }}</div>
             </div>
         </a>
         <hr class="mx-8">
@@ -52,7 +52,7 @@
         <div class="flex items-center px-5 py-4">
             <img src="{{ Storage::url($x->profile_image) }}" class="rounded-lg h-12 w-12">
             <div class="mx-4">{{ $x->user->name }}</div>
-            <div>{{ $x->dive_count }}</div>
+            <div class="ml-auto font-bold">{{ $x->dive_count }}</div>
         </div>
     </a>
     <hr class="mx-8">
@@ -67,7 +67,7 @@
         <div class="flex items-center px-5 py-4">
             <img src="{{ Storage::url($x->profile_image) }}" class="rounded-lg h-12 w-12">
             <div class="mx-4">{{ $x->user->name }}</div>
-            <div>{{ $x->dive_count }}</div>
+            <div class="ml-auto font-bold">{{ $x->dive_count }}</div>
         </div>
     </a>
     <hr class="mx-8">
@@ -82,7 +82,7 @@
         <div class="flex items-center px-5 py-4">
             <img src="{{ Storage::url($x->profile_image) }}" class="rounded-lg h-12 w-12 ">
             <div class="mx-4">{{ $x->user->name }}</div>
-            <div>{{ $x->dive_count }}</div>
+            <div class="ml-auto font-bold">{{ $x->dive_count }}</div>
         </div>
     </a>
     <hr class="mx-8">
