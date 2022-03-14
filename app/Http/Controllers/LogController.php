@@ -22,7 +22,8 @@ class LogController extends Controller
      */
     public function index()
     {
-        //log.index（登録ページ）を表示
+        
+        //log.index（一覧ページ）を表示
         return view('log.index');
     }
 

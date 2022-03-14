@@ -1172,11 +1172,11 @@ select {
 .p-2 {
   padding: 0.5rem;
 }
-.p-8 {
-  padding: 2rem;
-}
 .p-6 {
   padding: 1.5rem;
+}
+.p-8 {
+  padding: 2rem;
 }
 .p-12 {
   padding: 3rem;
@@ -1267,6 +1267,9 @@ select {
 }
 .pt-8 {
   padding-top: 2rem;
+}
+.pt-24 {
+  padding-top: 6rem;
 }
 .pb-5 {
   padding-bottom: 1.25rem;

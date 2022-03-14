@@ -28,8 +28,8 @@
             <a href="{{ route('profile.show', Auth::user()->id ) }}" class="bg-white rounded-lg drop-shadow-md h-24 w-5/12 mb-6 flex justify-center items-center">マイページ
             </a>
 
-            <div class="bg-white rounded-lg drop-shadow-md h-24  w-5/12 mb-6 flex justify-center items-center">
-                生物ログ</div>
+            <a href="{{ route('log.index') }}" class="bg-white rounded-lg drop-shadow-md h-24  w-5/12 mb-6 flex justify-center items-center">
+                生物ログ</a>
 
         </div>
 
