@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 //認証の読み込み
 use Illuminate\Support\Facades\Auth;
-//Logモデルの読み込み
+//Postモデルの読み込み
 use App\Models\Post;
 //userモデルの読み込み
 use App\Models\User;
@@ -109,7 +109,7 @@ class CommentController extends Controller
     {
         //コメント削除のコード
         $comment->delete();
-        //ログ詳細ページへ戻る
+        //投稿詳細ページへ戻る
         return redirect()
             ->route('post.show', $comment->post);
     }

@@ -44,10 +44,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    //自分のuser_idのlogを抽出（1対多）
-    public function mylogs()
+    //自分のuser_idのpostを抽出（1対多）
+    public function myposts()
     {
-        return $this->hasMany(Log::class)->orderBy('updated_at', 'desc');
+        return $this->hasMany(Post::class)->orderBy('updated_at', 'desc');
     }
 
     //logモデルのリレーション（多対多）
@@ -72,10 +72,17 @@ class User extends Authenticatable
     }
 
     //Pictureモデルのリレーション（1対多）
-    //$user->picture
+    //$user->pictures
     public function pictures()
     {
         return $this->hasMany(Picture::class);
+    }
+
+    //Logモデルのリレーション（1対多）
+    //$user->logs
+    public function logs()
+    {
+        return $this->hasMany(Log::class);
     }
 
 }

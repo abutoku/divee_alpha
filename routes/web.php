@@ -14,6 +14,8 @@ use App\Http\Controllers\PictureController;
 use App\Http\Controllers\CommentController;
 //Favoriteコントローラーの読み込み
 use App\Http\Controllers\FavoriteController;
+//Lofコントローラーの読み込み
+use App\Http\Controllers\LogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +65,10 @@ Route::post('post/{post}/comment', [CommentController::class,'store'])
 //comment destroyへのルート
 Route::delete('comment/{comment}', [CommentController::class,'destroy'])
 ->name('comment.destroy');
+
+//Logコントローラーのルート
+Route::resource('log', LogController::class);
+
 
 
 });//ユーザー認証ここまで
