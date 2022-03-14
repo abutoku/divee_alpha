@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 //認証の読み込み
 use Illuminate\Support\Facades\Auth;
-//Logモデルの読み込み
+//Postモデルの読み込み
 use App\Models\Post;
 //userモデルの読み込み
 use App\Models\User;
@@ -66,7 +66,7 @@ class PictureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    
+
      //画像追加画面へ
     public function edit($id)
     {

@@ -28,11 +28,11 @@ class PostController extends Controller
     //ログの一覧表示の関数
     public function index()
     {
-        //関数実行、取得した情報を$logに代入
-        $logs = Post::getAllOrderByDate();
-        //log.indexに取得した$logを渡す
+        //関数実行、取得した情報を$postに代入
+        $posts = Post::getAllOrderByDate();
+        //post.indexに取得した$postを渡す
         return view('post.index', [
-            'posts' => $logs
+            'posts' => $posts
         ]);
     }
 
@@ -45,7 +45,7 @@ class PostController extends Controller
     //ログ入力画面を表示
     public function create()
     {
-        //log.create（登録ページ）を表示
+        //post.create（登録ページ）を表示
         return view('post.create');
     }
 
@@ -81,7 +81,6 @@ class PostController extends Controller
         // create()は最初から用意されている関数
         $result = Post::create($data);
 
-        // ルーティング「log.index」にリクエスト送信（一覧ページに移動）
         return redirect()->route('picture.edit',$result->id);
     }
 
@@ -96,9 +95,9 @@ class PostController extends Controller
     public function show($id)
     {
         //受け取った ID の値でテーブルからデータを取り出して$logに代入
-        $log = Post::find($id);
-        //$logをlog.showに渡す
-        return view('post.show', ['post' => $log]);
+        $post = Post::find($id);
+        //$postをpost.showに渡す
+        return view('post.show', ['post' => $post]);
 
         //Eagerロード練習
 
@@ -119,10 +118,10 @@ class PostController extends Controller
     //ログ編集画面を表示
     public function edit($id)
     {
-        //log_tableからidが一致しているものを$idに代入
-        $log = Post::find($id);
-        //log.editに取得した$logを渡す
-        return view('post.edit', ['post' => $log]);
+        //post_tableからidが一致しているものを$idに代入
+        $post = Post::find($id);
+        //post.editに取得した$postを渡す
+        return view('post.edit', ['post' => $post]);
     }
 
     /**
@@ -152,7 +151,7 @@ class PostController extends Controller
         // updateは更新する情報がなくても更新が走る（updated_atが更新される）
         $result = Post::find($id)->update($request->all());
         // fill()save()は更新する情報がない場合は更新が走らない（updated_atが更新されない）
-        // $redult = Log::find($id)->fill($request->all())->save();
+        // $redult = Post::find($id)->fill($request->all())->save();
         return redirect()->route('post.index');
     }
 
@@ -166,19 +165,19 @@ class PostController extends Controller
     //ログ削除の関数
     public function destroy($id)
     {
-        //log_tableからidが一致しているものを削除
+        //post_tableからidが一致しているものを削除
         $result = Post::find($id)->delete();
-        //log.indexへ戻る
+        //post.indexへ戻る
         return redirect()->route('post.index');
     }
 
     //自分のログを表示する関数
     public function mydata()
     {
-        // Userモデルに定義したmylogs関数を実行する．
-        //結果を$logsに受け取る
-        $posts = User::find(Auth::user()->id)->mylogs;
-        //$logをlog.indexに渡す
+        // Userモデルに定義したmyposts関数を実行する．
+        //結果を$postsに受け取る
+        $posts = User::find(Auth::user()->id)->myposts;
+        //$postsをpost.indexに渡す
         return view('post.index', [
             'posts' => $posts
         ]);

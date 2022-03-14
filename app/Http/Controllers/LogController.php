@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-//Postモデルの読み込み
-use App\Models\Post;
+//Validatorの読み込み
+use Illuminate\Support\Facades\Validator;
 //認証の読み込み
 use Illuminate\Support\Facades\Auth;
+//userモデルの読み込み
+use App\Models\User;
+//Logモデルの読み込み
+use App\Models\Log;
 
-
-class FavoriteController extends Controller
+class LogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +22,8 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        //
+        //log.index（登録ページ）を表示
+        return view('log.index');
     }
 
     /**
@@ -29,7 +33,8 @@ class FavoriteController extends Controller
      */
     public function create()
     {
-        //
+        //log.create（登録ページ）を表示
+        return view('log.create');
     }
 
     /**
@@ -38,14 +43,9 @@ class FavoriteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
-    //いいね登録の関数
-    public function store(Post $post)
+    public function store(Request $request)
     {
-        //中間テーブルへの追加
-        $post->users()->attach(Auth::id());
-        //今まで表示していたページに戻る
-        return back();
+        //
     }
 
     /**
@@ -88,13 +88,8 @@ class FavoriteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
-    //いいね解除の関数
-    public function destroy(Post $post)
+    public function destroy($id)
     {
-        //中間テーブルからの削除
-        $post->users()->detach(Auth::id());
-        //今まで表示していたページに戻る
-        return back();
+        //
     }
 }
