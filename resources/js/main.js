@@ -1,6 +1,6 @@
 'use strict';
 
-//---メニューボタンの動き-----------------------------//
+//---ハンバーガーメニューボタンの動き-----------------------------//
 
 //初期設定
 $('#mask').hide(); //メニュー背景隠す
@@ -54,4 +54,21 @@ $('#delete_picture').on('click', function () {
     $('#delete_view').show();
 })
 
+//---生物ログ投稿画面-----------------------------//
 
+//画像投稿フォームは消しておく
+$('#img_input').hide();
+
+//写真を登録をクリックすると投稿フォームを表示
+$('#add_img').on('click', function () {
+    $('#img_input').show();
+})
+
+//生物写真が選択されたらプレビューを表示
+$('#log_image').on('change', function (e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $("#demo_pic").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+});
