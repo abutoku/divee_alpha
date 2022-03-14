@@ -6,6 +6,14 @@
         </a>
     </x-slot>
 
-    <h1>ログ一覧画面</h1>
+    <!--wrapper-->
+    <div class="pt-24">
+        <h1>ログ一覧画面</h1>
 
-<x-app-layout>
+        <a href="{{ route('log.create') }}"><x-button>ログ作成</x-button></a>
+
+    </div>
+    <!--ここまでr-->
+
+
+</x-app-layout>
