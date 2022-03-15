@@ -22,4 +22,11 @@ class Log extends Model
         return $this->belongsTo(User::class);
     }
 
+    //bookモデルのリレーション(bookモデルに属する)
+    //$log->book
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
+    }
+
 }
