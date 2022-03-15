@@ -28,7 +28,15 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        // Userモデルに定義したmybooks関数を実行する．
+        //結果を$booksに受け取る
+        $books = User::find(Auth::user()->id)->mybooks;
+        //$logsをlog.indexに渡す
+        return view('book.index', [
+            'books' => $books
+        ]);
+
+
     }
 
     /**
@@ -60,7 +68,11 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        //受け取った ID の値でテーブルからデータを取り出して$logに代入
+        $book = Book::find($id);
+        //$postをpost.showに渡す
+        return view('book.show', ['book' => $book]);
+
     }
 
     /**

@@ -95,7 +95,13 @@ class User extends Authenticatable
     //自分のuser_idのLogを抽出（1対多）
     public function mylogs()
     {
-        return $this->hasMany(Log::class)->orderBy('updated_at', 'desc');
+        return $this->hasMany(Log::class)->orderBy('date', 'desc');
+    }
+
+    //自分のuser_idのLogを抽出（1対多）
+    public function mybooks()
+    {
+        return $this->hasMany(Book::class)->orderBy('fish_name', 'desc');
     }
 
 }
