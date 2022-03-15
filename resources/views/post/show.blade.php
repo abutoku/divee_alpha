@@ -23,10 +23,10 @@
     </section>
     {{-- ------ログの詳細表示部分ここまで----- --}}
     <section class="flex flex-col mt-8 ">
-    @foreach ($post->pictures as $picture)
-    <img src="{{ Storage::url($picture->picture) }}" class="mt-2  rounded-lg object-cover">
-    @endforeach
-     </section>
+        @foreach ($post->pictures as $picture)
+        <img src="{{ Storage::url($picture->picture) }}" class="mt-2  rounded-lg object-cover">
+        @endforeach
+    </section>
 
     {{-- ---------写真表示部分ここまで---------------- --}}
 
