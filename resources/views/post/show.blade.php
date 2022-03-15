@@ -9,28 +9,28 @@
 {{-- -----ログの中身とコメント表示ページ ---}}
 
 <div class="flex justify-center">
-    <div class="p-4 mt-12 rounded-lg shadow-lg bg-white w-[350px] sm:w-[600px]">
+    <div class="p-6 mt-12 rounded-lg shadow-md bg-white w-[350px] sm:w-[600px]">
 
     {{-- ---------写真表示部分---------------- --}}
-        <div class="flex mt-2">
-            <div class="rounded-full object-cover h-8 w-8 flex items-center justify-center overflow-hidden">
-                <img src="{{ Storage::url($post->user->profile->profile_image) }}" alt="profilepic">
-            </div>
-            <span class="pt-1 ml-2 font-bold text-sm">{{$post->user->name}}</span>
+        <div class="flex items-center">
+            <img src="{{ Storage::url($post->user->profile->profile_image) }}" alt="profilepic" class="rounded-full object-cover h-8 w-8 mr-2">
+            <p class="pt-1 ml-2 font-bold text-sm">{{$post->user->name}}</p>
         </div>
 
 {{-- -------ログの詳細表示部分------------ --}}
-    <section class="flex flex-col mt-4 ">
-        <p><b>{!! nl2br(e($post->message)) !!}</b></p>
+    <section class="flex flex-col mt-8 ">
+        <p>{!! nl2br(e($post->message)) !!}</p>
     </section>
     {{-- ------ログの詳細表示部分ここまで----- --}}
+    <section class="flex flex-col mt-8 ">
     @foreach ($post->pictures as $picture)
     <img src="{{ Storage::url($picture->picture) }}" class="mt-2  rounded-lg object-cover">
     @endforeach
+     </section>
 
     {{-- ---------写真表示部分ここまで---------------- --}}
 
-    <div class="flex justify-end my-2">
+    <div class="flex justify-end mt-8">
         {{-- ------いいねボタン表示部分------------ --}}
         <!-- favorite 状態で条件分岐 -->
         {{-- 中間テーブルのuser_idとログインユーザーのidが一致するデータを取得 --}}

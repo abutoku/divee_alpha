@@ -53,7 +53,7 @@
 
                     <div id="img_input" class="w-[250px] sm:w-[300px]">
                         {{-- ファイル選択欄 --}}
-                        <input type="file" name="image" id="log_image" class="my-6">
+                        <input type="file" name="image_data" id="log_image" class="my-6">
                         <div class="flex justify-center">
                             {{-- プレビュー表示場所 --}}
                             <img src="{{ Storage::url('uploads/no_image.png') }}" id="demo_pic" class="mb-4 h-48 object-cover" >

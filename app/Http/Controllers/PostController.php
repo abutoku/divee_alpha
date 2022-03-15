@@ -171,7 +171,7 @@ class PostController extends Controller
         return redirect()->route('post.index');
     }
 
-    //自分のログを表示する関数
+    //自分の投稿を表示する関数
     public function mydata()
     {
         // Userモデルに定義したmyposts関数を実行する．
