@@ -12,6 +12,15 @@
 
         <a href="{{ route('log.create') }}"><x-button>ログ作成</x-button></a>
 
+        <section>
+            @foreach ($logs as $log)
+            <div>{{  $log->name }}</div>
+            <div>{{  $log->depth }}</div>
+            <div>{{  $log->temp }}</div>
+
+            @endforeach
+        </section>
+
     </div>
     <!--ここまでr-->
 

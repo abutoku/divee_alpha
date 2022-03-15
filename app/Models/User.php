@@ -85,4 +85,10 @@ class User extends Authenticatable
         return $this->hasMany(Log::class);
     }
 
+    //自分のuser_idのLogを抽出（1対多）
+    public function mylogs()
+    {
+        return $this->hasMany(Log::class)->orderBy('updated_at', 'desc');
+    }
+
 }
