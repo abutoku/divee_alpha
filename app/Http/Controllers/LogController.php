@@ -17,6 +17,7 @@ use App\Models\User;
 use App\Models\Log;
 //Bookモデルの読み込み
 use App\Models\Book;
+use Monolog\Handler\NullHandler;
 
 class LogController extends Controller
 {
@@ -73,27 +74,43 @@ class LogController extends Controller
                 ->withErrors($validator);
         }
 
+        //booksテーブルから、生物名とユーザーIDが一致しているものを取得(なければ作成)
+        $book = Book::firstOrCreate([
+        'fish_name' => $request->name,
+        'user_id' => Auth::user()->id ]);
+
         //画像が有り、無し場合の分岐
-
-        
-
         if($request->image_data !== null) {
 
             $upload_image = $request->file('image_data');
+            
             //画像をpublic直下のuploadsに保存し$pathにパスを取得
             $path = $upload_image->store('uploads', "public");
-            $data = $request->merge(['user_id' => Auth::user()->id ,'image' => $path ])->all();
+            $data = $request->merge([
+                'user_id' => Auth::user()->id ,
+                'image' => $path,
+                'book_id' => $book->id ])->all();
+
+            //bookに画像が登録されていない場合は登録
+            if ($book->picture == null){
+                    $book->picture = $path;
+                    $book->save();
+            }
 
         } else {
             // 編集 フォームから送信されてきたデータとユーザIDをマージし，DBにinsertする
             //Auth::user()->idで現在ログインしているユーザの ID を取得することができる
             //Auth::user()には他にもデータが入っている
-            $data = $request->merge(['user_id' => Auth::user()->id])->all();
+            $data = $request->merge([
+                'user_id' => Auth::user()->id,
+                'book_id' => $book->id ])->all();
         }
 
         // 戻り値は挿入されたレコードの情報
         // create()は最初から用意されている関数
         $result = Log::create($data);
+
+
         // ルーティング「log.index」にリクエスト送信（一覧ページに移動）
         return redirect()->route('log.index');
     }
