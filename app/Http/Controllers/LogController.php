@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 //Logモデルの読み込み
 use App\Models\Log;
+//Bookモデルの読み込み
+use App\Models\Book;
 
 class LogController extends Controller
 {
@@ -72,6 +74,8 @@ class LogController extends Controller
         }
 
         //画像が有り、無し場合の分岐
+
+        
 
         if($request->image_data !== null) {
 

@@ -14,8 +14,10 @@ use App\Http\Controllers\PictureController;
 use App\Http\Controllers\CommentController;
 //Favoriteコントローラーの読み込み
 use App\Http\Controllers\FavoriteController;
-//Lofコントローラーの読み込み
+//Logコントローラーの読み込み
 use App\Http\Controllers\LogController;
+//Bookコントローラーの読み込み
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +70,8 @@ Route::delete('comment/{comment}', [CommentController::class,'destroy'])
 
 //Logコントローラーのルート
 Route::resource('log', LogController::class);
+//Bookコントローラーのルート
+Route::resource('book', BookController::class);
 
 
 
