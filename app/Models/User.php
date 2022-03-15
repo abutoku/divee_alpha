@@ -64,6 +64,13 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class);
     }
 
+    //Profileモデルのリレーション（1対1）
+    //$user->book
+    public function book()
+    {
+        return $this->hasOne(Book::class);
+    }
+
     // commentモデルのリレーション（1対多）
     //$user->comments
     public function comments()
