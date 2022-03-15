@@ -39,7 +39,7 @@
         </div>
 
         <div class="flex justify-around">
-            <div class="bg-white rounded-lg drop-shadow-md h-24 w-5/12 mb-6 flex justify-center items-center">図鑑</div>
+            <a href="{{ route('book.index') }}" class="bg-white rounded-lg drop-shadow-md h-24 w-5/12 mb-6 flex justify-center items-center">図鑑</a>
             <div class="bg-white rounded-lg drop-shadow-md h-24 w-5/12 mb-6 flex justify-center items-center">QRコード</div>
         </div>
 
