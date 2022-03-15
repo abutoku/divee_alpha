@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//Storegeの読み込み
+use Illuminate\Support\Facades\Storage;
+
 //Validatorの読み込み
 use Illuminate\Support\Facades\Validator;
 //認証の読み込み
@@ -133,8 +136,18 @@ class LogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //ログの画像を取得
+        $path = Log::find($id)->image;
+        //画像のパスがある場合は、ストレージから削除
+        if($path !== 'null'){
+                Storage::disk('public')->delete($path);
+        }
+
+        //log_tableからidが一致しているものを削除
+        $result = Log::find($id)->delete();
+        //log.indexへ戻る
+        return redirect()->route('log.index');
     }
 
-    
+
 }
