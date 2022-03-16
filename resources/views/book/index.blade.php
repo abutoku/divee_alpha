@@ -7,7 +7,7 @@
     </x-slot>
 
     <div class="flex flex-col items-center mt-12">
-    @foreach ($books as $book)
+    @forelse ($books as $book)
         {{-- 画像がある場合 --}}
         @if($book->picture)
             <a href="{{ route('book.show',$book->id) }}" class="bg-white  drop-shadow-md rounded-lg w-[350px] sm:w-[600px] h-40 my-5 overflow-hidden">
@@ -25,7 +25,9 @@
                 <p>{!! nl2br(e($book->info)) !!}</p>
             </a>
         @endif
-    @endforeach
+    @empty
+            <p>まだ投稿がありません</p>
+    @endforelse
 
     </div>
 </x-app-layout>
