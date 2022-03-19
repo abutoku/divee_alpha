@@ -28,9 +28,10 @@
                 </div>
 
                 <div>場所を選択</div>
+                {{-- 地図 --}}
                 <div id="target" class="w-[300px] h-[200px]"></div>
-                <input type="text" id="latitude" name="latitude">
-                <input type="text" id="longitude" name="longitude">
+                <input type="hidden" id="latitude" name="latitude">
+                <input type="hidden" id="longitude" name="longitude">
 
                 {{-- 登録ボタン --}}
                 <x-button class="my-8">登録</x-button><br>
@@ -44,12 +45,12 @@
 </x-app-layout>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{ config('app.google_api') }}&callback=initMap"></script>
-
 {{-- <script src="{{ mix('js/map.js') }}"></script> --}}
 
 
 <script>
-
+    
+    //投稿記事の地図の設定
     function initMap() {
         'use strict'
 
@@ -83,7 +84,7 @@
             animation: google.maps.Animation.DROP,
         });
 
-          //クリックした場所を中心にする
+        //クリックした場所を中心にする
         this.panTo(e.latLng);
 
         });
