@@ -25,7 +25,7 @@
                         <a href="{{ route('profile.edit',$profile->id)  }}" class="text-xs">
                         プロフィール画像変更</p>
                     @endif
-
+                    
                 </div>
 
                 {{-- カードランク表示 Proの場合は表示なし --}}

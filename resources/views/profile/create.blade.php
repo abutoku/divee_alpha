@@ -1,6 +1,5 @@
 <x-guest-layout>
     {{-- 新規登録→プロフィール登録画面 --}}
-
     <x-auth-card>
 
         {{-- ロゴ表示部分 --}}
@@ -32,7 +31,6 @@
                     <input type="number" name="dive_count" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     DIVE
                 </div>
-
 
             <x-button class="mt-4 ml-64">登録</x-button>
         </form>
