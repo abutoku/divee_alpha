@@ -18,6 +18,8 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\LogController;
 //Bookコントローラーの読み込み
 use App\Http\Controllers\BookController;
+//Mapコントローラーの読み込み
+use App\Http\Controllers\MapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +74,12 @@ Route::delete('comment/{comment}', [CommentController::class,'destroy'])
 Route::resource('log', LogController::class);
 //Bookコントローラーのルート
 Route::resource('book', BookController::class);
+
+//Map画面表示のルート（生物）
+Route::get('/map/view', [MapController::class, 'view'])->name('map.view');
+
+//Map画面表示のルート（投稿記事）
+Route::get('/map/post', [MapController::class, 'post'])->name('map.post');
 
 
 
