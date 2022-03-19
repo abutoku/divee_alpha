@@ -81,6 +81,8 @@ class PostController extends Controller
         // create()は最初から用意されている関数
         $result = Post::create($data);
 
+
+
         return redirect()->route('picture.edit',$result->id);
     }
 
