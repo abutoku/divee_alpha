@@ -6,6 +6,7 @@
         </a>
     </x-slot>
 
+    <input type="text" id="search" placeholder="名前検索" class="mt-12 rounded-lg border-2 border-divenavy">
     <div class="flex flex-col items-center mt-12">
     @forelse ($books as $book)
         {{-- 画像がある場合 --}}
@@ -31,3 +32,4 @@
 
     </div>
 </x-app-layout>
+
