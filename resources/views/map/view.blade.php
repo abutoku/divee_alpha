@@ -26,6 +26,9 @@
 
 <script>
 
+    //受け取ったデータをjson化
+    const sites = @json($sites);
+
     //生物の地図設定
     function initMap() {
         'use strict'
@@ -43,27 +46,20 @@
             disableDefaultUI:true,
         });
 
-        map.addListener('click',function(e){
-            if(marker){
-                marker.setMap(null);
-            }
-            console.log(e.latLng.lat());
-            console.log(e.latLng.lng());
-            console.log(e.latLng.toString());
-            document.getElementById( "latitude" ).value = e.latLng.lat() ;
-            document.getElementById( "longitude" ).value = e.latLng.lng();
+    //ダイブサイトにピンを表示
+    sites.forEach(function(site){
 
-            marker = new google.maps.Marker({
-                position:e.latLng,
-                map:map,
-                title:e.latLng.toString(),
-                animation: google.maps.Animation.DROP,
-            });
+    const pin = {lat:site.latitude, lng:site.longitude};
 
-            //クリックした場所を中心にする
-            this.panTo(e.latLng);
+    marker = new google.maps.Marker({
+        position:pin,
+        map:map,
+        title:site.site_name,
+        animation: google.maps.Animation.DROP,
+    });
 
-        });
+    });
+
     }
 
 </script>
