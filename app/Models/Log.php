@@ -29,4 +29,11 @@ class Log extends Model
         return $this->belongsTo(Book::class);
     }
 
+    //siteモデルのリレーション(userモデルに属する)
+    //$log->site
+    public function site()
+    {
+        return $this->belongsTo(Site::class);
+    }
+
 }

@@ -17,7 +17,11 @@ use App\Models\User;
 use App\Models\Log;
 //Bookモデルの読み込み
 use App\Models\Book;
+//Siterモデルの読み込み
+use App\Models\Site;
 use Monolog\Handler\NullHandler;
+
+
 
 class LogController extends Controller
 {
@@ -44,8 +48,11 @@ class LogController extends Controller
      */
     public function create()
     {
+        $sites = Site::all();
         //log.create（登録ページ）を表示
-        return view('log.create');
+        return view('log.create', [
+            'sites' => $sites
+        ]);
     }
 
     /**
@@ -61,7 +68,7 @@ class LogController extends Controller
         $validator = Validator::make($request->all(), [
             'date' => 'required',
             'name' => 'required',
-            'divesite' => 'required',
+            'site_id' => 'required',
             'temp' => 'required',
             'depth' => 'required',
         ]);
@@ -83,7 +90,7 @@ class LogController extends Controller
         if($request->image_data !== null) {
 
             $upload_image = $request->file('image_data');
-            
+
             //画像をpublic直下のuploadsに保存し$pathにパスを取得
             $path = $upload_image->store('uploads', "public");
             $data = $request->merge([
