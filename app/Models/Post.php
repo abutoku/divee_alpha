@@ -31,6 +31,13 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    //siteモデルのリレーション(userモデルに属する)
+    //$post->site
+    public function site()
+    {
+        return $this->belongsTo(Site::class);
+    }
+
     //Userモデルのリレーション（多対多）
     //$post->users
     public function users()
