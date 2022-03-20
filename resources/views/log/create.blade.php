@@ -26,14 +26,12 @@
                 {{-- 潜水地 --}}
                     <div>
                         <div class="pr-8 mt-6">ポイント</div>
-                        <select type="text" name="divesite" class="rounded-lg border-2 border-divenavy  w-[250px] sm:w-[300px]">
+                        <select type="text" name="site_id" class="rounded-lg border-2 border-divenavy  w-[250px] sm:w-[300px]">
                             <option>
                                 <option disabled selected value>ポイントを選択</option>
-                                <option value="志賀島 白瀬">志賀島 白瀬</option>
-                                <option value="志賀島 黒瀬">志賀島 黒瀬</option>
-                                <option value="長崎 辰ノ口">長崎 辰ノ口</option>
-                                <option value="唐津 KMSC前">唐津 KMSC前</option>
-                                <option value="呼子 家康">呼子 家康</option>
+                                @foreach ($sites as $site)
+                                    <option value="{{ $site->id }}">{{ $site->site_name }}</option>
+                                @endforeach
                             </option>
                         </select>
                     </div>

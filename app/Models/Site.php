@@ -16,10 +16,10 @@ class Site extends Model
     ];
 
     //Postモデルのリレーション（1対多）
-    //$site->posts
-    public function posts()
+    //$site->logs
+    public function logs()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Log::class);
     }
 
 }

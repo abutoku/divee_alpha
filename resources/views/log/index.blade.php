@@ -21,7 +21,7 @@
                         <div class="p-4">
                             <div class="font-bold text-lg">{{  $log->book->fish_name }}</div>
                             <div class="mt-4">{{  $log->date }}</div>
-                            <div>{{  $log->divesite }}</div>
+                            <div>{{  $log->site->site_name }}</div>
                             <div>水深 : {{  $log->depth }}M</div>
                             <div>水温 : {{  $log->temp }}℃</div>
                             {{-- 削除ボタン --}}
