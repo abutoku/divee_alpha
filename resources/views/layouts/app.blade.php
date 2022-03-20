@@ -45,6 +45,10 @@
                         <li class="mb-6">プロフィール画像変更</li>
                     </a>
 
+                    <a href="{{ route('site.create') }}">
+                        <li class="mb-6">ダイブサイト登録</li>
+                    </a>
+
                     <a href="#">
                         <li class="mb-6">プロフィール編集</li>
                     </a>

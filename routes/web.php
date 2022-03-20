@@ -20,6 +20,9 @@ use App\Http\Controllers\LogController;
 use App\Http\Controllers\BookController;
 //Mapコントローラーの読み込み
 use App\Http\Controllers\MapController;
+//Mapコントローラーの読み込み
+use App\Http\Controllers\SiteController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -74,10 +77,11 @@ Route::delete('comment/{comment}', [CommentController::class,'destroy'])
 Route::resource('log', LogController::class);
 //Bookコントローラーのルート
 Route::resource('book', BookController::class);
+//Siteコントローラーのルート
+Route::resource('site', SiteController::class);
 
 //Map画面表示のルート（生物）
 Route::get('/map/view', [MapController::class, 'view'])->name('map.view');
-
 //Map画面表示のルート（投稿記事）
 Route::get('/map/post', [MapController::class, 'post'])->name('map.post');
 

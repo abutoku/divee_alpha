@@ -666,6 +666,10 @@ select {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+.my-12 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -829,9 +833,6 @@ select {
 .h-60 {
   height: 15rem;
 }
-.h-\[600px\] {
-  height: 600px;
-}
 .min-h-\[1000px\] {
   min-height: 1000px;
 }
@@ -886,9 +887,6 @@ select {
 .w-\[300px\] {
   width: 300px;
 }
-.w-\[600px\] {
-  width: 600px;
-}
 .w-\[320px\] {
   width: 320px;
 }
@@ -906,12 +904,6 @@ select {
 }
 .w-10 {
   width: 2.5rem;
-}
-.w-\[00px\] {
-  width: 00px;
-}
-.w-\[800px\] {
-  width: 800px;
 }
 .max-w-7xl {
   max-width: 80rem;
@@ -1209,6 +1201,10 @@ select {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -1216,14 +1212,6 @@ select {
 .px-1 {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-}
-.py-12 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
 }
 .py-6 {
   padding-top: 1.5rem;
@@ -1694,16 +1682,16 @@ select {
     display: none;
   }
 
-  .sm\:h-20 {
-    height: 5rem;
-  }
-
   .sm\:h-\[600px\] {
     height: 600px;
   }
 
-  .sm\:h-\[700px\] {
-    height: 700px;
+  .sm\:h-\[500px\] {
+    height: 500px;
+  }
+
+  .sm\:h-20 {
+    height: 5rem;
   }
 
   .sm\:w-\[600px\] {
@@ -1714,16 +1702,16 @@ select {
     width: 300px;
   }
 
-  .sm\:w-48 {
-    width: 12rem;
-  }
-
-  .sm\:w-\[800px\] {
-    width: 800px;
-  }
-
   .sm\:w-\[900px\] {
     width: 900px;
+  }
+
+  .sm\:w-\[500px\] {
+    width: 500px;
+  }
+
+  .sm\:w-48 {
+    width: 12rem;
   }
 
   .sm\:max-w-md {
