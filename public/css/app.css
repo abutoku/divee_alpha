@@ -902,8 +902,14 @@ select {
 .w-48 {
   width: 12rem;
 }
+.w-\[230px\] {
+  width: 230px;
+}
 .w-10 {
   width: 2.5rem;
+}
+.w-\[120px\] {
+  width: 120px;
 }
 .max-w-7xl {
   max-width: 80rem;

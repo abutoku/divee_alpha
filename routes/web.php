@@ -87,6 +87,10 @@ Route::get('/map/post', [MapController::class, 'post'])->name('map.post');
 
 
 
+
+
+
+
 });//ユーザー認証ここまで
 
 

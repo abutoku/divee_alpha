@@ -38,13 +38,16 @@
                 {{-- 水深 --}}
                     <div>
                         <div class="pr-8 mt-6">水深</div>
-                        <input type="number" value="50" min="0" name="depth" class="rounded-lg border-2 border-divenavy  w-[250px] sm:w-[300px]">
+                        <input type="number" value="50" min="0" name="depth" class="rounded-lg border-2 border-divenavy  w-[120px] ">  M
                     </div>
                 {{-- 水温 --}}
                     <div>
                         <div class="pr-8 mt-6">水温</div>
-                        <input  type="number" value="20"  min="0" name="temp" class="rounded-lg border-2 border-divenavy  w-[250px] sm:w-[300px] mb-10">
+                        <input  type="number" value="20"  min="0" name="temp" class="rounded-lg border-2 border-divenavy  w-[120px]  mb-10">  ℃
                     </div>
+
+                    <a href="#" id="add_tag" class="inline-flex items-center px-4 py-2 bg-divenavy border border-transparent rounded-md font-semibold text-xs text-white  hover:bg-gray-700 disabled:opacity-25 transition ease-in-out duration-150">タグを追加</a>
+
 
                     {{-- 画像を登録するボタン --}}
                     <div id="add_img" class="inline-flex items-center px-4 py-2 bg-divenavy border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">写真を登録</div><br>
