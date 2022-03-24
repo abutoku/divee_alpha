@@ -35,8 +35,6 @@ class BookController extends Controller
         return view('book.index', [
             'books' => $books
         ]);
-
-
     }
 
     /**
@@ -48,6 +46,14 @@ class BookController extends Controller
     {
         //
     }
+
+    //生物名リアルタイム検索
+    // public function search(Request $request)
+    // {
+    //     $books = Book::where('user_id',Auth::user()->id)
+    //         ->where('fish_name', 'like', '%'.$request->searchword.'%')->get();
+    //     return response()->json($books);
+    // }
 
     /**
      * Store a newly created resource in storage.
