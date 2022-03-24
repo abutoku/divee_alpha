@@ -28,13 +28,16 @@ class BookController extends Controller
      */
     public function index()
     {
-        // Userモデルに定義したmybooks関数を実行する．
-        //結果を$booksに受け取る
-        $books = User::find(Auth::user()->id)->mybooks;
-        //$logsをlog.indexに渡す
-        return view('book.index', [
-            'books' => $books
-        ]);
+
+        //----3/24 livewire 移行----------------------------------------------
+
+        // Userモデルに定義したmybooks関数を実行し、結果を$booksに受け取る
+        // $books = User::find(Auth::user()->id)->mybooks;
+        // return view('book.index', [
+        //     'books' => $books
+        // ]);
+        return view('book.index');
+
     }
 
     /**

@@ -45,7 +45,7 @@
                     <div class="flex flex-col bg-white drop-shadow-md rounded-lg w-[350px] sm:w-[600px] h-60 my-5 p-4">
                         <div class="font-bold text-lg">{{  $log->book->fish_name }}</div>
                         <div class="mt-4">{{  $log->date }}</div>
-                        <div>{{  $log->divesite }}</div>
+                        <div>{{  $log->site->site_name }}</div>
                         <div>水深 : {{  $log->depth }}M</div>
                         <div>水温 : {{  $log->temp }}℃</div>
                         {{-- 削除ボタン --}}
