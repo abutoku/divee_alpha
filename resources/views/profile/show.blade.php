@@ -23,9 +23,9 @@
                     {{-- profile.edit プロフィール写真変更ページへのリンク --}}
                     @if ($profile->user_id === Auth::user()->id)
                         <a href="{{ route('profile.edit',$profile->id)  }}" class="text-xs">
-                        プロフィール画像変更</p>
+                        プロフィール画像変更</a>
                     @endif
-                    
+
                 </div>
 
                 {{-- カードランク表示 Proの場合は表示なし --}}

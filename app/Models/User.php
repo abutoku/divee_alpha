@@ -98,10 +98,11 @@ class User extends Authenticatable
         return $this->hasMany(Log::class)->orderBy('date', 'desc');
     }
 
-    //自分のuser_idのLogを抽出（1対多）
-    public function mybooks()
-    {
-        return $this->hasMany(Book::class)->orderBy('fish_name', 'desc');
-    }
+    //----3/24 livewire 移行----------------------------------------------
+    //自分のuser_idのBookを抽出（1対多）
+    // public function mybooks()
+    // {
+    //     return $this->hasMany(Book::class)->orderBy('fish_name', 'desc');
+    // }
 
 }

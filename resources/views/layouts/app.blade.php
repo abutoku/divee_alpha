@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- css_file -->
     <link rel="stylesheet" href="{{ url('css/style.css') }}">
-
+    @livewireStyles
 </head>
 
 <body>
@@ -118,7 +118,8 @@
 
     <!-- jquery,main.js 読み込み -->
     <x-readjs />
-
+    
+    @livewireScripts
 </body>
 
 </html>
