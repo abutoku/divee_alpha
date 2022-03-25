@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
-//Siteモデルの読み込み
+//Models
 use App\Models\Site;
-//Logモデルの読み込み
 use App\Models\Log;
-//Postモデルの読み込み
 use App\Models\Post;
-//Bookモデルの読み込み
 use App\Models\Book;
+use App\Models\Location;
 
 
 class MapController extends Controller
@@ -38,14 +36,10 @@ class MapController extends Controller
     {
 
         $searchWord = '%'.$request->search_name.'%';
-        $books = Book::where('fish_name','LIKE',$searchWord)->get();
-        $logs = [];
-        foreach($books as $book) {
-            $logs =  Log::where('book_id', $book->id)->get();
-        };
+        $locations = Location::where('name','LIKE',$searchWord)->get();
 
         return view('map.search',[
-            'logs' => $logs,
+            'locations' => $locations,
         ]);
     }
 

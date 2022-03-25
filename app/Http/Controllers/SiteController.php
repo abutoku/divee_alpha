@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-//Validatorの読み込み
+//Validator
 use Illuminate\Support\Facades\Validator;
-//認証の読み込み
+//認証
 use Illuminate\Support\Facades\Auth;
-//Siterモデルの読み込み
+
+//Models
 use App\Models\Site;
 
 
@@ -61,7 +62,7 @@ class SiteController extends Controller
         }
 
         $result = Site::create($request->all());
-        
+
         //今まで表示していたページに戻る
         return back();
     }
