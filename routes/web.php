@@ -81,13 +81,16 @@ Route::resource('book', BookController::class);
 Route::resource('site', SiteController::class);
 
 //Map画面表示のルート（生物）
-Route::get('/map/site', [MapController::class, 'site'])->name('map.site');
+Route::get('/map/site', [MapController::class,'site'])->name('map.site');
 //Map画面表示のルート（投稿記事）
-Route::get('/map/post', [MapController::class, 'post'])->name('map.post');
+Route::get('/map/post', [MapController::class,'post'])->name('map.post');
 //Mapから選択されたポイントのログを探す
-Route::post('/map/getSiteLog', [MapController::class, 'getSiteLog'])->name('map.getSiteLog');
+Route::post('/map/getSiteLog',[MapController::class,'getSiteLog'])->name('map.getSiteLog');
 //Mapから選択されたポイントのログの一覧
-Route::get('/map/show', [MapController::class, 'show'])->name('map.show');
+Route::get('/map/show', [MapController::class,'show'])->name('map.show');
+//生物名で検索
+Route::post('/map/search',[MapController::class,'search'])->name('map.search');
+
 
 
 
