@@ -23,6 +23,7 @@
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^5.10",
         "phpunit/phpunit": "^9.5.10",
+        "simplesoftwareio/simple-qrcode": "^4.2",
         "wulfheart/pretty_routes": "^0.3.0"
     },
     "autoload": {
