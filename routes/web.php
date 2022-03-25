@@ -91,18 +91,15 @@ Route::get('/map/show', [MapController::class,'show'])->name('map.show');
 //生物名で検索
 Route::post('/map/search',[MapController::class,'search'])->name('map.search');
 
-
-
-
-
-
-
-
 });//ユーザー認証ここまで
 
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/funmap', function () {
+    return view('funmap');
 });
 
 
