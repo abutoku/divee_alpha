@@ -14,6 +14,13 @@
             投稿記事</a>
     </section>
 
+    <a id="name_search">生物名</a>
+    <form action="{{ route('map.search') }}" method="POST">
+        @csrf
+        <input type="text" name="search_name">
+        <x-button>検索</x-button>
+    </form>
+
     <!-- 地図 -->
     <div class="flex flex-col items-center">
 
@@ -31,7 +38,6 @@
         <section class="flex justify-center">
             <div id="target" class="w-[500px] h-[300px] sm:w-[1000px] sm:h-[600px]"></div>
         </section>
-
 
     </div>
 
