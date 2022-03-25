@@ -13,6 +13,9 @@
 
     {{-- -----一覧表示部分--------- --}}
 
+    <x-button href="{{ route('post.create') }}"
+        class="bg-white rounded-lg drop-shadow-md h-24 mb-6 flex justify-end items-center ">記事作成</x-button>
+
     <div class="flex flex-col items-center">
     @foreach ($posts as $post)
         {{-- サムネイル画像がある場合 --}}

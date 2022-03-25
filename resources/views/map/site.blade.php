@@ -14,8 +14,8 @@
             投稿記事</a>
     </section>
 
-    <a id="name_search">生物名</a>
-    <form action="{{ route('map.search') }}" method="POST">
+    <a id="search_btn">生物名でさがす</a>
+    <form id="name_search" action="{{ route('map.search') }}" method="POST">
         @csrf
         <input type="text" name="search_name">
         <x-button>検索</x-button>
@@ -24,7 +24,7 @@
     <!-- 地図 -->
     <div class="flex flex-col items-center">
 
-        <div class="text-4xl font-bold my-8 mr-2">
+        <div id="place_seach" class="text-4xl font-bold my-8 mr-2">
             <p id="site_name">ポイントを選択</p>
             <section class="flex justify-center">
                 <form action="{{ route('map.getSiteLog') }}" method="POST">
@@ -49,6 +49,9 @@
     </script>
 
     <script>
+        
+
+
         //受け取ったデータをjson化
             const sites = @json($sites);
 

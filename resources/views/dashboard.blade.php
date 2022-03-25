@@ -17,7 +17,9 @@
 
     <!-- infomaiton -->
     <section class="flex justify-around">
-        <p class="mb-6 bg-white rounded-lg h-16 drop-shadow-md flex justify-center items-center w-11/12">infomation</p>
+        <div class="mb-6 bg-white rounded-lg h-16 drop-shadow-md flex justify-center items-center w-11/12">
+
+        </div>
     </section>
 
     <!-- 各種ボタン -->
@@ -43,9 +45,6 @@
             <div class="bg-white rounded-lg drop-shadow-md h-24 w-5/12 mb-6 flex justify-center items-center">QRコード</div>
         </div>
 
-        <div class="flex justify-around">
-            <a  href="{{ route('post.create') }}" class="bg-white rounded-lg drop-shadow-md h-24 mb-6 flex justify-center items-center w-11/12">記事作成</a>
-        </div>
 
     </section>
 </x-app-layout>

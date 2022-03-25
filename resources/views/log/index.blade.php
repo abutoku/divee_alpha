@@ -9,8 +9,6 @@
     <!--wrapper-->
     <div class="pt-16">
         <a href="{{ route('log.create') }}"><x-button>ログ作成</x-button></a>
-        <input type="text" placeholder="検索">
-        <input type="text" placeholder="選択">
 
         <section>
             <div class="flex flex-col items-center">
