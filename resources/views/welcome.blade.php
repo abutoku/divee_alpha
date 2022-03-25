@@ -103,7 +103,6 @@
                 </div>
                 @endauth
             </div>
-            <a href="/funmap">Map</a>
         </div>
         {{-- wrapperここまで --}}
      </div>

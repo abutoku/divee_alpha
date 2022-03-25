@@ -21,6 +21,11 @@
 
 </x-app-layout>
 
+{{-- google map --}}
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{ config('app.google_api') }}&callback=initMap">
+</script>
+
 
 
 <script>

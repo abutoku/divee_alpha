@@ -98,9 +98,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/funmap', function () {
-    return view('funmap');
-});
-
 
 require __DIR__.'/auth.php';
