@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 //認証
 use Illuminate\Support\Facades\Auth;
 
-//Model
+//Models
 use App\Models\User;
 use App\Models\Log;
 use App\Models\Book;
@@ -120,7 +120,7 @@ class LogController extends Controller
         'latitude' => $result->site->latitude,
         'longitude' => $result->site->longitude
         ]);
-        
+
         // ルーティング「log.index」にリクエスト送信（一覧ページに移動）
         return redirect()->route('log.index');
     }

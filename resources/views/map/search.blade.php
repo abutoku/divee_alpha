@@ -15,6 +15,13 @@
             投稿記事</div>
     </section>
 
+    <a id="name_search">生物名</a>
+    <form action="{{ route('map.search') }}" method="POST">
+        @csrf
+        <input type="text" name="search_name">
+        <x-button>検索</x-button>
+    </form>
+
     <!-- 地図 -->
     <section class="flex justify-center">
         <div id="target" class="w-[400px] h-[300px] sm:w-[900px] sm:h-[600px]"></div>
@@ -22,15 +29,20 @@
 
 </x-app-layout>
 
+
 {{-- google map --}}
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{ config('app.google_api') }}&callback=initMap">
 </script>
 
 <script>
-    const posts = @json($logs);
 
-    console.log(posts)
+    const locations = @json($locations);
+
+    console.log(locations);
+    // const markers = locations.map(x =>{
+    //     return {lat:x.latitude,lug:x.longitude};
+    // });
 
     //投稿記事の地図設定
     function initMap() {
@@ -48,6 +60,16 @@
             zoom:8,
             disableDefaultUI:true,
         });
+
+        locations.forEach(function(x){
+
+        const pin = {lat:x.latitude, lng:x.longitude};
+        marker = new google.maps.Marker({
+        position:pin,
+        map:map,
+        animation: google.maps.Animation.DROP,
+        });
+    });
 
     }
 
