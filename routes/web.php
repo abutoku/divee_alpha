@@ -92,8 +92,7 @@ Route::post('/map/getSiteLog',[MapController::class,'getSiteLog'])->name('map.ge
 Route::get('/map/show', [MapController::class,'show'])->name('map.show');
 //生物名で検索
 Route::post('/map/search',[MapController::class,'search'])->name('map.search');
-//テスト
-Route::get('/buddy',[BuddyController::class,'index'])->name('buddy.index');
+
 
 });//ユーザー認証ここまで
 

@@ -46,7 +46,5 @@
         </div>
 
 
-        {!! QrCode::generate(route('post.index')) !!}
-        <a href="{{ route('buddy.index') }}">テスト</a>
     </section>
 </x-app-layout>
