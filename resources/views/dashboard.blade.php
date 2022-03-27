@@ -45,7 +45,8 @@
             <div class="bg-white rounded-lg drop-shadow-md h-24 w-5/12 mb-6 flex justify-center items-center">QRコード</div>
         </div>
 
-        
+
         {!! QrCode::generate(route('post.index')) !!}
+        <a href="{{ route('buddy.index') }}">テスト</a>
     </section>
 </x-app-layout>
