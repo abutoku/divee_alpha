@@ -22,6 +22,8 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\MapController;
 //Mapコントローラーの読み込み
 use App\Http\Controllers\SiteController;
+//Mapコントローラーの読み込み
+use App\Http\Controllers\BuddyController;
 
 
 /*
@@ -90,6 +92,8 @@ Route::post('/map/getSiteLog',[MapController::class,'getSiteLog'])->name('map.ge
 Route::get('/map/show', [MapController::class,'show'])->name('map.show');
 //生物名で検索
 Route::post('/map/search',[MapController::class,'search'])->name('map.search');
+//テスト
+Route::get('/buddy',[BuddyController::class,'index'])->name('buddy.index');
 
 });//ユーザー認証ここまで
 
