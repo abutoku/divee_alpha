@@ -21,6 +21,7 @@
         "tailwindcss": "^3.0.18"
     },
     "dependencies": {
+        "@googlemaps/markerclusterer": "^2.0.1",
         "instascan": "^1.0.0"
     }
 }

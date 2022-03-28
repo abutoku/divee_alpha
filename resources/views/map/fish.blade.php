@@ -36,17 +36,20 @@
 
 
 {{-- google map --}}
+<script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+
 <script async defer
-    src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{ config('app.google_api') }}&callback=initMap">
+src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{ config('app.google_api') }}&callback=initMap">
 </script>
+
 
 <script>
     const locations = @json($locations);
 
     console.log(locations);
-    // const markers = locations.map(x =>{
-    //     return {lat:x.latitude,lug:x.longitude};
-    // });
+    const pins = locations.map(x =>{
+        return {lat:x.latitude,lng:x.longitude};
+    });
 
     //投稿記事の地図設定
     function initMap() {
@@ -65,15 +68,14 @@
             disableDefaultUI:true,
         });
 
-        locations.forEach(function(x){
+        console.log(pins);
 
-        const pin = {lat:x.latitude, lng:x.longitude};
-        marker = new google.maps.Marker({
-        position:pin,
-        map:map,
-        animation: google.maps.Animation.DROP,
-        });
+        const markers  = pins.map((position) => {
+            return marker = new google.maps.Marker({
+            position,
+            });
     });
+    const markerCluster = new markerClusterer.MarkerClusterer({ map,markers });
 
     }
 
