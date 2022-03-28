@@ -16,6 +16,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\BuddyController;
+use App\Http\Controllers\TideController;
 
 //Model
 use App\Models\Location;
@@ -89,6 +90,9 @@ Route::get('/map/show', [MapController::class,'show'])->name('map.show');
 Route::get('/map/fish',[MapController::class,'fish'])->name('map.fish');
 //生物名で検索
 Route::post('/map/search',[MapController::class,'search'])->name('map.search');
+
+//海況ページ
+Route::get('/tide/info',[TideController::class,'info'])->name('tide.info');
 
 
 });//ユーザー認証ここまで
