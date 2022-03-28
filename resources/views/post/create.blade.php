@@ -49,7 +49,7 @@
 
 
 <script>
-    
+
     //投稿記事の地図の設定
     function initMap() {
         'use strict'
@@ -88,11 +88,6 @@
         this.panTo(e.latLng);
 
         });
-
-
-
-
-
     }
 
 </script>

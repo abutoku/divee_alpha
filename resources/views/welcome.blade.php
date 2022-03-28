@@ -69,19 +69,16 @@
 
 </head>
 <body>
-
     {{-- 全体の背景 --}}
     <div class="main">
         {{-- wrapper --}}
         <div class="wrapper">
-
             {{-- ロゴマークの読み込み --}}
             <div>
                 <x-application-logo/>
             </div>
 
             <div class="top-contents">
-
                 {{-- ログインボタン部分 --}}
                 @auth
                 {{-- すでにログイン済みであればHOMEへ --}}
@@ -105,7 +102,44 @@
             </div>
         </div>
         {{-- wrapperここまで --}}
+        <!-- 地図 -->
+        <section class="flex justify-center">
+            <div id="target" class="w-[500px] h-[400px] sm:w-[1200px] sm:h-[600px]"></div>
+        </section>
      </div>
     {{-- 全体ここまで --}}
+
+    {{-- google map --}}
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{ config('app.google_api') }}&callback=initMap">
+    </script>
+
+    <script>
+
+    //生物の地図設定
+    function initMap() {
+    'use strict'
+
+    var target = document.getElementById('target');
+    var map;
+    //latitude（緯度）,longitude（経度）
+    var fukuoka = {lat:33.5867214193664, lng:130.3946010116519};
+    var marker;
+
+    //33.5867214193664, 130.3946010116519
+    map = new google.maps.Map(target,{
+    center:fukuoka,
+    zoom:8,
+    disableDefaultUI:true,
+    });
+
+    marker = new google.maps.Marker({
+    position:fukuoka,
+    map:map,
+    animation: google.maps.Animation.BOUNCE,
+    });
+
+    }
+    </script>
 </body>
 </html>

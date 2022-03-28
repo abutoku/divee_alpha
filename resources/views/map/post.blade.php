@@ -10,13 +10,19 @@
     <section class="flex mt-8 mb-8 justify-center sm:justify-start">
         <a href="{{ route('map.site') }}" class="rounded-2xl py-1 w-[200px] mr-4 border-2 border-divenavy  text-divenavy flex justify-around">
             場所</a>
+        <a href="{{ route('map.fish') }}" class="rounded-2xl py-1 w-[200px] mr-4 border-2 border-divenavy  text-divenavy flex justify-around">
+            生物名</a>
         <div class="rounded-2xl py-1 w-[200px] border-2 border-divenavy bg-divenavy text-white flex justify-around">
             投稿記事</div>
     </section>
 
+    <section class="mt-12">
+        <x-button>Mapに投稿</x-button>
+    </section>
+
     <!-- 地図 -->
-    <section class="flex justify-center">
-        <div id="target" class="w-[400px] h-[300px] sm:w-[900px] sm:h-[600px]"></div>
+    <section class="flex justify-center mt-12">
+        <div id="target" class="w-[500px] h-[400px] sm:w-[1200px] sm:h-[600px]"></div>
     </section>
 
 </x-app-layout>
@@ -25,8 +31,6 @@
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{ config('app.google_api') }}&callback=initMap">
 </script>
-
-
 
 <script>
     //受け取ったデータをjson化
