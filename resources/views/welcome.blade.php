@@ -61,6 +61,16 @@
         text-decoration:underline;
         margin-left:auto;
     }
+
+    #map_area {
+        display:flex;
+        justify-content: center;
+    }
+    #target {
+        width:1200px;
+        height: 600px;
+    }
+
     </style>
 
 </head>
@@ -99,9 +109,10 @@
         </div>
         {{-- wrapperここまで --}}
         <!-- 地図 -->
-        <section class="flex justify-center">
-            <div id="target" class="w-[500px] h-[400px] sm:w-[1200px] sm:h-[600px]"></div>
+        <section id="map_area">
+            <div id="target"></div>
         </section>
+        
      </div>
     {{-- 全体ここまで --}}
 
