@@ -112,7 +112,7 @@
         <section id="map_area">
             <div id="target"></div>
         </section>
-        
+
      </div>
     {{-- 全体ここまで --}}
 
@@ -138,11 +138,16 @@
     center:fukuoka,
     zoom:8,
     disableDefaultUI:true,
+    mapId:"a9c9f838d91f3515",
     });
 
     marker = new google.maps.Marker({
     position:fukuoka,
     map:map,
+    icon : {
+    url: 'storage/uploads/pin01.png',
+    scaledSize: new google.maps.Size(36, 42)
+    },
     animation: google.maps.Animation.BOUNCE,
     });
 
