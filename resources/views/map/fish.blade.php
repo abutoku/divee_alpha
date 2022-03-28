@@ -11,20 +11,25 @@
         <a href="{{ route('map.site') }}"
             class="rounded-2xl py-1 w-[200px] mr-4 border-2 border-divenavy  text-divenavy flex justify-around">
             場所</a>
-        <div class="rounded-2xl py-1 w-[200px] border-2 border-divenavy bg-divenavy text-white flex justify-around">
-            投稿記事</div>
+
+        <div
+            class="rounded-2xl py-1 w-[200px] mr-4 border-2 border-divenavy bg-divenavy text-white flex justify-around">
+            生物名</div>
+
+        <a href="{{ route('map.post') }}"
+            class="rounded-2xl py-1 w-[200px] border-2 border-divenavy text-divenavy flex justify-around">
+            投稿記事</a>
     </section>
 
-    <a id="name_search">生物名</a>
     <form action="{{ route('map.search') }}" method="POST">
         @csrf
-        <input type="text" name="search_name">
+        <input type="text" name="search_name" placeholder="生物名を入力" class="my-8 rounded-lg border-2 border-divenavy"">
         <x-button>検索</x-button>
     </form>
 
     <!-- 地図 -->
     <section class="flex justify-center">
-        <div id="target" class="w-[400px] h-[300px] sm:w-[900px] sm:h-[600px]"></div>
+        <div id="target" class="w-[500px] h-[400px] sm:w-[1200px] sm:h-[600px]"></div>
     </section>
 
 </x-app-layout>
@@ -36,7 +41,6 @@
 </script>
 
 <script>
-
     const locations = @json($locations);
 
     console.log(locations);

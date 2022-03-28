@@ -31,14 +31,21 @@ class MapController extends Controller
         ]);
     }
 
+    public function fish()
+    {
+        return view('map.fish',[
+            'locations' => [],
+        ]);
+    }
 
+    //入力された生物名から検索
     public function search(Request $request)
     {
 
         $searchWord = '%'.$request->search_name.'%';
         $locations = Location::where('name','LIKE',$searchWord)->get();
 
-        return view('map.search',[
+        return view('map.fish',[
             'locations' => $locations,
         ]);
     }

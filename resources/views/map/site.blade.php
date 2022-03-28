@@ -10,22 +10,19 @@
     <section class="flex mt-8 mb-8 justify-center sm:justify-start">
         <div class="rounded-2xl py-1 w-[200px] mr-4 border-2 border-divenavy bg-divenavy text-white flex justify-around">
             場所</div>
+        <a href="{{ route('map.fish') }}" class="rounded-2xl py-1 mr-4 w-[200px] border-2 border-divenavy flex justify-around">
+            生物名</a>
         <a href="{{ route('map.post') }}" class="rounded-2xl py-1 w-[200px] border-2 border-divenavy flex justify-around">
             投稿記事</a>
     </section>
 
-    <a id="search_btn">生物名でさがす</a>
-    <form id="name_search" action="{{ route('map.search') }}" method="POST">
-        @csrf
-        <input type="text" name="search_name">
-        <x-button>検索</x-button>
-    </form>
-
-    <!-- 地図 -->
+    <!-- ポイント選択部分 -->
     <div class="flex flex-col items-center">
-
-        <div id="place_seach" class="text-4xl font-bold my-8 mr-2">
-            <p id="site_name">ポイントを選択</p>
+        <div id="place_seach" class="my-8 mr-2 flex items-end w-full">
+            <div class="mr-8">
+                <p class="text-sm mb-2">ポイント名</p>
+                <p id="site_name" class="text-4xl font-bold">選択されていません</p>
+            </div>
             <section class="flex justify-center">
                 <form action="{{ route('map.getSiteLog') }}" method="POST">
                     @csrf
@@ -35,8 +32,9 @@
             </section>
         </div>
 
+        <!-- 地図 -->
         <section class="flex justify-center">
-            <div id="target" class="w-[500px] h-[300px] sm:w-[1000px] sm:h-[600px]"></div>
+            <div id="target" class="w-[500px] h-[400px] sm:w-[1200px] sm:h-[600px]"></div>
         </section>
 
     </div>
@@ -49,9 +47,6 @@
     </script>
 
     <script>
-        
-
-
         //受け取ったデータをjson化
             const sites = @json($sites);
 

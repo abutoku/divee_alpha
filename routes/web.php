@@ -2,27 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
-//Loginコントローラーの読み込み
+//Controller
 use App\Http\Controllers\Auth\LoginController;
-//Profileコントローラーの読み込み
 use App\Http\Controllers\ProfileController;
-//Postコントローラーの読み込み
 use App\Http\Controllers\PostController;
-//Profileコントローラーの読み込み
 use App\Http\Controllers\PictureController;
-//Commentコントローラーの読み込み
 use App\Http\Controllers\CommentController;
-//Favoriteコントローラーの読み込み
 use App\Http\Controllers\FavoriteController;
-//Logコントローラーの読み込み
 use App\Http\Controllers\LogController;
-//Bookコントローラーの読み込み
 use App\Http\Controllers\BookController;
-//Mapコントローラーの読み込み
 use App\Http\Controllers\MapController;
-//Mapコントローラーの読み込み
 use App\Http\Controllers\SiteController;
-//Mapコントローラーの読み込み
 use App\Http\Controllers\BuddyController;
 
 
@@ -56,16 +46,16 @@ Route::post('post/{post}/unfavorites', [FavoriteController::class, 'destroy'])->
 
 //my log のルート
 Route::get('/post/mypage', [PostController::class, 'mydata'])->name('post.mypage');
-//Postコントローラーのルート
+
+
 Route::resource('post', PostController::class);
 
-//Profileコントローラーのルート
 Route::resource('profile', ProfileController::class);
 
 //サムネイル変更のルート
 Route::post('picture/{picture}/change', [PictureController::class,'change'])
 ->name('picture.change');
-//Pictureコントローラーのルート
+
 Route::resource('picture', PictureController::class);
 
 //comment storeへのルート
@@ -75,11 +65,11 @@ Route::post('post/{post}/comment', [CommentController::class,'store'])
 Route::delete('comment/{comment}', [CommentController::class,'destroy'])
 ->name('comment.destroy');
 
-//Logコントローラーのルート
+
 Route::resource('log', LogController::class);
-//Bookコントローラーのルート
+
 Route::resource('book', BookController::class);
-//Siteコントローラーのルート
+
 Route::resource('site', SiteController::class);
 
 //Map画面表示のルート（生物）
@@ -90,6 +80,8 @@ Route::get('/map/post', [MapController::class,'post'])->name('map.post');
 Route::post('/map/getSiteLog',[MapController::class,'getSiteLog'])->name('map.getSiteLog');
 //Mapから選択されたポイントのログの一覧
 Route::get('/map/show', [MapController::class,'show'])->name('map.show');
+//生物名検索ページ
+Route::get('/map/fish',[MapController::class,'fish'])->name('map.fish');
 //生物名で検索
 Route::post('/map/search',[MapController::class,'search'])->name('map.search');
 

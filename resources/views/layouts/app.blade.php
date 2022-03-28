@@ -38,9 +38,6 @@
                         <li class="mb-6">メンバー一覧</li>
                     </a>
 
-                    <a href="#">
-                        <li class="mb-6">ランキング</li>
-                    </a>
 
                     <a href="{{ route('profile.edit',Auth::user()->profile->id) }}">
                         <li class="mb-6">プロフィール画像変更</li>
@@ -118,7 +115,7 @@
 
     <!-- jquery,main.js 読み込み -->
     <x-readjs />
-    
+
     @livewireScripts
 </body>
 

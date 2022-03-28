@@ -15,36 +15,30 @@
             タイムライン</a>
     </section>
 
-    <!-- infomaiton -->
+    <!-- profile -->
     <section class="flex justify-around">
-        <div class="mb-6 bg-white rounded-lg h-16 drop-shadow-md flex justify-center items-center w-11/12">
-
-        </div>
+            <!-- ユーザー名表示 -->
+            <a href="{{ route('profile.show', Auth::user()->id ) }}" class="flex justify-center items-center sm:justify-start my-10 py-10 bg-white rounded-lg drop-shadow-md w-11/12">
+                <img src="{{ Storage::url(Auth::user()->profile->profile_image) }}"
+                    class="h-24 w-24 rounded-full object-cover bg-white mr-4">
+                <div class="text-2xl font-bold">{{ Auth::user()->name }}</div>
+            </a>
     </section>
 
     <!-- 各種ボタン -->
     <section>
 
         <div class="flex justify-around">
-
-            <a href="{{ route('profile.show', Auth::user()->id ) }}" class="bg-white rounded-lg drop-shadow-md h-24 w-5/12 mb-6 flex justify-center items-center">マイページ
-            </a>
-
             <a href="{{ route('log.index') }}" class="bg-white rounded-lg drop-shadow-md h-24  w-5/12 mb-6 flex justify-center items-center">
                 生物ログ</a>
-
+            <a href="{{ route('book.index') }}"
+                class="bg-white rounded-lg drop-shadow-md h-24 w-5/12 mb-6 flex justify-center items-center">図鑑</a>
         </div>
 
         <div class="flex justify-around">
             <a href="{{ route('map.site') }}" class="bg-white rounded-lg drop-shadow-md h-24 w-5/12 mb-6 flex justify-center items-center">Map</a>
             <div class="bg-white rounded-lg drop-shadow-md h-24 w-5/12 mb-6 flex justify-center items-center">海情報</div>
         </div>
-
-        <div class="flex justify-around">
-            <a href="{{ route('book.index') }}" class="bg-white rounded-lg drop-shadow-md h-24 w-5/12 mb-6 flex justify-center items-center">図鑑</a>
-            <div class="bg-white rounded-lg drop-shadow-md h-24 w-5/12 mb-6 flex justify-center items-center">QRコード</div>
-        </div>
-
 
     </section>
 </x-app-layout>
