@@ -8,7 +8,7 @@
     <title>Divee</title>
 
     <style>
-
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
     /* 背景色 */
     body {
         background-color: #015DC6;
@@ -25,7 +25,6 @@
         color: white;
     }
     .wrapper {
-        padding-top:80px;
         width: 90%;
         margin: 0 auto;
         display: flex;
@@ -33,15 +32,21 @@
         align-items: center;
         flex-direction: column;
     }
+
+    #top_header {
+        width:100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     .top-contents{
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        width:200px;
     }
     .btn-area {
-        margin-top: 120px;
         display: flex;
         justify-content: center;
     }
@@ -53,7 +58,7 @@
         width: 200px;
         height:60px;
         border-radius: 10px;
-        margin-bottom: 24px;
+        margin-bottom: 12px;
         background-color:white;
     }
     .sigin-in {
@@ -71,41 +76,49 @@
         height: 600px;
     }
 
+    #top_message {
+        color:white;
+        font-size:48px;
+        font-family: 'Press Start 2P', cursive;
+    }
+
     </style>
 
 </head>
 <body>
     {{-- 全体の背景 --}}
     <div class="main">
-        {{-- wrapper --}}
         <div class="wrapper">
-            {{-- ロゴマークの読み込み --}}
-            <div>
+            <div id="top_header">
+                {{-- ロゴマークの読み込み --}}
                 <x-application-logo/>
-            </div>
 
-            <div class="top-contents">
-                {{-- ログインボタン部分 --}}
-                @auth
-                {{-- すでにログイン済みであればHOMEへ --}}
-                <div class="btn-area">
-                    <a href="{{ url('/dashboard') }}" class="top-btn" style="color:#015DC6;">
-                        HOMEへ
-                    </a>
+                <div class="top-contents">
+                    {{-- ログインボタン部分 --}}
+                    @auth
+                    {{-- すでにログイン済みであればHOMEへ --}}
+                    <div class="btn-area">
+                        <a href="{{ url('/dashboard') }}" class="top-btn" style="color:#015DC6;">
+                            HOMEへ
+                        </a>
+                    </div>
+                    @else
+                    {{-- ログインリンク --}}
+                    <div class="btn-area">
+                        <a href="{{ route('login') }}" class="top-btn" style="color:#015DC6;">
+                            ログイン
+                        </a>
+                    </div>
+                    {{-- 新規登録リンク --}}
+                    <div class="sigin-in">
+                        <a href="{{ route('register') }}">新規登録はこちら</a>
+                    </div>
+                    @endauth
                 </div>
-                @else
-                {{-- ログインリンク --}}
-                <div class="btn-area">
-                    <a href="{{ route('login') }}" class="top-btn" style="color:#015DC6;">
-                        ログイン
-                    </a>
-                </div>
-                {{-- 新規登録リンク --}}
-                <div class="sigin-in">
-                    <a href="{{ route('register') }}">新規登録はこちら</a>
-                </div>
-                @endauth
+
             </div>
+            {{-- headerここまで --}}
+            <p id="top_message">Welcome!!</p>
         </div>
         {{-- wrapperここまで --}}
         <!-- 地図 -->
@@ -122,6 +135,9 @@
     </script>
 
     <script>
+
+    //受け取ったデータをjson化
+    const newposts = @json($newposts);
 
     //生物の地図設定
     function initMap() {
@@ -141,17 +157,25 @@
     mapId:"a9c9f838d91f3515",
     });
 
-    marker = new google.maps.Marker({
-    position:fukuoka,
-    map:map,
-    icon : {
-    url: 'storage/uploads/pin01.png',
-    scaledSize: new google.maps.Size(36, 42)
-    },
-    animation: google.maps.Animation.BOUNCE,
+    //ピンを配置
+    newposts.forEach(function(post){
+
+        const pin = {lat:post.latitude, lng:post.longitude};
+
+        marker = new google.maps.Marker({
+        position:pin,
+        map:map,
+        icon : {
+        url: 'storage/uploads/pin01.png',
+        scaledSize: new google.maps.Size(36, 42)
+        },
+        animation: google.maps.Animation.BOUNCE,
+        });
+
     });
 
     }
+    
     </script>
 </body>
 </html>

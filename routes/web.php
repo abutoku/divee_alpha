@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Carbon\Carbon;
+
 //Controller
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProfileController;
@@ -14,6 +16,9 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\BuddyController;
+
+//Model
+use App\Models\Location;
 
 
 /*
@@ -90,7 +95,12 @@ Route::post('/map/search',[MapController::class,'search'])->name('map.search');
 
 
 Route::get('/', function () {
-    return view('welcome');
+    //3日以内の投稿を取得
+    $nearday = Carbon::today()->subDay(3);
+    $newposts = Location::whereDate('created_at','>=',$nearday)->get();
+    return view('welcome',[
+        'newposts' => $newposts,
+    ]);
 });
 
 
