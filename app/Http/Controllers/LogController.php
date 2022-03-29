@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 //認証
 use Illuminate\Support\Facades\Auth;
 
-//Models
+//Model
 use App\Models\User;
 use App\Models\Log;
 use App\Models\Book;

@@ -18,6 +18,7 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\TideController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SetdataController;
+use App\Http\Controllers\BuddyController;
 
 //Model
 use App\Models\Location;
@@ -81,6 +82,8 @@ Route::resource('site', SiteController::class);
 
 Route::resource('setdata', SetdataController::class);
 
+Route::resource('buddy', BuddyController::class);
+
 //Map画面表示のルート（生物）
 Route::get('/map/site', [MapController::class,'site'])->name('map.site');
 //Map画面表示のルート（投稿記事）
@@ -96,7 +99,7 @@ Route::post('/map/search',[MapController::class,'search'])->name('map.search');
 
 //海況ページ
 Route::get('/tide/info',[TideController::class,'info'])->name('tide.info');
-//
+//海況ページ、ポイント変更
 Route::post('/tide/change',[TideController::class,'change'])->name('tide.change');
 //管理者
 Route::get('/admin/index',[AdminController::class,'index'])->name('admin.index');
