@@ -95,6 +95,7 @@ Route::post('/map/search',[MapController::class,'search'])->name('map.search');
 Route::get('/tide/info',[TideController::class,'info'])->name('tide.info');
 
 
+
 });//ユーザー認証ここまで
 
 

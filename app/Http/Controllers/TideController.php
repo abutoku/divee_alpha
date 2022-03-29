@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Weidner\Goutte\GoutteFacade as GoutteFacade;
 use GuzzleHttp\Client;
 use Carbon\Carbon;
 
@@ -35,4 +36,6 @@ class TideController extends Controller
             'tide' => $tide
         ]);
     }
+
+    
 }
