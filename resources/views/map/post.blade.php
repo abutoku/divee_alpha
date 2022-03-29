@@ -62,6 +62,10 @@
             marker = new google.maps.Marker({
             position:pin,
             map:map,
+            icon : {
+            url: '../storage/uploads/pin03.png',
+            scaledSize: new google.maps.Size(36, 46)
+            },
             title:'hello!',
             animation: google.maps.Animation.BOUNCE,
             });

@@ -76,6 +76,10 @@
                 position:pin,
                 map:map,
                 title:site.site_name,
+                icon : {
+                url: '../storage/uploads/pin02.png',
+                scaledSize: new google.maps.Size(24, 16)
+                },
                 animation: google.maps.Animation.DROP,
             });
 

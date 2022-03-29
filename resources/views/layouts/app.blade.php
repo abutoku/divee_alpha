@@ -59,6 +59,10 @@
                         <li class="mb-6">ヘルプ</li>
                     </a>
 
+                    <a href={{ route('admin.index') }}>
+                        <li class="mb-6">管理者</li>
+                    </a>
+
                 </ul>
                 <!-- ログアウトボタン -->
                 <!-- Authentication -->
