@@ -96,6 +96,8 @@ Route::post('/map/search',[MapController::class,'search'])->name('map.search');
 
 //海況ページ
 Route::get('/tide/info',[TideController::class,'info'])->name('tide.info');
+//
+Route::post('/tide/change',[TideController::class,'change'])->name('tide.change');
 //管理者
 Route::get('/admin/index',[AdminController::class,'index'])->name('admin.index');
 

@@ -13,62 +13,9 @@ class LocalDevelopSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Profile::factory(2)->create([
-            'card_rank' => 'Pro',
-            'dive_count' =>5000,
-        ]);
-
-        \App\Models\Profile::factory(6)->create([
-            'card_rank' => 'DM',
-        ]);
-
-        \App\Models\Profile::factory(10)->create([
-            'card_rank' => 'MSD',
-        ]);
-
-        \App\Models\Profile::factory(8)->create([
-            'card_rank' => 'AOW',
-        ]);
-
-        \App\Models\Profile::factory(4)->create([
-            'card_rank' => 'OW',
-        ]);
-
-        \App\Models\Site::create([
-            'site_name' => '志賀島 白瀬',
-            'latitude' => 33.68151729911029,
-            'longitude' => 130.3075921428407,
-        ]);
-
-        \App\Models\Site::create([
-            'site_name' => '志賀島 黒瀬',
-            'latitude' => 33.6870811731239,
-            'longitude' => 130.304192393402,
-        ]);
-
-        \App\Models\Site::create([
-            'site_name' => '福津 恋の浦',
-            'latitude' => 33.80562178207481,
-            'longitude' => 130.45027874985183,
-        ]);
-
-        \App\Models\Site::create([
-            'site_name' => '唐津 KMSC前',
-            'latitude' => 33.52217206191582,
-            'longitude' => 129.95760827312105,
-        ]);
-
-        \App\Models\Site::create([
-            'site_name' => '唐津 家康ポイント',
-            'latitude' => 33.53762676305207,
-            'longitude' => 129.87643723808398,
-        ]);
-
-        \App\Models\Site::create([
-            'site_name' => '長崎 辰ノ口',
-            'latitude' => 32.693549511252606,
-            'longitude' => 129.79342026644613,
-        ]);
+        $this->call(UserSeeder::class);
+        $this->call(SiteSeeder::class);
+        $this->call(SetdataSeeder::class);
 
     }
 }

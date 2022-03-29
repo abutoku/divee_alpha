@@ -8,12 +8,13 @@
 
     {{-- ポイント選択部分 --}}
     <section class="mt-24">
-        <p>ポイントを選択</p>
-        <form action="#">
-            <select name="" id="">
-                <option value="">hoge</option>
-                <option value="">hoge</option>
-                <option value="">hoge</option>
+        <form action="{{ route('tide.change') }}" method="post">
+            @csrf
+            <select name="site" class="rounded-lg border-2 border-divenavy">
+                <option disabled selected value>ポイントを選択</option>
+                @foreach ($points as $point)
+                    <option value="{{ $point->id }}">{{ $point->site_name }}</option>
+                @endforeach
             </select>
             <x-button>表示切り替え</x-button>
         </form>
@@ -62,7 +63,7 @@
         'use strict';
 
         const num = @json($num);
-        
+
         //折れ線グラフ
         var type = 'line';
 
