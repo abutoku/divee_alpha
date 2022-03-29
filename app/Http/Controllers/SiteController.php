@@ -45,7 +45,7 @@ class SiteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
         //バリデーション
         $validator = Validator::make($request->all(), [
             'site_name' => 'required',
