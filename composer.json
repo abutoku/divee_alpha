@@ -8,12 +8,14 @@
         "php": "^7.3|^8.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.4",
+        "intervention/image": "^2.7",
         "laravel-lang/lang": "~8.0",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "nesbot/carbon": "^2.57",
-        "simplesoftwareio/simple-qrcode": "^4.2"
+        "simplesoftwareio/simple-qrcode": "^4.2",
+        "weidner/goutte": "^2.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",

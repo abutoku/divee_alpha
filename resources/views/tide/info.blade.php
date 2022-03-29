@@ -45,4 +45,8 @@
         </div>
     </section>
 
+    <img src="https://www.imocwx.com/cwm/cwmjp_00.gif?2900" alt="">
+
+    
+
 </x-app-layout>
