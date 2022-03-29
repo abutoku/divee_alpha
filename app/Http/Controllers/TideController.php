@@ -74,7 +74,7 @@ class TideController extends Controller
     {
         //バリデーション
         $validator = Validator::make($request->all(), [
-            'site_name' => 'required',
+            'site' => 'required',
         ]);
 
         //バリデーション:エラー
