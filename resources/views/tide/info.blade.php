@@ -19,7 +19,7 @@
     </section>
 
     <section class="mt-24 flex justify-center">
-        <div class="bg-slate-100 drop-shadow-md rounded-lg w-[350px] sm:w-[600px] h-48 my-5 p-4">
+        <div class="bg-white drop-shadow-md rounded-lg w-[350px] sm:w-[600px] h-48 my-5 p-4">
 
             {{-- @dd($tide); --}}
             <h1 class="font-bold text-2xl mb-4">志賀島 白瀬</h1>
@@ -41,7 +41,6 @@
                     <p>{{ $tide['flood'][0]['time'] }}</p>
                     <p>{{ $tide['flood'][1]['time']}}</p>
                 </div>
-
             </div>
         </div>
     </section>
