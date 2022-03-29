@@ -24,12 +24,12 @@
         <div class="bg-white drop-shadow-md rounded-lg w-[350px] sm:w-[600px] h-48 my-5 p-4">
 
             {{-- @dd($tide); --}}
-            <h1 class="font-bold text-2xl mb-4">志賀島 白瀬</h1>
+            <h1 class="font-bold text-2xl mb-4">{{ $name }}</h1>
             <div class="flex justify-between">
                 <div>
                     <p>{{ $tide['moon']['title'] }}</p>
                     <p>現在の水温</p>
-                    <p>14℃</p>
+                    <p>{{ $temp }}℃</p>
                 </div>
 
                 <div>
@@ -61,6 +61,8 @@
     <script>
         'use strict';
 
+        const num = @json($num);
+        
         //折れ線グラフ
         var type = 'line';
 
@@ -68,7 +70,20 @@
             labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
             datasets:[
                 {
-                    data:[13,12,10,14,18,20,23,25,27,24,18,16],
+                    data:[
+                        num[0],
+                        num[1],
+                        num[2],
+                        num[3],
+                        num[4],
+                        num[5],
+                        num[6],
+                        num[7],
+                        num[8],
+                        num[9],
+                        num[10],
+                        num[11],
+                        ],
                     borderColor:'skyblue',
                     pointBackgroundColor:'skyblue',
                     borderWidth:4,
