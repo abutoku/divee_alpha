@@ -45,6 +45,7 @@ class SetdataController extends Controller
         // バリデーション
         $validator = Validator::make($request->all(), [
             'site_name' => 'required',
+            'temp' => 'required',
             'pc' => 'required',
             'hc' => 'required',
             'jan' => 'required',
@@ -92,7 +93,10 @@ class SetdataController extends Controller
      */
     public function edit($id)
     {
-        //
+        $setdata = Setdata::find($id);
+        return view('setdata.edit',[
+            'setdata' => $setdata
+        ]);
     }
 
     /**
@@ -104,7 +108,36 @@ class SetdataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // バリデーション
+        $validator = Validator::make($request->all(), [
+            'site_name' => 'required',
+            'temp' => 'required',
+            'pc' => 'required',
+            'hc' => 'required',
+            'jan' => 'required',
+            'feb' => 'required',
+            'mar' => 'required',
+            'apr' => 'required',
+            'may' => 'required',
+            'jun' => 'required',
+            'jul' => 'required',
+            'aug' => 'required',
+            'sep' => 'required',
+            'oct' => 'required',
+            'nov' => 'required',
+            'dec' => 'required',
+        ]);
+        // バリデーション:エラー
+        if ($validator->fails()) {
+            return redirect()
+                ->route('setdata.create')
+                ->withInput()
+                ->withErrors($validator);
+        }
+
+        $result = Setdata::find($id)->update($request->all());
+        return redirect()->route('setdata.index');
+
     }
 
     /**

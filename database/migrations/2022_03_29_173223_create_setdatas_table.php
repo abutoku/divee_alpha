@@ -16,6 +16,7 @@ class CreateSetdatasTable extends Migration
         Schema::create('setdatas', function (Blueprint $table) {
             $table->id();
             $table->string('site_name');
+            $table->integer('temp');
             $table->integer('pc');
             $table->integer('hc');
             $table->integer('jan');

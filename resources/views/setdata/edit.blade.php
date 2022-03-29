@@ -5,8 +5,9 @@
     </x-slot>
 
     <section class="mt-12">
-        <p class="mb-8">データ入力</p>
-        <form action="{{ route('setdata.store') }}" method="post">
+        <p class="mb-8">データ更新</p>
+        <form action="{{ route('setdata.update',$setdata->id) }}" method="post">
+            @method('put')
             @csrf
             <table>
                 <tr>
@@ -14,7 +15,7 @@
                         ポイント名
                     </th>
                     <td>
-                        <input type="text" name="site_name">
+                        <input type="text" name="site_name" value="{{ $setdata->site_name}}">
                     </td>
                 </tr>
                 <tr>
@@ -22,7 +23,7 @@
                         現在の水温
                     </th>
                     <td>
-                        <input type="number" name="temp">
+                        <input type="number" name="temp" value="{{ $setdata->temp}}">
                     </td>
                 </tr>
                 <tr>
@@ -30,7 +31,7 @@
                         都道府県コード
                     </th>
                     <td>
-                        <input type="number" name="pc">
+                        <input type="number" name="pc" value="{{ $setdata->pc}}">
                     </td>
                 </tr>
                 <tr>
@@ -38,7 +39,7 @@
                         港コード
                     </th>
                     <td>
-                        <input type="number" name="hc">
+                        <input type="number" name="hc" value="{{ $setdata->hc}}">
                     </td>
                 </tr>
                 <tr>
@@ -46,7 +47,7 @@
                         1月
                     </th>
                     <td>
-                        <input type="number" name="jan">
+                        <input type="number" name="jan" value="{{ $setdata->jan}}">
                     </td>
                 </tr>
                 <tr>
@@ -54,7 +55,7 @@
                         2月
                     </th>
                     <td>
-                        <input type="number" name="feb">
+                        <input type="number" name="feb" value="{{ $setdata->feb}}">
                     </td>
                 </tr>
                 <tr>
@@ -62,7 +63,7 @@
                         3月
                     </th>
                     <td>
-                        <input type="number" name="mar">
+                        <input type="number" name="mar" value="{{ $setdata->mar}}">
                     </td>
                 </tr>
                 <tr>
@@ -70,7 +71,7 @@
                         4月
                     </th>
                     <td>
-                        <input type="number" name="apr">
+                        <input type="number" name="apr" value="{{ $setdata->apr}}">
                     </td>
                 </tr>
                 <tr>
@@ -78,7 +79,7 @@
                         5月
                     </th>
                     <td>
-                        <input type="number" name="may">
+                        <input type="number" name="may" value="{{ $setdata->may}}">
                     </td>
                 </tr>
                 <tr>
@@ -86,7 +87,7 @@
                         6月
                     </th>
                     <td>
-                        <input type="number" name="jun">
+                        <input type="number" name="jun" value="{{ $setdata->jun}}">
                     </td>
                 </tr>
                 <tr>
@@ -94,7 +95,7 @@
                         7月
                     </th>
                     <td>
-                        <input type="number" name="jul">
+                        <input type="number" name="jul" value="{{ $setdata->jul}}">
                     </td>
                 </tr>
                 <tr>
@@ -102,7 +103,7 @@
                         8月
                     </th>
                     <td>
-                        <input type="number" name="aug">
+                        <input type="number" name="aug" value="{{ $setdata->aug}}">
                     </td>
                 </tr>
                 <tr>
@@ -110,7 +111,7 @@
                         9月
                     </th>
                     <td>
-                        <input type="number" name="sep">
+                        <input type="number" name="sep" value="{{ $setdata->sep}}">
                     </td>
                 </tr>
                 <tr>
@@ -118,7 +119,7 @@
                         10月
                     </th>
                     <td>
-                        <input type="number" name="oct">
+                        <input type="number" name="oct" value="{{ $setdata->oct}}">
                     </td>
                 </tr>
                 <tr>
@@ -126,7 +127,7 @@
                         11月
                     </th>
                     <td>
-                        <input type="number" name="nov">
+                        <input type="number" name="nov" value="{{ $setdata->nov}}">
                     </td>
                 </tr>
                 <tr>
@@ -134,11 +135,11 @@
                         12月
                     </th>
                     <td>
-                        <input type="number" name="dec">
+                        <input type="number" name="dec" value="{{ $setdata->dec}}">
                     </td>
                 </tr>
             </table>
-            <x-button class="mt-8">登録</x-button>
+            <x-button class="mt-8">更新</x-button>
         </form>
     </section>
 
