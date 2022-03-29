@@ -4,15 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-//Validatorの読み込み
+//Validator
 use Illuminate\Support\Facades\Validator;
-//認証の読み込み
+//認証
 use Illuminate\Support\Facades\Auth;
-//Postモデルの読み込み
+
+//Models
 use App\Models\Post;
-//userモデルの読み込み
 use App\Models\User;
-//Commentモデルの読み込み
 use App\Models\Comment;
 
 class CommentController extends Controller

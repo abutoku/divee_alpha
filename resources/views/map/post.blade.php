@@ -17,7 +17,8 @@
     </section>
 
     <section class="mt-12">
-        <x-button>Mapに投稿</x-button>
+        <a href="{{ route('post.create') }}"
+            class="rounded-lg drop-shadow-md "><x-button>Mapに投稿</x-button></a>
     </section>
 
     <!-- 地図 -->

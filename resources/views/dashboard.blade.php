@@ -6,13 +6,13 @@
     </x-slot>
 
     {{-- ----dashboardメイン部分---- --}}
-    
+
     <!-- 選択ボタン -->
     <section class="flex mt-8 mb-8 justify-center sm:justify-start">
         <div class="rounded-2xl py-1 w-[200px] mr-4 border-2 border-divenavy bg-divenavy text-white flex justify-around">
             HOME</div>
-        <a href="{{ route('post.index') }}" class="rounded-2xl py-1 w-[200px] border-2 border-divenavy flex justify-around">
-            タイムライン</a>
+        <a href="{{ route('buddy.index') }}" class="rounded-2xl py-1 w-[200px] border-2 border-divenavy flex justify-around">
+            BUDDY LOG</a>
     </section>
 
     <!-- profile -->

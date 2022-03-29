@@ -4,19 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-//Storegeの読み込み
+//Storege
 use Illuminate\Support\Facades\Storage;
 
-//Validatorの読み込み
+//Validator
 use Illuminate\Support\Facades\Validator;
-//認証の読み込み
+//認証
 use Illuminate\Support\Facades\Auth;
 
-//userモデルの読み込み
+//Model
 use App\Models\User;
-//Logモデルの読み込み
 use App\Models\Log;
-//Bookモデルの読み込み
 use App\Models\Book;
 
 class BookController extends Controller
