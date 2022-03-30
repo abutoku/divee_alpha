@@ -15,6 +15,21 @@
             BUDDY LOG</div>
     </section>
 
-    <a href="{{ route('buddy.create') }}"><x-button>ログ投稿</x-button></a>
+    <a href="{{ route('buddy.create') }}" ><x-button>ログ投稿</x-button></a>
+
+    <section>
+        @forelse ($buddies as $buddy)
+            <div class="bg-slate-100 rounded-lg drop-shadow-md p-4 mt-4">
+                <p class="mb-2 text-xs">{{ $buddy->user->created_at->format('Y/m/d') }}</p>
+                <div class="flex justify-start items-center mb-4">
+                    <img src="{{  Storage::url($buddy->user->profile->profile_image)  }}" class="w-10 h-10">
+                    <p>{{ $buddy->user->name }}</p>
+                </div>
+                <p class="mt-8">{!! nl2br(e($buddy->message)) !!}</p>
+            </div>
+        @empty
+            <p>ログはありません</p>
+        @endforelse
+    </section>
 
 </x-app-layout>
