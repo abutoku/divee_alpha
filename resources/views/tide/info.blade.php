@@ -21,27 +21,31 @@
 
     {{-- 情報表示部分 --}}
     <section class="mt-8 flex justify-center">
-        <div class="bg-white drop-shadow-md rounded-lg w-[350px] sm:w-[600px] h-48 my-5 p-8">
+        <div class="bg-white drop-shadow-md rounded-lg w-[480px] sm:w-[600px] h-54 my-8 p-8">
 
             {{-- @dd($tide); --}}
-            <h1 class="font-bold text-2xl mb-4">{{ $name }}</h1>
+            <h1 class="font-bold text-2xl mb-8">{{ $name }}</h1>
             <div class="flex justify-between">
                 <div>
-                    <p>{{ $tide['moon']['title'] }}</p>
-                    <p>現在の水温</p>
-                    <p>{{ $temp }}℃</p>
+                    <p class="font-bold text-3xl mb-4" >{{ $tide['moon']['title'] }}</p>
+                    <div class="flex items-end">
+                        <p>現在の水温 :  </p>
+                        <p class="font-bold text-3xl">{{ $temp }}℃</p>
+                    </div>
                 </div>
 
-                <div>
-                    <p>干潮</p>
-                    <p>{{ $tide['edd'][0]['time'] }}</p>
-                    <p>{{ $tide['edd'][1]['time']}}</p>
-                </div>
+                <div class="flex">
+                    <div class="mr-8">
+                        <p class="font-bold">干潮</p>
+                        <p>{{ $tide['edd'][0]['time'] }}</p>
+                        <p>{{ $tide['edd'][1]['time']}}</p>
+                    </div>
 
-                <div>
-                    <p>満潮</p>
-                    <p>{{ $tide['flood'][0]['time'] }}</p>
-                    <p>{{ $tide['flood'][1]['time']}}</p>
+                    <div>
+                        <p class="font-bold">満潮</p>
+                        <p>{{ $tide['flood'][0]['time'] }}</p>
+                        <p>{{ $tide['flood'][1]['time']}}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -49,8 +53,8 @@
 
     {{-- グラフ表示部分 --}}
     <section class="flex justify-center flex-col items-center">
-        <p>水温</p>
-        <div class="w-[600px] h-[350px] bg-slate-50">
+        <p>水温グラフ</p>
+        <div class="w-[480px] sm:w-[600px] h-[350px] bg-slate-50 border-2 rounded-lg border-divenavy">
             <canvas id="my_chart"></canvas>
         </div>
     </section>
