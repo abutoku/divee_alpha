@@ -6,21 +6,24 @@
         </a>
     </x-slot>
 
-    <!-- 選択ボタン -->
-    <section class="flex mt-8 mb-8 justify-center sm:justify-start">
-        <a href="{{ route('map.site') }}"
+
+
+        <!-- 選択ボタン -->
+        <section class="flex mt-16 mb-8 justify-center sm:justify-start">
+            <a href="{{ route('map.site') }}"
             class="rounded-2xl py-1 w-[200px] border-2 border-divenavy flex justify-around">
             MAPに戻る</a>
-    </section>
+        </section>
 
-    <div>
-        @forelse ($logs as $log)
-        <p>{{ $log->date }}</p>
-        <p>{{ $log->book->fish_name }}</p>
-        <p>{{ $log->user->name }}</p>
-        @empty
-        情報はありません
-        @endforelse
+        <div>
+            @forelse ($logs as $log)
+            <p>{{ $log->date }}</p>
+            <p>{{ $log->book->fish_name }}</p>
+            <p>{{ $log->user->name }}</p>
+            @empty
+            情報はありません
+            @endforelse
+        </div>
+
     </div>
-
 </x-app-layout>

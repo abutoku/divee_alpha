@@ -7,7 +7,7 @@
     </x-slot>
 
     <!-- 選択ボタン -->
-    <section class="flex mt-8 mb-8 justify-center sm:justify-start">
+    <section class="flex mt-16 mb-8 justify-center sm:justify-start">
         <div class="rounded-2xl py-1 w-[200px] mr-4 border-2 border-divenavy bg-divenavy text-white flex justify-around">
             場所</div>
         <a href="{{ route('map.fish') }}" class="rounded-2xl py-1 mr-4 w-[200px] border-2 border-divenavy flex justify-around">

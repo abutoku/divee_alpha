@@ -92,7 +92,7 @@
         </div>
 
         <!-- ヘッダー部分 -->
-        <header class="w-full h-10 px-6 fixed flex justify-between items-center border-b border-gray-300 bg-paper z-20">
+        <header class="w-full h-14 px-6 fixed flex justify-between items-center border-b border-gray-300 bg-paper z-20">
             <!-- ハンバーガーアイコン -->
             <div id="hamburger">
                 <svg class="h-8 w-8 text-gray-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
