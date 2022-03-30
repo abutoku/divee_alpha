@@ -54,6 +54,13 @@
         </section>
         {{-- マイプロフィール表示部分ここまで --}}
 
+        <section class="flex justify-center mt-8 lg:justify-start">
+            <div class="rounded-2xl py-1 w-[200px] mr-4 border-2 border-divenavy text-divenavy flex justify-around">
+                ステータス</div>
+            <div class="rounded-2xl py-1 w-[200px] border-2 border-divenavy  bg-divenavy text-white flex justify-around">
+                BUDDY LIST</div>
+        </section>
+
     </div>
     <!-- wrapperここまで -->
 </x-app-layout>

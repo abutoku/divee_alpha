@@ -5,7 +5,6 @@
             <x-text-logo />
         </a>
     </x-slot>
-
     {{-- ポイント選択部分 --}}
     <section class="mt-24">
         <form action="{{ route('tide.change') }}" method="post">
@@ -21,8 +20,8 @@
     </section>
 
     {{-- 情報表示部分 --}}
-    <section class="mt-24 flex justify-center">
-        <div class="bg-white drop-shadow-md rounded-lg w-[350px] sm:w-[600px] h-48 my-5 p-4">
+    <section class="mt-8 flex justify-center">
+        <div class="bg-white drop-shadow-md rounded-lg w-[350px] sm:w-[600px] h-48 my-5 p-8">
 
             {{-- @dd($tide); --}}
             <h1 class="font-bold text-2xl mb-4">{{ $name }}</h1>

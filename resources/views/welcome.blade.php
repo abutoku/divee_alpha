@@ -82,6 +82,17 @@
         font-family: 'Press Start 2P', cursive;
     }
 
+    @media screen and (max-width: 480px) {
+    /* 480px以下に適用されるCSS（スマホ用） */
+    .top-btn {
+        width: 120px;
+        height:40px;
+    }
+    .sigin-in {
+        font-size: 12px;
+    }
+
+    }
     </style>
 
 </head>
@@ -175,7 +186,7 @@
     });
 
     }
-    
+
     </script>
 </body>
 </html>
