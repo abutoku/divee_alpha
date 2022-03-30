@@ -17,11 +17,10 @@ class CreateBuddiesTable extends Migration
             $table->id();
             $table->bigInteger('dive_count');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('buddy_id');
+            $table->bigInteger('buddy_id');
             $table->string('message');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('buddy_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

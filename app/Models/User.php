@@ -92,6 +92,12 @@ class User extends Authenticatable
         return $this->hasMany(Log::class);
     }
 
+    //$user->buddies
+    public function buddies()
+    {
+        return $this->hasMany(Buddy::class);
+    }
+
     //自分のuser_idのLogを抽出（1対多）
     public function mylogs()
     {

@@ -8,7 +8,7 @@
 
     <section class="mt-24 flex justify-center">
         <form action="{{ route('buddy.store') }}" method="post" class="flex flex-col w-[300px]">
-
+            @csrf
             <select name="dive_count" class="rounded-lg border-2 border-divenavy">
                 <option disabled selected value>ダイブ本数</option>
                 <option value="1">1</option>
