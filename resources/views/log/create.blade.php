@@ -20,7 +20,7 @@
                     </div>
                 {{-- 生物名 --}}
                     <div>
-                        <div class="pr-8 mt-6">名前</div>
+                        <div class="pr-8 mt-6">生物名</div>
                         <input type="text" name="name" class="rounded-lg border-2 border-divenavy  w-[250px] sm:w-[300px]">
                     </div>
                 {{-- 潜水地 --}}
@@ -46,7 +46,7 @@
                         <input  type="number" value="20"  min="0" name="temp" class="rounded-lg border-2 border-divenavy  w-[120px]  mb-10">  ℃
                     </div>
 
-                    <a href="#" id="add_tag" class="inline-flex items-center px-4 py-2 bg-divenavy border border-transparent rounded-md font-semibold text-xs text-white  hover:bg-gray-700 disabled:opacity-25 transition ease-in-out duration-150">タグを追加</a>
+                    {{-- <a href="#" id="add_tag" class="inline-flex items-center px-4 py-2 bg-divenavy border border-transparent rounded-md font-semibold text-xs text-white  hover:bg-gray-700 disabled:opacity-25 transition ease-in-out duration-150">タグを追加</a> --}}
 
 
                     {{-- 画像を登録するボタン --}}
