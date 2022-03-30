@@ -945,6 +945,18 @@ select {
 .w-10 {
   width: 2.5rem;
 }
+.w-\[480px\] {
+  width: 480px;
+}
+.w-\[490px\] {
+  width: 490px;
+}
+.w-\[40px\] {
+  width: 40px;
+}
+.w-\[0px\] {
+  width: 0px;
+}
 .max-w-7xl {
   max-width: 80rem;
 }
