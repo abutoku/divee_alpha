@@ -1,8 +1,12 @@
 <x-app-layout>
     {{-- ヘッダーロゴ部分 --}}
-    <x-slot name="iconArea">
+    <x-slot name="iconLeft">
+        <x-hamburger />
+    </x-slot>
+
+    <x-slot name="iconRight">
         <a href={{ route('dashboard') }}>
-            <x-text-logo/>
+            <x-text-logo />
         </a>
     </x-slot>
 
@@ -30,7 +34,7 @@
 
 <hr>
 <div class="flex justify-center items-center mt-10">
-    
+
     <x-button id="select_picture" class="mr-6">サムネイル変更</x-button>
     <x-button id="delete_picture">写真を削除</x-button>
 

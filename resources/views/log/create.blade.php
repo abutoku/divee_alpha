@@ -1,15 +1,18 @@
 <x-app-layout>
     {{-- ヘッダーロゴ部分 --}}
-    <x-slot name="iconArea">
+    <x-slot name="iconLeft">
+        <a href="{{ route('log.index') }}">back</a>
+    </x-slot>
+
+    <x-slot name="iconRight">
         <a href={{ route('dashboard') }}>
             <x-text-logo/>
         </a>
     </x-slot>
 
     <!--wrapper-->
-    <div class="flex justify-center mt-6">
-
-        <div class="px-2 pb-8 flex justify-center w-[400px] sm:w-[600px]">
+    <div class="flex justify-center mt-12">
+        <div class="mt-6 px-2 pb-8 flex justify-center w-[400px] sm:w-[600px]">
             <form action="{{ route('log.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 {{-- 日付 --}}
@@ -63,7 +66,6 @@
 
                     {{-- 登録ボタン --}}
                     <x-button class="my-8">登録終了</x-button><br>
-                    <a href="{{ route('log.index') }}" >back</a>
                 </div>
             </form>
         </div>

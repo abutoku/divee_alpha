@@ -9,10 +9,15 @@
 
     <title>Divee</title>
 
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+
     <!-- tailwind_css -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- css_file -->
     <link rel="stylesheet" href="{{ url('css/style.css') }}">
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
     @livewireStyles
 </head>
 
@@ -93,18 +98,10 @@
 
         <!-- ヘッダー部分 -->
         <header class="w-full h-14 px-6 fixed flex justify-between items-center border-b border-gray-300 bg-paper z-20">
-            <!-- ハンバーガーアイコン -->
-            <div id="hamburger">
-                <svg class="h-8 w-8 text-gray-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                    stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" />
-                    <line x1="4" y1="6" x2="20" y2="6" />
-                    <line x1="4" y1="12" x2="20" y2="12" />
-                    <line x1="4" y1="18" x2="20" y2="18" />
-                </svg>
-            </div>
+            <!-- 画面右上に表示される場所 -->
+            <div>{{ $iconLeft }}</div>
             <!-- 画面左上に表示される場所 -->
-            <div>{{ $iconArea }}</div>
+            <div>{{ $iconRight }}</div>
         </header>
 
         {{-- wrapper --}}
