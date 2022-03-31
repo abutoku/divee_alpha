@@ -1,8 +1,12 @@
 <x-app-layout>
     {{-- ヘッダーロゴ部分 --}}
-    <x-slot name="iconArea">
+    <x-slot name="iconLeft">
+        <x-hamburger />
+    </x-slot>
+
+    <x-slot name="iconRight">
         <a href={{ route('dashboard') }}>
-            <x-text-logo/>
+            <x-text-logo />
         </a>
     </x-slot>
     {{-- ------新規ログの入力画面------- --}}

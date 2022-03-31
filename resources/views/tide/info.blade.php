@@ -1,10 +1,15 @@
 <x-app-layout>
     {{-- ヘッダーロゴ部分 --}}
-    <x-slot name="iconArea">
+    <x-slot name="iconLeft">
+        <x-hamburger />
+    </x-slot>
+
+    <x-slot name="iconRight">
         <a href={{ route('dashboard') }}>
             <x-text-logo />
         </a>
     </x-slot>
+    
     {{-- ポイント選択部分 --}}
     <section class="mt-24">
         <form action="{{ route('tide.change') }}" method="post">
