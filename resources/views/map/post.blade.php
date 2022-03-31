@@ -69,7 +69,7 @@
             map:map,
             icon : {
             url: '../storage/uploads/pin03.png',
-            scaledSize: new google.maps.Size(36, 46)
+            scaledSize: new google.maps.Size(36, 36)
             },
             title:'hello!',
             animation: google.maps.Animation.BOUNCE,

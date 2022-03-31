@@ -22,14 +22,14 @@
         <!-- profile -->
         <section class="flex justify-around lg:w-1/2">
                 <!-- ユーザー名表示 -->
-                <a href="{{ route('profile.show', Auth::user()->id ) }}" class="mb-10 p-6 bg-slate-50 rounded-lg drop-shadow-md w-11/12 h-48 lg:h-96">
-
+                <a href="{{ route('profile.show', Auth::user()->id ) }}"
+                    class="flex flex-col justify-end mb-10 p-6 bg-slate-50 rounded-lg drop-shadow-md w-11/12 h-64 lg:h-96 bg-cover"
+                    style="background-image: url('storage/uploads/cover.jpg');">
                     <img src="{{ Storage::url(Auth::user()->profile->profile_image) }}"
-                        class="h-12 w-12 rounded-full object-cover bg-white mr-4 mb-2">
-                    <div class="text-2xl font-bold mb-2">{{ Auth::user()->name }}</div>
-                    <div class="text-lg ">{{ Auth::user()->profile->dive_count }}DIVE</div>
-                    <div class="text-lg ">card rank : {{ Auth::user()->profile->card_rank }}</div>
-
+                        class="h-24 w-24 rounded-full object-cover bg-white mr-4 mb-2">
+                    <div class="text-2xl font-bold text-white bg-black bg-opacity-50">{{ Auth::user()->name }}</div>
+                    <div class="text-lg text-white bg-black bg-opacity-50">{{ Auth::user()->profile->dive_count }}DIVE</div>
+                    <div class="text-lg text-white bg-black bg-opacity-50">card rank : {{ Auth::user()->profile->card_rank }}</div>
                 </a>
         </section>
 

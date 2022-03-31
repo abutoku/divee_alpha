@@ -81,7 +81,7 @@ class PostController extends Controller
 
 
 
-        return redirect()->route('picture.edit',$result->id);
+        return redirect()->route('map.post');
     }
 
     /**
@@ -99,13 +99,6 @@ class PostController extends Controller
         //$postをpost.showに渡す
         return view('post.show', ['post' => $post]);
 
-        //Eagerロード練習
-
-        // $log = Log::with(['log','comment','user'])
-        // ->where('log.id',$id)
-        // ->get();
-
-        // return view('log.show', ['log' => $log]);
     }
 
     /**

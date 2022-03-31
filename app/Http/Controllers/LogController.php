@@ -18,9 +18,6 @@ use App\Models\Book;
 use App\Models\Site;
 use App\Models\Location;
 
-use Monolog\Handler\NullHandler;
-
-
 
 class LogController extends Controller
 {
