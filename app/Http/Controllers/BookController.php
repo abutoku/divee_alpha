@@ -75,10 +75,16 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //受け取った ID の値でテーブルからデータを取り出して$logに代入
         $book = Book::find($id);
-        //$postをpost.showに渡す
-        return view('book.show', ['book' => $book]);
+        
+        //logからuser_idとbook_idが一致しているものを取得
+        $logs = Log::where('user_id',Auth::user()->id)
+                    ->where('book_id',$id)->get();
+
+        return view('book.show', [
+            'book' => $book,
+            'logs' => $logs,
+        ]);
 
     }
 
