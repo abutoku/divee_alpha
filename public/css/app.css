@@ -848,6 +848,9 @@ select {
 .h-\[350px\] {
   height: 350px;
 }
+.h-24 {
+  height: 6rem;
+}
 .h-40 {
   height: 10rem;
 }
@@ -1713,6 +1716,10 @@ select {
     height: 500px;
   }
 
+  .sm\:h-40 {
+    height: 10rem;
+  }
+
   .sm\:h-60 {
     height: 15rem;
   }
@@ -1790,12 +1797,37 @@ select {
     padding-top: 0px;
   }
 
+  .sm\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
   .sm\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
   }
 }
 @media (min-width: 768px) {
+
+  .md\:mt-8 {
+    margin-top: 2rem;
+  }
+
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:w-\[900px\] {
+    width: 900px;
+  }
+
+  .md\:w-full {
+    width: 100%;
+  }
+
+  .md\:w-1\/2 {
+    width: 50%;
+  }
 
   .md\:w-20 {
     width: 5rem;
