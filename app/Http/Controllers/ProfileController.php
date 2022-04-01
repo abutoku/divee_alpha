@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 //model
 use App\Models\User;
 use App\Models\Profile;
+use App\Models\Buddy;
 
 
 class ProfileController extends Controller
@@ -104,6 +105,19 @@ class ProfileController extends Controller
         $profile = Profile::where('user_id',$id)->first();
         //profile.indexに$profileと$userを渡す
         return view('profile.show', ['profile' => $profile]);
+    }
+
+    public function list($id)
+    {
+        //profle_tableからユーザーidが一致するレコードを取得
+        $profile = Profile::where('user_id',$id)->first();
+        $buddies = Buddy::where('buddy_id',$id)->groupBy('user_id')->get('user_id');
+
+        return view('profile.list', [
+            'profile' => $profile,
+            'buddies' => $buddies,
+        ]);
+
     }
 
     /**

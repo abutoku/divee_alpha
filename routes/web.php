@@ -60,6 +60,11 @@ Route::resource('post', PostController::class);
 
 Route::resource('profile', ProfileController::class);
 
+//ステータス画面切り替え
+Route::get('/profile/{profile}/list', [ProfileController::class,'list'])
+->name('profile.list');
+
+
 //サムネイル変更のルート
 Route::post('picture/{picture}/change', [PictureController::class,'change'])
 ->name('picture.change');
