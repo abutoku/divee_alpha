@@ -27,7 +27,7 @@
                     @if ($profile->user_id === Auth::user()->id)
                     <a href="{{ route('profile.edit',$profile->id)  }}" class="text-xs">
                         プロフィール画像変更</a>
-                        @endif
+                    @endif
 
                     </div>
 
@@ -57,36 +57,30 @@
             </section>
             {{-- マイプロフィール表示部分ここまで --}}
 
-            {{-- ログインユーザーかどうかの条件分岐 --}}
-            @if($profile->id == Auth::user()->id)
+            {{-- 選択ボタン --}}
+            <section class="flex justify-center mt-8 ">
+                <a href={{ route('profile.show',$profile->id ) }} class="rounded-2xl py-1 w-[120px] sm:w-[200px] mr-4 border-2
+                    border-divenavy text-divenavy flex justify-around">
+                    ステータス</a>
+                <div
+                    class="rounded-2xl py-1 w-[120px] sm:w-[200px] border-2 border-divenavy  bg-divenavy text-white flex justify-around">
+                    BUDDY LIST</div>
+            </section>
+            {{-- バディリスト --}}
+            <section class="mt-10">
+                @forelse ( $buddies as $buddy )
+                <a href="{{ route('profile.show',$buddy->user->id ) }}">
+                    <div class="flex justify-start items-center bg-white drop-shadow-md rounded-lg mt-2 h-16">
+                        <img src="{{ Storage::url($buddy->user->profile->profile_image) }}"
+                            class="h-8 w-8 ml-4 rounded-full object-cover bg-white my-6">
+                        <p class="ml-4">{{ $buddy->user->name }}</p>
+                    </div>
+                </a>
+                @empty
+                <p>情報はありません</p>
+                @endforelse
+            </section>
 
-                {{-- 選択ボタン --}}
-                <section class="flex justify-center mt-8 ">
-                    <div class="rounded-2xl py-1 w-[120px] sm:w-[200px] mr-4 border-2 border-divenavy bg-divenavy text-white flex justify-around">
-                        ステータス</div>
-
-                    <a href="{{ route('profile.list',$profile->id ) }}" class="rounded-2xl py-1 w-[120px] sm:w-[200px] border-2 border-divenavy  text-divenavy flex justify-around">
-                        BUDDY LIST</a>
-                </section>
-
-                <section class="mt-12">
-                    <p>未実装</p>
-                </section>
-            @else
-                <section class="mt-12">
-                    <a href="{{ route('buddy.create') }}">
-                        <x-button>
-                            <svg class="h-5 w-5 text-white" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
-                            </svg>ログ投稿
-                        </x-button>
-                    </a>
-                </section>
-
-            @endif
-            {{-- 条件分岐ここまで --}}
         </div>
     </div>
     <!-- wrapperここまで -->
