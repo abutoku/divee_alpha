@@ -35,7 +35,7 @@
                 <div class="bg-white rounded-lg drop-shadow-md w-[400px] sm:w-[650px] p-4 mt-4">
                     <p class="mb-2 text-xs">{{ $buddy->user->created_at->format('Y/m/d') }}</p>
                     <div class="flex justify-start items-center mb-4">
-                        <img src="{{  Storage::url($buddy->user->profile->profile_image)  }}" class="w-10 h-10">
+                        <img src="{{  Storage::url($buddy->user->profile->profile_image)  }}" class="mr-2 w-10 h-10">
                         <p>{{ $buddy->user->name }}</p>
                     </div>
                     <p class="mt-8">{!! nl2br(e($buddy->message)) !!}</p>

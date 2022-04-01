@@ -1,7 +1,13 @@
 <x-app-layout>
     {{-- ヘッダーロゴ部分 --}}
     <x-slot name="iconLeft">
-        <x-hamburger />
+        <a href="{{ route('map.post') }}" class="flex">
+            <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6" />
+            </svg>
+            <span class="ml-2 text-divenavy">back</span>
+        </a>
     </x-slot>
 
     <x-slot name="iconRight">
@@ -12,44 +18,40 @@
     {{-- ------新規ログの入力画面------- --}}
 
     {{-- ------入力フォーム-------------- --}}
-    <div class="flex justify-center mt-10">
+    <div class="flex justify-center mt-16">
 
-        <div class="px-2 pb-8 rounded-lg shadow-lg bg-white flex justify-center w-[400px] sm:w-[600px]">
+        <div class="px-2 pb-8 rounded-lg shadow-lg bg-white flex justify-center w-[400px] sm:w-[600px] p-2 ">
 
             <form action="{{ route('post.store') }}" method="POST">
                 @csrf
                 {{-- 日付 --}}
-                <div class="mt-8">
+                <div class="mt-8 flex flex-col items-center">
                     <div>
                         <div class="pr-8">date</div>
-                        <input type="date" name="date" class="w-[250px] sm:w-[300px] rounded-lg border-2 border-divenavy">
+                        <input type="date" name="date" class="w-[300px] sm:w-[400px] rounded-lg border-2 border-divenavy">
                     </div>
                 {{-- コメント --}}
                     <div>
                         <div class="pr-8 mt-6">コメント</div>
-                        <textarea name="message" class="rounded-lg border-2 border-divenavy  h-36 w-[250px] sm:w-[300px] mb-8"></textarea>
+                        <textarea name="message" class="rounded-lg border-2 border-divenavy  h-36 w-[300px] sm:w-[400px] mb-8"></textarea>
                     </div>
                 </div>
 
                 <div>場所を選択</div>
                 {{-- 地図 --}}
-                <div id="target" class="w-[300px] h-[200px]"></div>
+                <div id="target" class="w-[400px] h-[300px]"></div>
                 <input type="hidden" id="latitude" name="latitude">
                 <input type="hidden" id="longitude" name="longitude">
 
                 {{-- 登録ボタン --}}
-                <x-button class="my-8">登録</x-button><br>
-                {{-- ログ一覧に戻るボタン --}}
-                <a href="{{ route('post.index') }}" >back</a>
+                <x-button class="my-12 ml-4">登録</x-button>
                 {{-- ------入力フォームここまで-------------- --}}
-
             </form>
         </div>
     </div>
 </x-app-layout>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{ config('app.google_api') }}&callback=initMap"></script>
-{{-- <script src="{{ mix('js/map.js') }}"></script> --}}
 
 
 <script>
