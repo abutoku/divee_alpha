@@ -25,12 +25,21 @@
         <div id="place_seach" class="my-8 mr-2 flex items-end w-full">
             <div class="mr-8">
                 <p class="text-sm mb-2">ポイント名</p>
+                @if($val)
+                <p id="site_name" class="text-4xl font-bold">{{ $val->site_name }}</p>
+                @else
                 <p id="site_name" class="text-4xl font-bold">選択されていません</p>
+                @endif
             </div>
+
             <section class="flex justify-center">
                 <form action="{{ route('map.getSiteLog') }}" method="POST">
                     @csrf
-                    <input type="hidden" name="siteid" id="site_id">
+                    @if($val)
+                    <input type="hidden" name="siteid" id="site_id" value="{{ $val->id }}">
+                    @else
+                    <input type="hidden" name="siteid" id="site_id" >
+                    @endif
                     <x-button>検索</x-button>
                 </form>
             </section>
@@ -40,6 +49,16 @@
         <section class="flex justify-center">
             <div id="target" class="w-[500px] h-[400px] sm:w-[1200px] sm:h-[600px]"></div>
         </section>
+
+        <div>
+            @forelse ($logs as $log)
+            <p>{{ $log->date }}</p>
+            <p>{{ $log->book->fish_name }}</p>
+            <p>{{ $log->user->name }}</p>
+            @empty
+            情報はありません
+            @endforelse
+        </div>
 
     </div>
 

@@ -19,15 +19,22 @@ class MapController extends Controller
         $sites = Site::all();
         return view('map.site',[
             'sites' => $sites,
+            'logs' => [],
+            'val' => [],
         ]);
     }
 
     //選択されたポイントのログを探す
     public function getSiteLog(Request $request)
     {
+        $sites = Site::all();
         $logs = Log::where('site_id',$request->siteid)->get();
-        return view('map.show',[
+        $val = Site::find($request->siteid);
+
+        return view('map.site',[
+            'sites' => $sites,
             'logs' => $logs,
+            'val' => $val,
         ]);
     }
 
