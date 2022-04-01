@@ -9,7 +9,7 @@
             <x-text-logo />
         </a>
     </x-slot>
-    
+
     {{-- ポイント選択部分 --}}
     <section class="mt-24">
         <form action="{{ route('tide.change') }}" method="post">
@@ -17,7 +17,10 @@
             <select name="site" class="rounded-lg border-2 border-divenavy">
                 <option disabled selected value>ポイントを選択</option>
                 @foreach ($points as $point)
-                    <option value="{{ $point->id }}">{{ $point->site_name }}</option>
+                    <option value="{{ $point->id }}"
+                        {{ isset($val) && $point->id === $val ? 'selected' : ''}}>
+                        {{ $point->site_name }}
+                    </option>
                 @endforeach
             </select>
             <x-button>表示切り替え</x-button>
