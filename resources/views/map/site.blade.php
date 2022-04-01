@@ -45,23 +45,48 @@
             </section>
         </div>
 
-        <!-- 地図 -->
-        <section class="flex justify-center">
-            <div id="target" class="w-[500px] h-[400px] sm:w-[1200px] sm:h-[600px]"></div>
-        </section>
+        <div class="lg:flex lg:justify-around w-full">
+            <!-- 地図 -->
+            <section class="flex justify-center">
+                <div id="target" class="w-[500px] h-[400px] sm:w-[1200px] lg:w-[1000px] sm:h-[600px]"></div>
+            </section>
+            <!-- 情報表示 -->
+            <section class="flex justify-center mt-12 lg:mt-0">
+                <div>
+                @forelse ($logs as $log)
+                    @if($log->image)
+                        <div class="flex justify-between items-center bg-white rounded-lg drop-shadow-md h-36  w-[400px] mb-4">
 
-        <div>
-            @forelse ($logs as $log)
-            <p>{{ $log->date }}</p>
-            <p>{{ $log->book->fish_name }}</p>
-            <p>{{ $log->user->name }}</p>
-            @empty
-            情報はありません
-            @endforelse
+                            <div class="p-4">
+                                <p class="text-xs">{{ $log->date }}</p>
+                                <div class="flex justify-start items-center mb-4">
+                                    <img src="{{  Storage::url($log->user->profile->profile_image)  }}" class="mr-2 w-8 h-8 rounded-full">
+                                    <p>{{ $log->user->name }}</p>
+                                </div>
+                                <p>{{ $log->book->fish_name }}</p>
+                            </div>
+
+                            <img src="{{  Storage::url( $log->image )  }}" class="h-36 w-36 rounded-r-lg object-cover">
+
+                        </div>
+                    @else
+                        <div class="p-4 w-[400px] mb-4  bg-white rounded-lg drop-shadow-md">
+                            <p class="text-xs">{{ $log->date }}</p>
+                            <div class="flex justify-start items-center mb-4">
+                                <img src="{{  Storage::url($log->user->profile->profile_image)  }}" class="mr-2 w-8 h-8 rounded-full">
+                                <p>{{ $log->user->name }}</p>
+                            </div>
+                            <p>{{ $log->book->fish_name }}</p>
+                        </div>
+                    @endif
+                @empty
+                    <p>情報がありません</p>
+                @endforelse
+                </div>
+            </section>
         </div>
 
     </div>
-
 </x-app-layout>
 
     {{-- google map --}}
