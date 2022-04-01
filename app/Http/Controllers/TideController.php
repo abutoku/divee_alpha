@@ -127,12 +127,16 @@ class TideController extends Controller
             $data->dec,
         ];
 
+        //オプションデータの設定用
+        $val = $data->id;
+
         return view('tide.info',[
             'points' => $points,
             'tide' => $tide,
             'name' => $name,
             'temp' => $temp,
             'num' => $num,
+            'val' => $val,
         ]);
 
     }

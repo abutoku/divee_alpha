@@ -4,10 +4,10 @@
         <x-hamburger />
     </x-slot>
 
-    <x-slot name="iconRight">
-        {{-- ロゴなし --}}
-    </x-slot>
-    
+    <a href={{ route('dashboard') }}>
+        <x-text-logo />
+    </a>
+
 
     <section class="mt-12">
 
