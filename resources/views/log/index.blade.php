@@ -96,7 +96,7 @@
                                     </svg>
                                 </button>
                                 {{-- 削除ボタン --}}
-                                <form x-show="open" x-transition action="{{ route('log.destroy',$log->id )}}" method="post">
+                                <form x-show="open" x-cloak x-transition action="{{ route('log.destroy',$log->id )}}" method="post">
                                     @method('delete')
                                     @csrf
                                     <button type="submit" class="mt-6 py-2 px-4 border rounded-lg">削除</button>
