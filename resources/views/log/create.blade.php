@@ -50,7 +50,7 @@
                         {{-- 水深 --}}
                         <div>
                             <div class="pr-8 mt-6">水深</div>
-                            <input type="number" value="50" min="0" name="depth" class="rounded-lg border-2 border-divenavy  w-[120px] ">  M
+                            <input type="number" value="10" min="0" name="depth" class="rounded-lg border-2 border-divenavy  w-[120px] ">  M
                         </div>
                         {{-- 水温 --}}
                         <div>

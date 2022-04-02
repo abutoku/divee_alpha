@@ -18,6 +18,7 @@ class CreateProfilesTable extends Migration
             $table->string('card_rank');
             $table->unsignedBigInteger('dive_count');
             $table->string('profile_image')->nullable();
+            $table->string('cover_image')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
