@@ -52,38 +52,54 @@
     </section>
 
     {{-- -----ログ表示部分----- --}}
-    <div class="md:flex md:justify-center ">
+    <div class="md:flex md:justify-center">
 
-        <section class="mt-12 flex justify-center md:w-1/2 ">
-            <div>
-                @foreach ($logs as $log)
-                <div class="bg-white rounded-lg drop-shadow-md w-[480px] md:w-[600px] mb-4 p-4">
+        <section class="mt-12 lg:w-1/2">
+            @foreach ($logs as $log)
+            <div x-data="{ open: false }" @click.away="open = false" @close.stop="open = false" class="flex justify-center ">
+
+                <div class="bg-white rounded-lg drop-shadow-md w-[400px] lg:w-11/12 mb-4 p-4  hover:bg-gray-100 cursor-pointer"  @click="open = ! open">
                     <div class="flex">
-                        <p>{{ $log->date }}</p>
+                        <p class="mr-4">{{ $log->date }}</p>
                         <p>{{ $log->site->site_name }}</p>
                     </div>
-                    <div >
-                        <p>水温: {{ $log->temp }}</p>
-                        <p>水深: {{ $log->depth }}</p>
-                    </div>
                 </div>
-                @endforeach
+
+                {{-- モーダル部分 --}}
+                <div class="inset-0 w-full h-full fixed flex items-center justify-center z-20"
+                style="background-color: rgba(0,0,0,.5);" x-show="open" x-cloak>
+
+                    <div class="text-left bg-white h-auto p-4 md:max-w-xl md:p-6 lg:p-8 shadow-xl rounded mx-2 md:mx-0"
+                    @click.away="open = false">
+                        <h2 class="text-2xl font-bold mb-2">{{ $book->fish_name }}</h2>
+                        <p class="text-xs">{{ $log->date }}</p>
+                        <p>{{ $log->site->site_name }}</p>
+                        <p>水温 : {{ $log->temp }} ℃</p>
+                        <p class="mb-4">水深 : {{ $log->depth }} M</p>
+                        @if($log->image)
+                        <img src="{{ Storage::url($log->image) }}" class="w-[300px] h-[200px] rounded-lg object-cover">
+                        @endif
+                        <div class="flex justify-center mt-8">
+                            <x-button class="bg-gray-700 text-white px-4 py-2 rounded no-outline focus:shadow-outline select-none"
+                            @click="open = false">Close</x-button>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
+            @endforeach
         </section>
 
-        <section class="hidden lg:block w-1/2">
+        <section class="hidden lg:block md:w-1/2">
             <div class="flex flex-wrap justify-around">
                 @foreach ($logs as $log)
                     @if($log->image)
-                    <img src="{{ Storage::url($log->image) }}" class="w-1/4 h-48 rounded-lg object-cover">
+                    <img src="{{ Storage::url($log->image) }}" class="w-56 h-40 rounded-lg object-cover mb-2">
                     @endif
                 @endforeach
             </div>
         </section>
 
     </div>
-
-
-
-
 </x-app-layout>
