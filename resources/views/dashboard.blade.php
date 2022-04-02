@@ -34,31 +34,48 @@
         </section>
 
         <!-- 各種ボタン -->
+
         <section class="lg:w-1/2">
 
-                <div class="flex justify-around">
-                    <a href="{{ route('log.index') }}" class=" rounded-lg drop-shadow-md w-5/12  h-32 lg:h-40  mb-6 flex justify-center items-center bg-cover" style="background-image: url('storage/uploads/log.jpg');">
-                        <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">生物ログ</span>
-                    </a>
+            <div class="flex justify-around">
+                <!-- 生物ログ-->
+                <a href="{{ route('log.index') }}" class=" rounded-lg drop-shadow-md w-5/12  h-32 lg:h-40  mb-6 flex justify-center items-center bg-cover" style="background-image: url('storage/uploads/log.jpg');">
+                    <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">生物ログ</span>
+                </a>
 
-                    <a href="{{ route('book.index') }}"
-                        class="rounded-lg drop-shadow-md w-5/12 2 h-32 lg:h-40 mb-6 flex justify-center items-center bg-cover" style="background-image: url('storage/uploads/picture.jpg');">
-                        <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">図鑑</span>
-                    </a>
-                </div>
+                <!-- 潮 -->
+                <a href="{{ route('tide.info') }}"
+                class="rounded-lg drop-shadow-md w-5/12  h-32 lg:h-40 mb-6 flex justify-center items-center bg-cover"
+                style="background-image: url('storage/uploads/tide.jpg');">
+                <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">潮</span>
+                </a>
+            </div>
 
-                <div class="flex justify-around ">
+            <div class="flex justify-around ">
+                <!-- 図鑑 -->
+                <a href="{{ route('book.index') }}"
+                class="rounded-lg drop-shadow-md w-5/12 2 h-32 lg:h-40 mb-6 flex justify-center items-center bg-cover"
+                style="background-image: url('storage/uploads/picture.jpg');">
+                <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">図鑑</span>
+                </a>
 
-                    <a href="{{ route('map.site') }}" class="rounded-lg drop-shadow-md w-5/12  h-32  lg:h-40 mb-6 flex justify-center items-center bg-cover" style="background-image: url('storage/uploads/map.jpg');">
-                        <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">Map</span>
-                    </a>
+                <!-- Map -->
+                <a href="{{ route('map.site') }}" class="rounded-lg drop-shadow-md w-5/12  h-32  lg:h-40 mb-6 flex justify-center items-center bg-cover" style="background-image: url('storage/uploads/map.jpg');">
+                    <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">Map</span>
+                </a>
+            </div>
 
-                    <a href="{{ route('tide.info') }}" class="rounded-lg drop-shadow-md w-5/12  h-32 lg:h-40 mb-6 flex justify-center items-center bg-cover" style="background-image: url('storage/uploads/sea.jpg');">
-                        <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">潮</span>
-                    </a>
-
-                </div>
+            <div class="flex justify-around w-full">
+                <!-- 陸の情報 -->
+                <a href="{{ route('map.post') }}"
+                    class="flex justify-center items-center mb-10 p-6  rounded-lg drop-shadow-md w-11/12 h-32 lg:h-40 bg-cover"
+                    style="background-image: url('storage/uploads/aft.jpg');">
+                    <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">After Diving</span>
+                </a>
+            </div>
         </section>
 
+
+        <!-- 各種ボタンここまで -->
     </div>
 </x-app-layout>
