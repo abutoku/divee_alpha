@@ -20,9 +20,7 @@
             class="rounded-2xl py-1 w-[200px] mr-4 border-2 border-divenavy bg-divenavy text-white flex justify-around">
             生物名</div>
 
-        <a href="{{ route('map.post') }}"
-            class="rounded-2xl py-1 w-[200px] border-2 border-divenavy text-divenavy flex justify-around">
-            投稿記事</a>
+
     </section>
 
     <form action="{{ route('map.search') }}" method="POST">

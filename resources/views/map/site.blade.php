@@ -16,8 +16,6 @@
             場所</div>
         <a href="{{ route('map.fish') }}" class="rounded-2xl py-1 mr-4 w-[200px] border-2 border-divenavy flex justify-around">
             生物名</a>
-        <a href="{{ route('map.post') }}" class="rounded-2xl py-1 w-[200px] border-2 border-divenavy flex justify-around">
-            投稿記事</a>
     </section>
 
     <!-- ポイント選択部分 -->
