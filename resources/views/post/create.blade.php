@@ -30,6 +30,11 @@
                         <div class="pr-8">date</div>
                         <input type="date" name="date" class="w-[300px] sm:w-[400px] rounded-lg border-2 border-divenavy">
                     </div>
+                {{-- タイトル --}}
+                    <div>
+                        <div class="pr-8 mt-6">タイトル</div>
+                        <textarea name="title" class="rounded-lg border-2 border-divenavy  h-36 w-[300px] sm:w-[400px] mb-8"></textarea>
+                    </div>
                 {{-- コメント --}}
                     <div>
                         <div class="pr-8 mt-6">コメント</div>

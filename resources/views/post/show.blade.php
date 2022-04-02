@@ -87,18 +87,17 @@
                     <circle cx="12" cy="5" r="1" />
                 </svg>
             </button>
-            <div x-show="open" x-transition class="border rounded-lg" x-cloak>
+            <div x-show="open" x-transition class="absolute border rounded-lg bg-white p-4 flex flex-col justify-center mt-6" x-cloak>
                 {{-- 削除ボタン --}}
                 <form action="{{ route('post.destroy',$post->id )}}" method="post">
                     @method('delete')
                     @csrf
-                    <button type="submit" class="mt-6 py-2 px-4">削除</button>
+                    <button>削除</button>
                 </form>
-
                 {{-- 更新ボタン --}}
                 <form action="{{ route('post.edit',$post->id )}}" method="get">
                     @csrf
-                    <button type="submit" class="flex justify-end mx-2">編集</button>
+                    <button>編集</button>
                 </form>
                 {{-- 写真追加ボタン --}}
                 <form action="{{ route('picture.edit',$post->id) }}" method="get">
@@ -127,7 +126,7 @@
     <div class="mt-4">
         {{-- comments()とすることで条件の指定が可能 --}}
         @foreach ($post->comments()->latest()->get() as $comment)
-            <div class="flex justify-between">
+            <div class="flex justify-between mt-6">
                 <div class="flex justify-start items-center">
                     <img src="{{ Storage::url( $comment->user->profile->profile_image) }}" class="rounded-full h-8 w-8 mr-2 mb-4">
                     <p>{{ $comment->user->name }}</p>
@@ -146,10 +145,10 @@
                             </svg>
                         </button>
                         {{-- 削除ボタン --}}
-                        <form x-show="open" x-cloak x-transition action="{{ route('comment.destroy',$comment )}}" method="post">
+                        <form x-show="open" x-cloak x-transition action="{{ route('comment.destroy',$comment )}}" method="post" >
                             @method('delete')
                             @csrf
-                            <button type="submit" class="mt-6 py-2 px-4 border rounded-lg">削除</button>
+                            <button class=" border rounded-lg bg-white p-4">削除</button>
                         </form>
                     </div>
                 @endif{{-- 削除ボタン表示の条件分岐ここまで--}}

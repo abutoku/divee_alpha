@@ -92,7 +92,7 @@
                     <p>Tips</p>
                 </div>
                 <div>
-                    <p>${post.date}</p>
+                    <p>${post.title}</p>
                 </div>
             </div>
             `,

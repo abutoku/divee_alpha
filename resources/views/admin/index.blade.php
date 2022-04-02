@@ -4,9 +4,9 @@
         <x-hamburger />
     </x-slot>
 
-    <a href={{ route('dashboard') }}>
-        <x-text-logo />
-    </a>
+    <x-slot name="iconRight">
+        {{-- ロゴなし --}}
+    </x-slot>
 
 
     <section class="mt-12">

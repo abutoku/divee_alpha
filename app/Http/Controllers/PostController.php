@@ -60,6 +60,7 @@ class PostController extends Controller
         // バリデーション
         $validator = Validator::make($request->all(), [
             'date' => 'required',
+            'title' => 'required',
             'message' => 'required',
         ]);
         // バリデーション:エラー
