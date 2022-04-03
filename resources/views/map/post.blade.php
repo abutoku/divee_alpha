@@ -10,6 +10,16 @@
         </a>
     </x-slot>
 
+    {{-- モーダル --}}
+
+    <section id="map_modal" class="w-full h-full">
+        <div id="map_mask" class="inset-0 w-full h-full fixed flex items-center justify-center z-20 bg-black bg-opacity-50">
+        </div>
+        <div class="absolute inset-0 m-auto bg-white h-36 w-36 p-4 rounded z-30">
+            <div id="output"></div>
+        </div>
+    </section>
+
     <!-- 選択ボタン -->
     <section class="flex mt-16 mb-8 justify-center sm:justify-start">
         <div class="rounded-2xl py-1 w-[200px] mr-4 border-2 border-divenavy bg-divenavy text-white flex justify-around">
@@ -46,15 +56,15 @@
 </script>
 
 <script>
-    $('#modal').hide();
+
+    $('#map_modal').hide();
 
     $('#map_mask').on('click',function(){
-        $('#modal').hide();
+        $('#map_modal').hide();
     });
 
     //受け取ったデータをjson化
     const posts = @json($posts);
-
 
     //投稿記事の地図設定
     function initMap() {
@@ -111,9 +121,8 @@
 
         //マーカーをホバーしたら情報ウィンドウを表示
         marker.addListener('click', () => {
-        infoWindow.setMap(null);
-
-        $('#modal').show();
+        // infoWindow.setMap(null);
+        $('#map_modal').show();
 
         const info = `
         <p>Tips</p>

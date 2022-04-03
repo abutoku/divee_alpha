@@ -111,9 +111,15 @@ class BookController extends Controller
         return redirect()->route('book.show', $id);
     }
 
-    //MEMO更新のメソッド
-    public function memo($id){
 
+    //MEMO更新のメソッド
+    public function memo($id)
+    {
+        $book = Book::find($id);
+
+        return view('book.memo', [
+            'book' => $book,
+        ]);
     }
 
     /**
@@ -125,7 +131,9 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $result = Book::find($id)->update(['info' => $request->info]);
+        return redirect()->route('book.show', $id);
+        
     }
 
     /**
