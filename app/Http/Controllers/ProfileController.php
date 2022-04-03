@@ -86,7 +86,7 @@ class ProfileController extends Controller
             "card_rank" => $request->card_rank,
             "dive_count" => $request->dive_count,
             "profile_image" => 'uploads/null.png',
-            "cover" => 'uploads/cover.png',
+            "cover" => 'uploads/cover.jpg',
             "user_id" => Auth::user()->id
         ]);
 
@@ -185,7 +185,7 @@ class ProfileController extends Controller
 
     public function coverchange(Request $request, $id){
 
-        
+
 
         $validator = Validator::make($request->all(), [
             'cover_image' => 'required|file|image'

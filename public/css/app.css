@@ -623,6 +623,9 @@ select {
 .bottom-2 {
   bottom: 0.5rem;
 }
+.right-2 {
+  right: 0.5rem;
+}
 .bottom-10 {
   bottom: 2.5rem;
 }

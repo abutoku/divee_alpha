@@ -22,8 +22,12 @@
                     <div  class="flex justify-center items-end w-full">
                         {{-- プロフィール画像 --}}
                         <div class="mr-10 flex justify-center items-center flex-col w-full relative">
-
+                        @if($profile->card_rank !== 'Pro')
                         <img src="{{ Storage::url($profile->profile_image) }}" class="absolute bottom-2 h-36 w-36 sm:h-48 sm:w-48 mb-2 rounded-full object-cover bg-white border-2 border-paper">
+                        @else
+                        <img src="{{ Storage::url($profile->profile_image) }}"
+                            class="absolute right-2 h-36 w-36 sm:h-48 sm:w-48 mb-2 rounded-full object-cover bg-white border-2 border-paper">
+                        @endif
 
                         {{-- profile.edit プロフィール写真変更ページへのリンク --}}
                         @if ($profile->user_id === Auth::user()->id)
