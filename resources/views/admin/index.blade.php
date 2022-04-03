@@ -5,7 +5,9 @@
     </x-slot>
 
     <x-slot name="iconRight">
-        {{-- ロゴなし --}}
+        <a href={{ route('dashboard') }}>
+            <x-text-logo />
+        </a>
     </x-slot>
 
 
