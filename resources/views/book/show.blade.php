@@ -19,14 +19,17 @@
 {{-- -----生物詳細画面----- --}}
     <section class="mt-16">
         <div class="flex justify-around">
+            <div class="flex flex-col w-1/2 sm:w-1/3">
             {{-- 画像の登録があるか？ --}}
             @if($book->picture)
             <img src="{{ Storage::url($book->picture) }}" alt="生物の写真"
-            class="w-1/2 sm:w-1/3 object-cover">
+            class="object-cover h-72 md:h-80 rounded-lg drop-shadow-2xl">
             @else
             <img src="{{ Storage::url('uploads/no_image.png') }}" alt="画像無し"
-            class="w-1/2 sm:w-1/3 object-cover">
+            class="object-cover h-72 md:h-80 rounded-lg drop-shadow-2xl">
             @endif
+            <a href="{{ route('book.edit',$book->id ) }}" class="text-xs mt-2">写真変更</a>
+            </div>
 
             <div class="w-1/2 sm:w-1/3 flex flex-col items-center">
                 {{-- 生物名 --}}
@@ -69,8 +72,7 @@
                 <div class="inset-0 w-full h-full fixed flex items-center justify-center z-20"
                 style="background-color: rgba(0,0,0,.5);" x-show="open" x-cloak>
 
-                    <div class="text-left bg-white h-auto p-4 md:max-w-xl md:p-6 lg:p-8 shadow-xl rounded mx-2 md:mx-0"
-                    @click.away="open = false">
+                    <div class="text-left bg-white h-auto p-4 md:max-w-xl md:p-6 lg:p-8 shadow-xl rounded mx-2 md:mx-0" @click.away="open = false">
                         <h2 class="text-2xl font-bold mb-2">{{ $book->fish_name }}</h2>
                         <p class="text-xs">{{ $log->date }}</p>
                         <p>{{ $log->site->site_name }}</p>
@@ -91,6 +93,7 @@
             @endforeach
         </section>
 
+        {{-- 写真の表示部分 --}}
         <section class="hidden lg:block md:w-1/2">
             <div class="flex flex-wrap justify-around">
                 @foreach ($logs as $log)

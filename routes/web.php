@@ -97,6 +97,10 @@ Route::delete('comment/{comment}', [CommentController::class,'destroy'])
 
 Route::resource('log', LogController::class);
 
+//図鑑画像変更のルート
+Route::post('book/{book}/change', [BookController::class,'change'])
+->name('book.change');
+
 Route::resource('book', BookController::class);
 
 Route::resource('site', SiteController::class);

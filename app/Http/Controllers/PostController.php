@@ -82,7 +82,7 @@ class PostController extends Controller
 
 
 
-        return redirect()->route('map.post');
+        return redirect()->route('picture.edit',$result->id);
     }
 
     /**
