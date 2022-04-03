@@ -14,32 +14,34 @@
     <!-- wrapper -->
     <div class="flex justify-center">
 
-        <div class="mt-16 w-[400px] sm:w-[600px]">
-            {{-- プロフィール表示部分 --}}
-            <section class="pt-10">
-                <div  class="flex justify-center items-end w-full">
-                    {{-- プロフィール画像 --}}
-                    <div class="mr-10 flex justify-center items-center flex-col w-full ">
+        <div class="mt-10 w-[400px] sm:w-[600px] ">
+                <img src="{{ Storage::url($profile->cover_image) }}" class="w-full h-80 object-cover bg-white rounded-lg shadow-xl">
 
-                    <img src="{{ Storage::url($profile->profile_image) }}" class="h-48 w-48 mb-2 rounded-full object-cover bg-white">
+                {{-- プロフィール表示部分 --}}
+                <section class="pt-10">
+                    <div  class="flex justify-center items-end w-full">
+                        {{-- プロフィール画像 --}}
+                        <div class="mr-10 flex justify-center items-center flex-col w-full relative">
 
-                    {{-- profile.edit プロフィール写真変更ページへのリンク --}}
-                    @if ($profile->user_id === Auth::user()->id)
-                    <a href="{{ route('profile.edit',$profile->id)  }}" class="text-xs">
-                        プロフィール画像変更</a>
+                        <img src="{{ Storage::url($profile->profile_image) }}" class="absolute bottom-2 h-36 w-36 sm:h-48 sm:w-48 mb-2 rounded-full object-cover bg-white border-2 border-paper">
+
+                        {{-- profile.edit プロフィール写真変更ページへのリンク --}}
+                        @if ($profile->user_id === Auth::user()->id)
+                        <a href="{{ route('profile.edit',$profile->id)  }}" class="text-xs">
+                            プロフィール画像変更</a>
+                            @endif
+
+                        </div>
+
+                        {{-- カードランク表示 Proの場合は表示なし --}}
+                        @if($profile->card_rank !== 'Pro')
+                        <div class="flex items-end self-end">
+                            <b class="text-7xl">{{ $profile->dive_count }}</b>
+                            <p>DIVE</p>
+                        </div>
                         @endif
 
                     </div>
-
-                    {{-- カードランク表示 Proの場合は表示なし --}}
-                    @if($profile->card_rank !== 'Pro')
-                    <div class="flex items-end self-end">
-                        <b class="text-7xl">{{ $profile->dive_count }}</b>
-                        <p>DIVE</p>
-                    </div>
-                    @endif
-
-                </div>
 
                     {{-- ユーザー名 --}}
                     <div class="flex justify-between items-end">
@@ -54,14 +56,14 @@
                         </div>
                     </div>
 
-            </section>
-            {{-- マイプロフィール表示部分ここまで --}}
+                </section>
+                {{-- マイプロフィール表示部分ここまで --}}
 
-            {{-- ログインユーザーかどうかの条件分岐 --}}
-            @if($profile->id == Auth::user()->id)
+                {{-- ログインユーザーかどうかの条件分岐 --}}
+                @if($profile->id == Auth::user()->id)
 
                 {{-- 選択ボタン --}}
-                <section class="flex justify-center mt-8 ">
+                <section class="flex justify-center only mt-12">
                     <div class="rounded-2xl py-1 w-[120px] sm:w-[200px] mr-4 border-2 border-divenavy bg-divenavy text-white flex justify-around">
                         ステータス</div>
 
@@ -72,21 +74,22 @@
                 <section class="mt-12">
                     <p>未実装</p>
                 </section>
-            @else
-                <section class="mt-12">
-                    <a href="{{ route('buddy.create') }}">
-                        <x-button>
-                            <svg class="h-5 w-5 text-white" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
-                            </svg>ログ投稿
-                        </x-button>
-                    </a>
-                </section>
+                @else
+                    <section class="mt-12">
+                        <a href="{{ route('buddy.create') }}">
+                            <x-button>
+                                <svg class="h-5 w-5 text-white" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                </svg>ログ投稿
+                            </x-button>
+                        </a>
+                    </section>
 
-            @endif
+                @endif
             {{-- 条件分岐ここまで --}}
+
         </div>
     </div>
     <!-- wrapperここまで -->
