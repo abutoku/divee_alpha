@@ -13,7 +13,7 @@ class SetdataSeeder extends Seeder
      */
     public function run()
     {
-        
+
         \App\Models\Setdata::create([
             'site_name' => '志賀島 白瀬',
             'temp' => 14,
@@ -90,23 +90,6 @@ class SetdataSeeder extends Seeder
             'dec' => 15,
         ]);
 
-        \App\Models\Setdata::create([
-            'site_name' => '長崎 辰ノ口',
-            'temp' => 15,
-            'pc' => 42,//長崎県
-            'hc' => 56,//伊王島
-            'jan' => 15,
-            'feb' => 15,
-            'mar' => 14,
-            'apr' => 16,
-            'may' => 18,
-            'jun' => 20,
-            'jul' => 23,
-            'aug' => 25,
-            'sep' => 27,
-            'oct' => 23,
-            'nov' => 20,
-            'dec' => 18,
-        ]);
+        
     }
 }

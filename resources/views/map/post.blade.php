@@ -10,6 +10,17 @@
         </a>
     </x-slot>
 
+    {{-- モーダル --}}
+
+    <section id="modal" class="w-full h-full">
+        <div id="map_mask" class="inset-0 w-full h-full fixed flex items-center justify-center z-20 bg-black bg-opacity-50" >
+        </div>
+        <div class="absolute inset-0 m-auto bg-white h-36 w-36 p-4 rounded z-30">
+            <div id="output"></div>
+        </div>
+
+    </section>
+
     <!-- 選択ボタン -->
     <section class="flex mt-16 mb-8 justify-center sm:justify-start">
         <div class="rounded-2xl py-1 w-[200px] mr-4 border-2 border-divenavy bg-divenavy text-white flex justify-around">
@@ -46,8 +57,15 @@
 </script>
 
 <script>
+    $('#modal').hide();
+
+    $('#map_mask').on('click',function(){
+        $('#modal').hide();
+    });
+
     //受け取ったデータをjson化
     const posts = @json($posts);
+
 
     //投稿記事の地図設定
     function initMap() {
@@ -76,6 +94,7 @@
             marker = new google.maps.Marker({
             position:pin,
             map:map,
+            title:'Click me!',
             icon : {
             url: '../storage/uploads/pin03.png',
             scaledSize: new google.maps.Size(36, 36)
@@ -102,23 +121,19 @@
         }
 
         //マーカーをホバーしたら情報ウィンドウを表示
-        marker.addListener('mouseover', () => {
-        infoWindow.open(map);
-        });
-
-        //マーカーからマウスアウトしたら情報ウィンドウを消す
-        marker.addListener('mouseout', () => {
+        marker.addListener('click', () => {
         infoWindow.setMap(null);
-        });
 
-        // //マーカーをクリックすると発動
-        // marker.addListener("click",function() {
-        // //site_idを取得
-        // document.getElementById("site_id").value = site.id;
-        // //ポイント名を取得してHTML変更
-        // const name = `<p>${site.site_name}</p>`;
-        // $('#site_name').html(name);
-        // });
+        $('#modal').show();
+
+        const info = `
+        <p>Tips</p>
+        <p class="mb-4 font-bold">${post.title}</P>
+        <a href=/post/${post.id}>詳細へ</a>
+        `;
+
+        $('#output').html(info);
+        });
 
         });
 

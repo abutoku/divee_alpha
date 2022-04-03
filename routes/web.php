@@ -20,8 +20,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SetdataController;
 use App\Http\Controllers\BuddyController;
 
+//認証
+use Illuminate\Support\Facades\Auth;
+
 //Model
 use App\Models\Location;
+use App\Models\Buddy;
 
 
 /*
@@ -44,7 +48,13 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $notice = Buddy::where('buddy_id',Auth::user()->id)
+                    ->where('is_checked',false)
+                    ->count();
+
+    return view('dashboard',[
+        'notice' => $notice,
+    ]);
 })->middleware(['auth'])->name('dashboard');
 
 //Postにfavorit追加のルート

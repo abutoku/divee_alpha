@@ -19,6 +19,7 @@ class CreateBuddiesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->bigInteger('buddy_id');
             $table->string('message');
+            $table->boolean('is_checked')->default(false);
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

@@ -23,8 +23,11 @@ class BuddyController extends Controller
      */
     public function index()
     {
+        Buddy::where('buddy_id',Auth::user()->id)->update(['is_checked' => true ]);
+
         $buddies = Buddy::where('buddy_id',Auth::user()->id)
-                        ->orderBy('created_at','desc')->get();
+                        ->orderBy('created_at','desc')
+                        ->get();
 
         return view('buddy.index',[
             'buddies' => $buddies
@@ -58,7 +61,7 @@ class BuddyController extends Controller
             'buddy_id' => 'required',
             'message' => 'required',
         ]);
-        
+
         // バリデーション:エラー
         if ($validator->fails()) {
             return redirect()
