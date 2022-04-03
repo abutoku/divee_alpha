@@ -94,12 +94,16 @@ Route::post('post/{post}/comment', [CommentController::class,'store'])
 Route::delete('comment/{comment}', [CommentController::class,'destroy'])
 ->name('comment.destroy');
 
-
 Route::resource('log', LogController::class);
+
+//図鑑MEMO更新
+Route::get('book/{book}/memo', [BookController::class,'memo'])
+->name('book.memo');
 
 //図鑑画像変更のルート
 Route::post('book/{book}/change', [BookController::class,'change'])
 ->name('book.change');
+
 
 Route::resource('book', BookController::class);
 

@@ -22,13 +22,14 @@
             <div class="flex flex-col w-1/2 sm:w-1/3">
             {{-- 画像の登録があるか？ --}}
             @if($book->picture)
-            <img src="{{ Storage::url($book->picture) }}" alt="生物の写真"
-            class="object-cover h-72 md:h-80 rounded-lg drop-shadow-2xl">
+                <img src="{{ Storage::url($book->picture) }}" alt="生物の写真"
+                class="object-cover h-72 md:h-80 rounded-lg drop-shadow-2xl">
             @else
-            <img src="{{ Storage::url('uploads/no_image.png') }}" alt="画像無し"
-            class="object-cover h-72 md:h-80 rounded-lg drop-shadow-2xl">
+                <img src="{{ Storage::url('uploads/no_image.png') }}" alt="画像無し"
+                class="object-cover h-72 md:h-80 rounded-lg drop-shadow-2xl">
             @endif
-            <a href="{{ route('book.edit',$book->id ) }}" class="text-xs mt-2">写真変更</a>
+                <a href="{{ route('book.edit',$book->id ) }}" class="text-xs mt-2">写真変更</a>
+                <a href="{{ route('book.memo',$book->id ) }}" class="text-xs mt-2">MEMO編集</a>
             </div>
 
             <div class="w-1/2 sm:w-1/3 flex flex-col items-center">
@@ -36,9 +37,11 @@
                 <h1 class="mt-8  md:text-3xl font-bold">{{ $book->fish_name }}</h1>
                 {{-- 説明文 --}}
                 @if($book->info)
-                <div class="mt-4 ml-2 rounded-lg w-11/12 h-56 border bg-slate-50">{{ $book->info }}</div>
+                <div class="mt-4 ml-2 p-4 rounded-lg w-11/12 h-56 border bg-slate-50">
+                    {!! nl2br(e($book->info)) !!}
+                </div>
                 @else
-                <div class="mt-4 ml-2 rounded-lg w-11/12 h-56 sm:h-72 border bg-slate-50 flex"><svg class="h-5 w-5 text-gray-500" <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                <div class="mt-4 ml-2 p-4 rounded-lg w-11/12 h-56 sm:h-72 border bg-slate-50 flex"><svg class="h-5 w-5 text-gray-500" <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
                     <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
