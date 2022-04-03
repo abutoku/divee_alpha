@@ -28,6 +28,16 @@ $('#profile_image').on('change', function (e) {
     reader.readAsDataURL(e.target.files[0]);
 });
 
+//---カバー写真が選択されたらプレビューを表示---//
+
+$('#cover').on('change', function (e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $("#demo_img").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+});
+
 //---投稿写真が選択されたらプレビューを表示-----------//
 
 $('#post_picture').on('change', function (e) {

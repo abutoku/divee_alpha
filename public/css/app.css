@@ -906,6 +906,9 @@ select {
 .w-\[400px\] {
   width: 400px;
 }
+.w-48 {
+  width: 12rem;
+}
 .w-\[300px\] {
   width: 300px;
 }
@@ -953,9 +956,6 @@ select {
 }
 .w-56 {
   width: 14rem;
-}
-.w-48 {
-  width: 12rem;
 }
 .w-10 {
   width: 2.5rem;
@@ -1275,14 +1275,14 @@ select {
 .p-4 {
   padding: 1rem;
 }
+.p-12 {
+  padding: 3rem;
+}
 .p-2 {
   padding: 0.5rem;
 }
 .p-8 {
   padding: 2rem;
-}
-.p-12 {
-  padding: 3rem;
 }
 .px-4 {
   padding-left: 1rem;
