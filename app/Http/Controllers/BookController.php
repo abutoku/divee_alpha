@@ -48,14 +48,6 @@ class BookController extends Controller
         //
     }
 
-    //生物名リアルタイム検索
-    // public function search(Request $request)
-    // {
-    //     $books = Book::where('user_id',Auth::user()->id)
-    //         ->where('fish_name', 'like', '%'.$request->searchword.'%')->get();
-    //     return response()->json($books);
-    // }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -73,19 +65,19 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //図鑑詳細画面へ
     public function show($id)
     {
         $book = Book::find($id);
-        
-        //logからuser_idとbook_idが一致しているものを取得
-        $logs = Log::where('user_id',Auth::user()->id)
-                    ->where('book_id',$id)->get();
+
+        //logからbook_idが一致しているものを取得
+        $logs = Log::where('book_id',$id)->get();
 
         return view('book.show', [
             'book' => $book,
             'logs' => $logs,
         ]);
-
     }
 
     /**
@@ -94,9 +86,34 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //図鑑写真変更画面へ
     public function edit($id)
     {
-        //
+        //book_tableからidが一致するレコードを取得
+        $book = Book::find($id)->first();
+        //logからbook_idが一致しているものを全件取得
+        $logs = Log::where('book_id',$id)->get();
+
+        return view('book.edit', [
+            'book' => $book,
+            'logs' => $logs,
+        ]);
+    }
+
+    //図鑑写真更新のメソッド
+    public function change(Request $request,$id)
+    {
+
+        $pic = Log::find($request->log_id)->image;
+        $book = Book::find($id)->update(['picture' => $pic]);
+
+        return redirect()->route('book.show', $id);
+    }
+
+    //MEMO更新のメソッド
+    public function memo($id){
+
     }
 
     /**

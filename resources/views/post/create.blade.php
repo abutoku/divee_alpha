@@ -33,7 +33,7 @@
                 {{-- タイトル --}}
                     <div>
                         <div class="pr-8 mt-6">タイトル</div>
-                        <textarea name="title" class="rounded-lg border-2 border-divenavy  h-36 w-[300px] sm:w-[400px] mb-8"></textarea>
+                        <input type="text" name="title" class="rounded-lg border-2 border-divenavy w-[300px] sm:w-[400px]">
                     </div>
                 {{-- コメント --}}
                     <div>
@@ -49,7 +49,7 @@
                 <input type="hidden" id="longitude" name="longitude">
 
                 {{-- 登録ボタン --}}
-                <x-button class="my-12 ml-4">登録</x-button>
+                <x-button class="my-12 ml-4">次へ</x-button>
                 {{-- ------入力フォームここまで-------------- --}}
             </form>
         </div>
