@@ -19,6 +19,7 @@ use App\Http\Controllers\TideController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SetdataController;
 use App\Http\Controllers\BuddyController;
+use App\Http\Controllers\SettingController;
 
 //認証
 use Illuminate\Support\Facades\Auth;
@@ -48,6 +49,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
+    //未読通知
     $notice = Buddy::where('buddy_id',Auth::user()->id)
                     ->where('is_checked',false)
                     ->count();
@@ -65,15 +67,16 @@ Route::post('post/{post}/unfavorites', [FavoriteController::class, 'destroy'])->
 //my log のルート
 Route::get('/post/mypage', [PostController::class, 'mydata'])->name('post.mypage');
 
-
 Route::resource('post', PostController::class);
-
-Route::resource('profile', ProfileController::class);
 
 //ステータス画面切り替え
 Route::get('/profile/{profile}/list', [ProfileController::class,'list'])
 ->name('profile.list');
 
+Route::get('/profile/{profile}/cover', [ProfileController::class,'cover'])
+->name('profile.cover');
+
+Route::resource('profile', ProfileController::class);
 
 //サムネイル変更のルート
 Route::post('picture/{picture}/change', [PictureController::class,'change'])
@@ -116,10 +119,13 @@ Route::post('/map/search',[MapController::class,'search'])->name('map.search');
 Route::get('/tide/info',[TideController::class,'info'])->name('tide.info');
 //海況ページ、ポイント変更
 Route::post('/tide/change',[TideController::class,'change'])->name('tide.change');
-//管理者
+//設定画面
+Route::get('/setting/index',[SettingController::class,'index'])->name('setting.index');
+//スタッフメニュー
 Route::get('/admin/index',[AdminController::class,'index'])->name('admin.index');
 
-});//ユーザー認証ここまで
+});
+//ユーザー認証ここまで
 
 
 Route::get('/', function () {

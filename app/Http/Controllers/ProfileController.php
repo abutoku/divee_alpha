@@ -134,6 +134,13 @@ class ProfileController extends Controller
         return view('profile.edit', ['profile' => $profile]);
     }
 
+    //カバー写真変更ページを表示する
+    public function cover($id)
+    {
+        $profile = Profile::find($id);
+        return view('profile.cover', ['profile' => $profile]);
+    }
+
     /**
      * Update the specified resource in storage.
      *

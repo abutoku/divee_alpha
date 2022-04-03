@@ -43,11 +43,6 @@
                         <li class="mb-6">メンバー一覧</li>
                     </a>
 
-
-                    <a href="{{ route('profile.edit',Auth::user()->profile->id) }}">
-                        <li class="mb-6">プロフィール画像変更</li>
-                    </a>
-
                     <a href="{{ route('site.create') }}">
                         <li class="mb-6">ダイブサイト登録</li>
                     </a>
@@ -56,7 +51,7 @@
                         <li class="mb-6">プロフィール編集</li>
                     </a>
 
-                    <a href="#">
+                    <a href="{{ route('setting.index') }}">
                         <li class="mb-6">設定</li>
                     </a>
 

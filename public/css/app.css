@@ -608,17 +608,17 @@ select {
   bottom: 0px;
   left: 0px;
 }
+.top-0 {
+  top: 0px;
+}
+.right-0 {
+  right: 0px;
+}
 .left-\[350px\] {
   left: 350px;
 }
 .left-0 {
   left: 0px;
-}
-.right-0 {
-  right: 0px;
-}
-.top-0 {
-  top: 0px;
 }
 .bottom-10 {
   bottom: 2.5rem;
@@ -628,12 +628,6 @@ select {
 }
 .bottom-0 {
   bottom: 0px;
-}
-.right-10 {
-  right: 2.5rem;
-}
-.left-10 {
-  left: 2.5rem;
 }
 .z-0 {
   z-index: 0;
@@ -649,9 +643,6 @@ select {
 }
 .z-50 {
   z-index: 50;
-}
-.z-10 {
-  z-index: 10;
 }
 .m-auto {
   margin: auto;
@@ -798,15 +789,6 @@ select {
 .mr-auto {
   margin-right: auto;
 }
-.mr-1 {
-  margin-right: 0.25rem;
-}
-.mr-3 {
-  margin-right: 0.75rem;
-}
-.ml-10 {
-  margin-left: 2.5rem;
-}
 .block {
   display: block;
 }
@@ -858,12 +840,6 @@ select {
 .h-4 {
   height: 1rem;
 }
-.h-3 {
-  height: 0.75rem;
-}
-.h-full {
-  height: 100%;
-}
 .h-64 {
   height: 16rem;
 }
@@ -875,6 +851,9 @@ select {
 }
 .h-\[400px\] {
   height: 400px;
+}
+.h-full {
+  height: 100%;
 }
 .h-12 {
   height: 3rem;
@@ -935,9 +914,6 @@ select {
 }
 .w-4 {
   width: 1rem;
-}
-.w-3 {
-  width: 0.75rem;
 }
 .w-11\/12 {
   width: 91.666667%;
@@ -1245,14 +1221,6 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
-.bg-sky-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(56 189 248 / var(--tw-bg-opacity));
-}
-.bg-sky-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
-}
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1300,10 +1268,6 @@ select {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
-}
-.object-right-top {
-  -o-object-position: right top;
-     object-position: right top;
 }
 .p-6 {
   padding: 1.5rem;
@@ -1423,6 +1387,10 @@ select {
   font-size: 1rem;
   line-height: 1.5rem;
 }
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -1434,10 +1402,6 @@ select {
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
-}
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
 }
 .text-3xl {
   font-size: 1.875rem;
