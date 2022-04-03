@@ -76,6 +76,9 @@ Route::get('/profile/{profile}/list', [ProfileController::class,'list'])
 Route::get('/profile/{profile}/cover', [ProfileController::class,'cover'])
 ->name('profile.cover');
 
+Route::patch('/profile/{profile}/cover', [ProfileController::class,'coverchange'])
+->name('profile.coverchange');
+
 Route::resource('profile', ProfileController::class);
 
 //サムネイル変更のルート

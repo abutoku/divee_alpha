@@ -86,6 +86,7 @@ class ProfileController extends Controller
             "card_rank" => $request->card_rank,
             "dive_count" => $request->dive_count,
             "profile_image" => 'uploads/null.png',
+            "cover" => 'uploads/cover.png',
             "user_id" => Auth::user()->id
         ]);
 
@@ -178,6 +179,42 @@ class ProfileController extends Controller
         }
         $result = Profile::find($id)->update(['profile_image' => $path]);
         }
+        //profile.showへ移動（現在ログインしているユーザー情報）
+        return redirect()->route('profile.show', Auth::user()->id);
+    }
+
+    public function coverchange(Request $request, $id){
+
+        
+
+        $validator = Validator::make($request->all(), [
+            'cover_image' => 'required|file|image'
+        ]);
+
+        // バリデーション:エラー
+        if ($validator->fails()) {
+            return redirect()
+                ->route('profile.cover', Auth::user()->id)
+                ->withInput()
+                ->withErrors($validator);
+        }
+
+        //リクエストファイルの画像を取得
+        $upload_image = $request->file('cover_image');
+
+        //画像をpublic直下のuploadsに保存し$pathにパスを取得
+        $path = $upload_image->store('uploads', "public");
+
+        if ($path) {
+        //DBを書き換え
+        $oldpath = Profile::find($id)->cover_image;
+        if($oldpath !== 'uploads/cover.png'){
+                Storage::disk('public')->delete($oldpath);
+        }
+
+        $result = Profile::find($id)->update(['cover_image' => $path]);
+        }
+
         //profile.showへ移動（現在ログインしているユーザー情報）
         return redirect()->route('profile.show', Auth::user()->id);
     }
