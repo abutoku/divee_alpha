@@ -20,10 +20,22 @@
 </head>
 <body>
     <a href="{{ route('dashboard') }}">戻る</a>
-    <main>
-        
 
-    </main>
+        <main class="ml-4 mt-4 w-full">
+            @foreach($shops as $shop)
+                <div class="flex justify-between bg-slate-200 mb-6 w-80">
+                    <div>
+                        <p>{{ $shop->shop_name }}</p>
+                        <p>{{ $shop->url }}</p>
+                    </div>
+                    <form action="{{ route('admin.destroy',$shop->id) }}" method="post">
+                        @method('delete')
+                        @csrf
+                        <button>削除</button>
+                    </form>
+                </div>
+            @endforeach
+        </main>
 <!-- jquery,main.js 読み込み -->
 <x-readjs />
 

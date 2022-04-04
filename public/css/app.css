@@ -975,6 +975,9 @@ select {
 .w-10 {
   width: 2.5rem;
 }
+.w-80 {
+  width: 20rem;
+}
 .max-w-7xl {
   max-width: 80rem;
 }
@@ -1228,6 +1231,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(1 93 198 / var(--tw-bg-opacity));
 }
+.bg-slate-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
+}
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
@@ -1239,6 +1246,10 @@ select {
 .bg-blue-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
+}
+.bg-slate-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;

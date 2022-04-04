@@ -26,14 +26,14 @@
     <main class="mt-12 p-4">
         <form action="{{ route('admin.store') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <p>ショップ名</p>
+            <p>ショップ名<span class="ml-2 text-xs text-red-600">※必須</span></p>
             <input type="text" name="shop_name">
 
-            <p>ロゴ</p>
-            <input type="file" name="logo">
+            <p>ロゴ<span class="ml-2 text-xs text-red-600">※必須</span></p>
+            <input type="file" name="logo_image">
 
             <p>カバー画像</p>
-            <input type="file" name="cover">
+            <input type="file" name="cover_image">
 
             <p>WebサイトURL</p>
             <input type="text" name="url"><br>

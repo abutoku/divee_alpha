@@ -49,7 +49,7 @@ class AdminController extends Controller
         // バリデーション
         $validator = Validator::make($request->all(), [
             'shop_name' => 'required',
-            'logo' => 'required',
+            'logo_image' => 'required',
         ]);
 
         // バリデーション:エラー
@@ -60,31 +60,35 @@ class AdminController extends Controller
                 ->withErrors($validator);
         }
 
-        if($request->cover !== null) {
 
-            $upload_logo = $request->file('logo');
+        if($request->cover_image !== null) {
+
+            $upload_logo = $request->file('logo_image');
             $logo_path = $upload_logo->store('uploads', "public");
 
-            $upload_cover = $request->file('cover');
+            $upload_cover = $request->file('cover_image');
             $cover_path = $upload_cover->store('uploads', "public");
 
             $data = $request->merge([
                 'logo' => $logo_path,
                 'cover' => $cover_path ])->all();
 
+            $result = Shop::create($data);
+
         } else {
 
             // カバー画像がない場合
-            $upload_logo = $request->file('logo');
+            $upload_logo = $request->file('logo_image');
             $logo_path = $upload_logo->store('uploads', "public");
 
             $data = $request->merge([
                 'logo' => $logo_path,
             ])->all();
 
+            $result = Shop::create($data);
+
         }
 
-        $result = Shop::create($data);
         return redirect()->route('dashboard');
 
     }
@@ -131,6 +135,20 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $shop = Shop::find($id);
+
+
+        //ロゴ画像をストレージから削除
+        Storage::disk('public')->delete($shop->logo);
+
+        //カバー画像をストレージから削除
+        if($shop->cover !== 'uploads/cover.jpg'){
+            Storage::disk('public')->delete($shop->cover);
+        }
+
+        $result = Shop::find($id)->delete();
+
+        return redirect()->route('admin.index');
     }
 }
