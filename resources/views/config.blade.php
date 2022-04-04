@@ -21,19 +21,23 @@
 </head>
 
 <body>
-    <form method="POST" action="{{ route('logout') }}" class="flex justify-center">
+    <form method="POST" action="{{ route('logout') }}" class="ml-8 flex justify-start">
         @csrf
-
         <x-button class="w-40 h-12 flex justify-center mt-12" :href="route('logout')" onclick="event.preventDefault();
                                         this.closest('form').submit();">
             {{ __('ログアウト') }}
         </x-button>
     </form>
 
-    <main>
-        <p>ショップ一覧</p>
-        <p>ショップ登録</p>
-        <p>ショップ削除</p>
+    <main class="mt-8">
+        <ul>
+            <a href="{{ route('admin.index') }}">
+                <li>ショップ一覧</li>
+            </a>
+            <a href="{{ route('admin.create') }}">
+                <li>ショップ登録</li>
+            </a>
+        </ul>
     </main>
 
     <!-- jquery,main.js 読み込み -->

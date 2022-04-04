@@ -20,6 +20,8 @@ use App\Http\Controllers\BackController;
 use App\Http\Controllers\SetdataController;
 use App\Http\Controllers\BuddyController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\AdminController;
 
 //認証
 use Illuminate\Support\Facades\Auth;
@@ -52,9 +54,9 @@ Route::get('/dashboard', function () {
 
     //管理者アカウントの場合は別ページへ
     if(Auth::user()->admin == true) {
-        return view('admin');
+        return view('config');
     }
-    
+
     //未読通知
     $notice = Buddy::where('buddy_id',Auth::user()->id)
                     ->where('is_checked',false)
@@ -149,13 +151,20 @@ Route::get('/tide/info',[TideController::class,'info'])->name('tide.info');
 //ポイント変更
 Route::post('/tide/select',[TideController::class,'select'])->name('tide.select');
 
+//------shop-------------------//
+Route::resource('shop', ShopController::class);
+
 //------setting-------------------//
 //設定画面表示
 Route::get('/setting/index',[SettingController::class,'index'])->name('setting.index');
 
 //------back-------------------//
-//スタッフメニュー
+//店舗管理者
 Route::get('/back/index',[BackController::class,'index'])->name('back.index');
+
+//------admin------------------//
+//管理者ページ
+Route::resource('admin', AdminController::class);
 
 });
 
