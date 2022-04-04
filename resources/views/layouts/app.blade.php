@@ -59,7 +59,7 @@
                         <li class="mb-6">ヘルプ</li>
                     </a>
 
-                    <a href={{ route('admin.index') }}>
+                    <a href={{ route('back.index') }}>
                         <li class="mb-6">管理者</li>
                     </a>
 
