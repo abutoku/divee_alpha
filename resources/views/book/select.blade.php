@@ -19,6 +19,13 @@
     <section class="mt-16">
 
         <p>画像を選択してください</p>
+
+        @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+        @endif
+        
         <form action="{{ route('book.change',$book->id ) }}" method="post" class="flex justify-around flex-wrap">
             @csrf
             <input type="hidden" id="log_id" name="log_id">
@@ -28,7 +35,7 @@
                 </button>
                 @endforeach
         </form>
-        
+
     </section>
 
 </x-app-layout>

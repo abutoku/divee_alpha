@@ -3,8 +3,7 @@
 
     <div class="flex flex-col items-center mt-8">
         @forelse ($books as $book)
-            <a href="{{ route('book.show',$book->id) }}"
-                class="bg-white  drop-shadow-md rounded-lg w-[400px] sm:w-[650px] h-24 sm:h-40 my-5 overflow-hidden">
+            <a href="{{ route('book.show',$book->id) }}" class="bg-white  drop-shadow-md rounded-lg w-[400px] sm:w-[650px] h-24 sm:h-40 my-5 overflow-hidden">
                 <div class="flex justify-between items-start sm:items-center">
                     <div class="p-4">
                         <p class="font-bold text-sm sm:text-xl">{{$book->fish_name}}</p>

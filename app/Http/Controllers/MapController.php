@@ -14,6 +14,7 @@ use App\Models\Location;
 class MapController extends Controller
 {
 
+    // 場所の表示
     public function site()
     {
         $sites = Site::all();
@@ -24,7 +25,7 @@ class MapController extends Controller
         ]);
     }
 
-    //選択されたポイントのログを探す
+    //選択された場所のログを探す
     public function getSiteLog(Request $request)
     {
         $sites = Site::all();
@@ -38,6 +39,7 @@ class MapController extends Controller
         ]);
     }
 
+    // 生物名検索のページ
     public function fish()
     {
         return view('map.fish',[
@@ -57,7 +59,7 @@ class MapController extends Controller
         ]);
     }
 
-
+    // 陸上の投稿記事
     public function post()
     {
         $posts = Post::all();

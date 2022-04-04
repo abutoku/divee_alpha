@@ -70,6 +70,12 @@ class PictureController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+
+        //ログインユーザー以外の情報は表示しない
+        if(Auth::user()->id != $post->user_id) {
+        return abort('404');
+        }
+
         return view ('picture.edit', ['post' => $post]);
     }
 

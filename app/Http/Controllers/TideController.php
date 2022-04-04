@@ -70,7 +70,7 @@ class TideController extends Controller
         ]);
     }
 
-    public function change(Request $request)
+    public function select(Request $request)
     {
         //バリデーション
         $validator = Validator::make($request->all(), [
