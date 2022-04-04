@@ -21,7 +21,7 @@ use App\Http\Controllers\SetdataController;
 use App\Http\Controllers\BuddyController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ShopController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MasterController;
 
 //認証
 use Illuminate\Support\Facades\Auth;
@@ -162,9 +162,9 @@ Route::get('/setting/index',[SettingController::class,'index'])->name('setting.i
 //店舗管理者
 Route::get('/back/index',[BackController::class,'index'])->name('back.index');
 
-//------admin------------------//
+//------master------------------//
 //管理者ページ
-Route::resource('admin', AdminController::class);
+Route::resource('master', MasterController::class);
 
 });
 

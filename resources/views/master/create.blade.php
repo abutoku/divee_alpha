@@ -24,7 +24,7 @@
     <a href="{{ route('dashboard') }}"><x-button>戻る</x-button></a>
 
     <main class="mt-12 p-4">
-        <form action="{{ route('admin.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('master.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <p>ショップ名<span class="ml-2 text-xs text-red-600">※必須</span></p>
             <input type="text" name="shop_name">
