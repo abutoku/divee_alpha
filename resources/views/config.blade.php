@@ -31,10 +31,10 @@
 
     <main class="mt-8">
         <ul>
-            <a href="{{ route('admin.index') }}">
+            <a href="{{ route('master.index') }}">
                 <li>ショップ一覧</li>
             </a>
-            <a href="{{ route('admin.create') }}">
+            <a href="{{ route('master.create') }}">
                 <li>ショップ登録</li>
             </a>
         </ul>

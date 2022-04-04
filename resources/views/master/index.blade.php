@@ -28,7 +28,7 @@
                         <p>{{ $shop->shop_name }}</p>
                         <p>{{ $shop->url }}</p>
                     </div>
-                    <form action="{{ route('admin.destroy',$shop->id) }}" method="post">
+                    <form action="{{ route('master.destroy',$shop->id) }}" method="post">
                         @method('delete')
                         @csrf
                         <button>削除</button>
