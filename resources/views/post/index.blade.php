@@ -27,7 +27,7 @@
             {{-- サムネイル画像がある場合 --}}
             @if($post->thumbnail)
             <a href="{{ route('post.show',$post->id) }}"
-                class="bg-white  drop-shadow-md rounded-lg w-[350px] sm:w-[600px] h-40 my-5 overflow-hidden">
+                class="bg-white  drop-shadow-md rounded-md w-[350px] sm:w-[600px] h-40 my-5 overflow-hidden">
                 <div class="flex justify-between">
                     <div class="p-4">
                         <div class="flex items-center mb-4">
@@ -35,7 +35,8 @@
                                 class="rounded-full h-8 w-8 object-cover mr-2">
                             <div>{{ $post->user->name }}</div>
                         </div>
-                        <p class="mb-2">{{$post->date}}</p>
+                        <p class="mb-2 text-xs">{{$post->date}}</p>
+                        <p class="mb-2 font-bold">{{$post->title}}</p>
                         <p>{!! nl2br(e($post->message)) !!}</p>
                     </div>
                     <img class="h-40 w-36 object-cover rounded-r-lg" src="{{ Storage::url($post->thumbnail) }}">

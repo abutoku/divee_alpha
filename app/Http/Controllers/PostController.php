@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//Storege
+use Illuminate\Support\Facades\Storage;
 //Validator
 use Illuminate\Support\Facades\Validator;
 //認証
@@ -165,6 +167,14 @@ class PostController extends Controller
     //ログ削除の関数
     public function destroy($id)
     {
+        //画像URL取得
+        $pictures = Picture::where('post_id',$id)->get();
+
+        //画像削除
+        foreach ($pictures as $picture){
+                Storage::disk('public')->delete($picture->picture);
+        }
+
         //post_tableからidが一致しているものを削除
         $result = Post::find($id)->delete();
         //post.indexへ戻る

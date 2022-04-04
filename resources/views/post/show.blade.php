@@ -22,13 +22,19 @@
     <div class="p-6 mt-12 rounded-lg shadow-md bg-white w-[350px] sm:w-[600px]">
 
     {{-- ---------写真表示部分---------------- --}}
+    <div class="flex justify-between">
         <div class="flex items-center">
             <img src="{{ Storage::url($post->user->profile->profile_image) }}" alt="profilepic" class="rounded-full object-cover h-8 w-8 mr-2">
             <p class="pt-1 ml-2 font-bold text-sm">{{$post->user->name}}</p>
         </div>
+        <div>
+            <p class="text-xs">{{ $post->date }}</p>
+        </div>
+    </div>
 
 {{-- -------ログの詳細表示部分------------ --}}
     <section class="flex flex-col mt-8 ">
+        <p class="font-bold text-xl mb-4">{{ $post->title }}</p>
         <p>{!! nl2br(e($post->message)) !!}</p>
     </section>
     {{-- ------ログの詳細表示部分ここまで----- --}}
