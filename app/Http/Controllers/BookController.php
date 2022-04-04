@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 
 //Storege
@@ -71,6 +72,11 @@ class BookController extends Controller
     {
         $book = Book::find($id);
 
+        //ログインユーザー以外の情報は表示しない
+        if (Auth::user()->id != $book->user_id) {
+            return abort('404');
+        }
+
         //logからbook_idが一致しているものを取得
         $logs = Log::where('book_id',$id)->get();
 
@@ -88,14 +94,19 @@ class BookController extends Controller
      */
 
     //図鑑写真変更画面へ
-    public function edit($id)
+    public function select($id)
     {
         //book_tableからidが一致するレコードを取得
-        $book = Book::find($id)->first();
+        $book = Book::find($id);
+
+        //ログインユーザー以外の情報は表示しない
+        if (Auth::user()->id != $book->user_id) {
+            return abort('404');
+        }
         //logからbook_idが一致しているものを全件取得
         $logs = Log::where('book_id',$id)->get();
 
-        return view('book.edit', [
+        return view('book.select', [
             'book' => $book,
             'logs' => $logs,
         ]);
@@ -112,10 +123,15 @@ class BookController extends Controller
     }
 
 
-    //MEMO更新のメソッド
+    //MEMO入力画面へ
     public function memo($id)
     {
         $book = Book::find($id);
+
+        //ログインユーザー以外の情報は表示しない
+        if(Auth::user()->id != $book->user_id) {
+        return abort('404');
+      }
 
         return view('book.memo', [
             'book' => $book,
@@ -129,11 +145,12 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //MEMO更新のメソッド
     public function update(Request $request, $id)
     {
         $result = Book::find($id)->update(['info' => $request->info]);
         return redirect()->route('book.show', $id);
-        
     }
 
     /**

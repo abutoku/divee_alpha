@@ -28,7 +28,7 @@
                 <img src="{{ Storage::url('uploads/no_image.png') }}" alt="画像無し"
                 class="object-cover h-72 md:h-80 rounded-lg drop-shadow-2xl">
             @endif
-                <a href="{{ route('book.edit',$book->id ) }}" class="text-xs mt-2">写真変更</a>
+                <a href="{{ route('book.select',$book->id) }}" class="text-xs mt-2">写真変更</a>
                 <a href="{{ route('book.memo',$book->id ) }}" class="text-xs mt-2">MEMO編集</a>
             </div>
 

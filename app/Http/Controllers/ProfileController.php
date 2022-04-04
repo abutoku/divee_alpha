@@ -132,6 +132,11 @@ class ProfileController extends Controller
     public function edit($id)
     {
         $profile = Profile::find($id);
+
+        //ログインユーザー以外の情報は表示しない
+        if(Auth::user()->id != $profile->user_id) {
+        return abort('404');
+        }
         return view('profile.edit', ['profile' => $profile]);
     }
 
@@ -139,6 +144,11 @@ class ProfileController extends Controller
     public function cover($id)
     {
         $profile = Profile::find($id);
+
+        //ログインユーザー以外の情報は表示しない
+        if (Auth::user()->id != $profile->user_id) {
+            return abort('404');
+        }
         return view('profile.cover', ['profile' => $profile]);
     }
 
@@ -184,8 +194,6 @@ class ProfileController extends Controller
     }
 
     public function coverchange(Request $request, $id){
-
-
 
         $validator = Validator::make($request->all(), [
             'cover_image' => 'required|file|image'

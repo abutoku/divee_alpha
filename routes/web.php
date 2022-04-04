@@ -59,6 +59,7 @@ Route::get('/dashboard', function () {
     ]);
 })->middleware(['auth'])->name('dashboard');
 
+//-----post-------------------//
 //Postにfavorit追加のルート
 Route::post('post/{post}/favorites', [FavoriteController::class, 'store'])->name('favorites');
 //Postのfavorit解除のルート
@@ -69,24 +70,27 @@ Route::get('/post/mypage', [PostController::class, 'mydata'])->name('post.mypage
 
 Route::resource('post', PostController::class);
 
+//-----profile-------------------//
 //ステータス画面切り替え
 Route::get('/profile/{profile}/list', [ProfileController::class,'list'])
 ->name('profile.list');
-
+//カバー画像変更画面
 Route::get('/profile/{profile}/cover', [ProfileController::class,'cover'])
 ->name('profile.cover');
-
+//カバー画像変更処理
 Route::patch('/profile/{profile}/cover', [ProfileController::class,'coverchange'])
 ->name('profile.coverchange');
 
 Route::resource('profile', ProfileController::class);
 
+//-----picture-------------------//
 //サムネイル変更のルート
 Route::post('picture/{picture}/change', [PictureController::class,'change'])
 ->name('picture.change');
 
 Route::resource('picture', PictureController::class);
 
+//-----comment-------------------//
 //comment storeへのルート
 Route::post('post/{post}/comment', [CommentController::class,'store'])
 ->name('comment.store');
@@ -94,48 +98,61 @@ Route::post('post/{post}/comment', [CommentController::class,'store'])
 Route::delete('comment/{comment}', [CommentController::class,'destroy'])
 ->name('comment.destroy');
 
+//-----log-------------------//
 Route::resource('log', LogController::class);
 
+//-----book-------------------//
 //図鑑MEMO更新
 Route::get('book/{book}/memo', [BookController::class,'memo'])
 ->name('book.memo');
+
+//図鑑選択画面へのルート
+Route::get('book/{book}/select', [BookController::class,'select'])
+->name('book.select');
 
 //図鑑画像変更のルート
 Route::post('book/{book}/change', [BookController::class,'change'])
 ->name('book.change');
 
-
 Route::resource('book', BookController::class);
 
+//-----site------------------//
 Route::resource('site', SiteController::class);
 
+//-----setdata------------------//
 Route::resource('setdata', SetdataController::class);
 
+//-----buddy-----------------//
 Route::resource('buddy', BuddyController::class);
 
-//Map画面表示のルート（生物）
+//-----map-------------------//
+//Map画面表示のルート（場所）
 Route::get('/map/site', [MapController::class,'site'])->name('map.site');
-//Map画面表示のルート（投稿記事）
-Route::get('/map/post', [MapController::class,'post'])->name('map.post');
 //Mapから選択されたポイントのログを探す
 Route::post('/map/getSiteLog',[MapController::class,'getSiteLog'])->name('map.getSiteLog');
-//Mapから選択されたポイントのログの一覧
-Route::get('/map/show', [MapController::class,'show'])->name('map.show');
 //生物名検索ページ
 Route::get('/map/fish',[MapController::class,'fish'])->name('map.fish');
 //生物名で検索
 Route::post('/map/search',[MapController::class,'search'])->name('map.search');
+//Map画面表示のルート（投稿記事）
+Route::get('/map/post', [MapController::class,'post'])->name('map.post');
 
-//海況ページ
+//------tide-------------------//
+//ページ表示
 Route::get('/tide/info',[TideController::class,'info'])->name('tide.info');
-//海況ページ、ポイント変更
-Route::post('/tide/change',[TideController::class,'change'])->name('tide.change');
-//設定画面
+//ポイント変更
+Route::post('/tide/select',[TideController::class,'select'])->name('tide.select');
+
+//------setting-------------------//
+//設定画面表示
 Route::get('/setting/index',[SettingController::class,'index'])->name('setting.index');
+
+//------admin-------------------//
 //スタッフメニュー
 Route::get('/admin/index',[AdminController::class,'index'])->name('admin.index');
 
 });
+
 //ユーザー認証ここまで
 
 

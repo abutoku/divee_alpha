@@ -22,7 +22,7 @@
             @method('patch')
             @csrf
             <p class="mt-6">memo</p>
-            <textarea name="info" value="{{ $book->info }}" class="rounded-lg border-2 border-divenavy h-[200px]"></textarea>
+            <textarea name="info" class="rounded-lg border-2 border-divenavy h-[200px]">{{ $book->info }}</textarea>
 
             <x-button class="mt-6 flex justify-center">更新</x-button>
         </form>

@@ -114,6 +114,11 @@ class PostController extends Controller
     {
         //post_tableからidが一致しているものを$idに代入
         $post = Post::find($id);
+
+        //ログインユーザー以外の情報は表示しない
+        if(Auth::user()->id != $post->user_id) {
+        return abort('404');
+        }
         //post.editに取得した$postを渡す
         return view('post.edit', ['post' => $post]);
     }
@@ -132,6 +137,7 @@ class PostController extends Controller
         //バリデーション
         $validator = Validator::make($request->all(), [
             'date' => 'required',
+            'title' => 'required',
             'message' => 'required',
         ]);
         //バリデーション:エラー

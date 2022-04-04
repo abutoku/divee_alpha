@@ -12,7 +12,7 @@
 
     {{-- ポイント選択部分 --}}
     <section class="mt-24">
-        <form action="{{ route('tide.change') }}" method="post">
+        <form action="{{ route('tide.select') }}" method="post">
             @csrf
             <select name="site" class="rounded-lg border-2 border-divenavy">
                 <option disabled selected value>ポイントを選択</option>
