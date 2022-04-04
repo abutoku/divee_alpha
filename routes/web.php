@@ -16,7 +16,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\TideController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BackController;
 use App\Http\Controllers\SetdataController;
 use App\Http\Controllers\BuddyController;
 use App\Http\Controllers\SettingController;
@@ -49,6 +49,12 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
+
+    //管理者アカウントの場合は別ページへ
+    if(Auth::user()->admin == true) {
+        return view('admin');
+    }
+    
     //未読通知
     $notice = Buddy::where('buddy_id',Auth::user()->id)
                     ->where('is_checked',false)
@@ -147,9 +153,9 @@ Route::post('/tide/select',[TideController::class,'select'])->name('tide.select'
 //設定画面表示
 Route::get('/setting/index',[SettingController::class,'index'])->name('setting.index');
 
-//------admin-------------------//
+//------back-------------------//
 //スタッフメニュー
-Route::get('/admin/index',[AdminController::class,'index'])->name('admin.index');
+Route::get('/back/index',[BackController::class,'index'])->name('back.index');
 
 });
 
