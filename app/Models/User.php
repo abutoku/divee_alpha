@@ -99,6 +99,12 @@ class User extends Authenticatable
         return $this->hasMany(Buddy::class);
     }
 
+    //$user->shop
+    public function shop()
+    {
+        return $this->belongTo(Shop::class);
+    }
+
     //自分のuser_idのLogを抽出（1対多）
     public function mylogs()
     {

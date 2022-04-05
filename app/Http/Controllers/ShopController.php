@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//Model
+use App\Models\Shop;
+
 class ShopController extends Controller
 {
     /**
@@ -23,10 +26,14 @@ class ShopController extends Controller
      */
     public function create()
     {
-        
+        $shops = Shop::all();
+
+        return view('shop.create',[
+            'shops' => $shops
+        ]);
     }
 
-    /**
+    /**,
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

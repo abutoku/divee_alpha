@@ -91,7 +91,7 @@ class ProfileController extends Controller
         ]);
 
         // profile.index にリクエスト送信（一覧ページに移動）
-        return redirect()->route('dashboard');
+        return redirect()->route('shop.create');
     }
 
     /**
