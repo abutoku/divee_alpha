@@ -10,31 +10,25 @@
         </x-slot>
 
         {{-- プロフィール入力フォーム --}}
-        <form action="{{ route('profile.store') }}" method="post" enctype="multipart/form-data" class="p-6">
+        <form action="{{ route('shop.store') }}" method="post">
             @csrf
             <div class="ml-14">
-                <p class="text-divenavy text-sm">カードランク</p>
-                {{-- カードの種類 --}}
-                <select name="card_rank"
-                    class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-divenavy">
-                    <option value="Pro">Pro</option>
-                    <option value="DM">DM</option>
-                    <option value="MSD">MSD</option>
-                    <option value="AOW">AOW</option>
-                    <option value="OW">OW</option>
-                </select>
-            </div>
+                <p>ショップを選択</p>
+                @foreach ($shops as $shop)
+                <x-button class="mt-4 ml-64">
+                    <div>
+                        <img src="{{ Storage::url($shop->logo ) }}" class="rounded-full h-8 w-8 object-cover mr-2">
+                        <p>{{ $shop->name }}</p>
 
-            <div class="my-6 ml-14">
-                {{-- 今まで潜った本数 --}}
-                <p class="text-divenavy text-sm">ダイブ本数</p>
-                <input type="number" name="dive_count"
-                    class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                DIVE
+                    </div>
+                </x-button>
+                @endforeach
             </div>
-
-            <x-button class="mt-4 ml-64">登録</x-button>
         </form>
+
+        <a href="{{ route('dashboard') }}">
+            <x-button>登録しない</x-button>
+        </a>
 
     </x-auth-card>
 </x-guest-layout>
