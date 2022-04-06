@@ -1,3 +1,12 @@
+<style>
+    #canvas {
+        background-image: url(../storage/uploads/map1.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+</style>
+
+
 <x-app-layout>
     {{-- ヘッダーロゴ部分 --}}
     <x-slot name="iconLeft">
