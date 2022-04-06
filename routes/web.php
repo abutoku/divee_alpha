@@ -22,6 +22,7 @@ use App\Http\Controllers\BuddyController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\MasterController;
+use App\Http\Controllers\DivemapController;
 
 //認証
 use Illuminate\Support\Facades\Auth;
@@ -108,6 +109,9 @@ Route::delete('comment/{comment}', [CommentController::class,'destroy'])
 
 //-----log-------------------//
 Route::resource('log', LogController::class);
+
+//-----divemaps--------------//
+Route::resource('divemap', DivemapController::class);
 
 //-----book-------------------//
 //図鑑MEMO更新

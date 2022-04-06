@@ -22,6 +22,10 @@
             <li>プロフィールカバー画像変更</li>
             </a>
 
+            <a href="{{ route('divemap.create') }}">
+            <li>水中地図登録</li>
+            </a>
+
         </ul>
 
     </section>

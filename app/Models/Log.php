@@ -36,4 +36,10 @@ class Log extends Model
         return $this->belongsTo(Site::class);
     }
 
+    //$log->divemap
+    public function divemap()
+    {
+        return $this->hasOne(Divemap::class);
+    }
+
 }

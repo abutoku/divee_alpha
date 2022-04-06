@@ -108,6 +108,10 @@
 
 <script>
 
+$('#date').on('click',function(){
+    $('#canvas').css('background-image','url(../storage/uploads/cover.jpg)');
+});
+
     //canvasについての記述
     let posiX = 0; //一つ前の座標を代入するための変数
     let posiY = 0; //一つ前の座標を代入するための変数
