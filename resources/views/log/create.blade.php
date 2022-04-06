@@ -1,3 +1,13 @@
+<style>
+    #canvas {
+        background-image:url(../storage/uploads/map1.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+
+</style>
+
 <x-app-layout>
     {{-- ヘッダーロゴ部分 --}}
     <x-slot name="iconLeft">
@@ -27,7 +37,7 @@
                     <div class="mt-8 md:w-1/2">
                         {{-- 日付 --}}
                         <div>
-                            <div class="pr-8">日付</div>
+                            <div id='date' class="pr-8">日付</div>
                             <input type="date" name="date" class="w-[250px] sm:w-[300px] rounded-lg border-2 border-divenavy">
                         </div>
                         {{-- 生物名 --}}
@@ -77,9 +87,9 @@
                         <div id="canvas_contents">
                             <!-- canvas入力画面 -->
                             <x-button id="clear_btn" class="mb-2">クリア</x-button>
-                            <canvas id="canvas" width="360" height="240" style="border:1px solid #000;"></canvas>
-                            <input type="text" id="point_x" name="point_x">
-                            <input type="text" id="point_y" name="point_y">
+                            <canvas id="canvas" width="360" height="240" style="border:1px solid #000;" ></canvas>
+                            <input type="hidden" id="point_x" name="point_x">
+                            <input type="hidden" id="point_y" name="point_y">
                         </div><!-- canvas入力画面ここまで -->
                     </div>
                     {{-- 画像登録エリアここまで --}}

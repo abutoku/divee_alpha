@@ -15,7 +15,7 @@
     <div class="flex justify-center">
 
         <div class="mt-10 w-[400px] sm:w-[600px]">
-            <img src="{{ Storage::url($profile->cover_image) }}" class="w-full h-80 object-cover bg-white rounded-lg shadow-xl">
+            <img src="{{ Storage::url($profile->cover_image) }}" class="w-full h-80 object-cover bg-white rounded-lg shadow-xl ">
             {{-- プロフィール表示部分 --}}
             <section class="pt-10">
                 <div class="flex justify-center items-end w-full">

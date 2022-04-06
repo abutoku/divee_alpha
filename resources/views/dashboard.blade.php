@@ -32,7 +32,7 @@
         <section class="flex justify-around lg:w-1/2">
                 <!-- ユーザー名表示 -->
                 <a href="{{ route('profile.show', Auth::user()->id ) }}"
-                    class="flex flex-col justify-end mb-10 p-6 bg-slate-50 rounded-lg drop-shadow-md w-11/12 h-64 lg:h-96 bg-cover"
+                    class="flex flex-col justify-end mb-10 p-6 bg-slate-50 rounded-lg drop-shadow-md w-11/12 h-64 lg:h-96 bg-cover bg-center"
                     style="background-image: url({{ Storage::url(Auth::user()->profile->cover_image) }});">
                     <img src="{{ Storage::url(Auth::user()->profile->profile_image) }}"
                         class="h-24 w-24 rounded-full object-cover bg-white mr-4 mb-2">
@@ -48,13 +48,13 @@
 
             <div class="flex justify-around">
                 <!-- 生物ログ-->
-                <a href="{{ route('log.index') }}" class=" rounded-lg drop-shadow-md w-5/12  h-32 lg:h-40  mb-6 flex justify-center items-center bg-cover" style="background-image: url('storage/uploads/log.jpg');">
+                <a href="{{ route('log.index') }}" class=" rounded-lg drop-shadow-md w-5/12  h-32 lg:h-40  mb-6 flex justify-center items-center bg-cover bg-center" style="background-image: url('storage/uploads/log.jpg');">
                     <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">生物ログ</span>
                 </a>
 
                 <!-- 潮 -->
                 <a href="{{ route('tide.info') }}"
-                class="rounded-lg drop-shadow-md w-5/12  h-32 lg:h-40 mb-6 flex justify-center items-center bg-cover"
+                class="rounded-lg drop-shadow-md w-5/12  h-32 lg:h-40 mb-6 flex justify-center items-center bg-cover bg-center"
                 style="background-image: url('storage/uploads/tide.jpg');">
                 <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">潮</span>
                 </a>
@@ -63,13 +63,13 @@
             <div class="flex justify-around ">
                 <!-- 図鑑 -->
                 <a href="{{ route('book.index') }}"
-                class="rounded-lg drop-shadow-md w-5/12 2 h-32 lg:h-40 mb-6 flex justify-center items-center bg-cover"
+                class="rounded-lg drop-shadow-md w-5/12 2 h-32 lg:h-40 mb-6 flex justify-center items-center bg-cover bg-center"
                 style="background-image: url('storage/uploads/picture.jpg');">
                 <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">図鑑</span>
                 </a>
 
                 <!-- Map -->
-                <a href="{{ route('map.site') }}" class="rounded-lg drop-shadow-md w-5/12  h-32  lg:h-40 mb-6 flex justify-center items-center bg-cover" style="background-image: url('storage/uploads/map.jpg');">
+                <a href="{{ route('map.site') }}" class="rounded-lg drop-shadow-md w-5/12  h-32  lg:h-40 mb-6 flex justify-center items-center bg-cover bg-center" style="background-image: url('storage/uploads/map.jpg');">
                     <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">Map</span>
                 </a>
             </div>
@@ -77,7 +77,7 @@
             <div class="flex justify-around w-full">
                 <!-- 陸の情報 -->
                 <a href="{{ route('map.post') }}"
-                    class="flex justify-center items-center mb-10 p-6  rounded-lg drop-shadow-md w-11/12 h-32 lg:h-40 bg-cover"
+                    class="flex justify-center items-center mb-10 p-6  rounded-lg drop-shadow-md w-11/12 h-32 lg:h-40 bg-cover bg-center"
                     style="background-image: url('storage/uploads/aft.jpg');">
                     <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">After Diving</span>
                 </a>

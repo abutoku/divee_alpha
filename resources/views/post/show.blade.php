@@ -1,3 +1,4 @@
+
 <x-app-layout>
     {{-- ヘッダーロゴ部分 --}}
     <x-slot name="iconLeft">
