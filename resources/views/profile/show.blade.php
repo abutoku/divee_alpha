@@ -80,7 +80,7 @@
                     <div class="rounded-2xl py-1 w-[120px] sm:w-[200px] mr-4 border-2 border-divenavy bg-divenavy text-white flex justify-around">
                         ステータス</div>
 
-                    <a href="{{ route('profile.list',$profile->id ) }}" class="rounded-2xl py-1 w-[120px] sm:w-[200px] border-2 border-divenavy  text-divenavy flex justify-around">
+                    <a href="{{ route('profile.list',$profile->user_id ) }}" class="rounded-2xl py-1 w-[120px] sm:w-[200px] border-2 border-divenavy  text-divenavy flex justify-around">
                         BUDDY LIST</a>
                 </section>
 
