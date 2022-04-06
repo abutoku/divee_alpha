@@ -70,13 +70,11 @@
                     </div>
                     </a>
                     @endif
-
                 </section>
                 {{-- マイプロフィール表示部分ここまで --}}
 
                 {{-- ログインユーザーかどうかの条件分岐 --}}
-                @if($profile->id == Auth::user()->id)
-
+                @if($profile->user_id == Auth::user()->id)
                 {{-- 選択ボタン --}}
                 <section class="flex justify-center only mt-12">
                     <div class="rounded-2xl py-1 w-[120px] sm:w-[200px] mr-4 border-2 border-divenavy bg-divenavy text-white flex justify-around">
