@@ -27,9 +27,6 @@
         </a>
     </section>
 
-
-
-
     <div class="lg:flex">
         <!-- profile -->
         <section class="flex justify-around lg:w-1/2">

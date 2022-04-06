@@ -21,6 +21,14 @@ class LocalDevelopSeeder extends Seeder
             'admin' => true,
         ]);
 
+        // デモショップ
+        \App\Models\Shop::create([
+            'shop_name' => 'DIVESHOP hoge',
+            'logo' => 'uploads/shop_logo.png',
+            'cover' => 'uploads/shop_demo.jpg',
+            'url' => 'https://gsacademy.jp/',
+        ]);
+
         $this->call(UserSeeder::class);
         $this->call(SiteSeeder::class);
         $this->call(SetdataSeeder::class);
