@@ -25,11 +25,10 @@
                     {{-- ロゴ画像 --}}
                     <div class="mr-10 flex justify-center items-center flex-col w-full relative">
                         <img src="{{ Storage::url($shop->logo) }}"
-                            class="absolute bottom-1 h-36 w-36 sm:h-48 sm:w-48 mb-2 rounded-full object-cover bg-white border-2 border-paper">
+                            class="absolute  bottom-1 left-10 h-36 w-36 sm:h-48 sm:w-48 mb-2 rounded-full object-cover bg-white border-2 border-paper">
                     </div>
 
                 </div>
-
                 {{-- ショップ名 --}}
                 <div class="flex justify-between items-end">
                     <h1 class="text-4xl mt-10 mr-8"><b>{{ $shop->shop_name }}</h1>
