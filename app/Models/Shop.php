@@ -15,9 +15,11 @@ class Shop extends Model
         'updated_at',
     ];
 
-    //$shop->users
-    public function users()
+    //$shop->profiles
+    public function profiles ()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(Profile::class);
     }
+
+
 }

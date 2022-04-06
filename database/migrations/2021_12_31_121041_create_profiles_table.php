@@ -20,7 +20,9 @@ class CreateProfilesTable extends Migration
             $table->string('profile_image')->nullable();
             $table->string('cover_image')->nullable();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('shop_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('shop_id')->references('id')->on('shops')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -4,8 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//Validator
+use Illuminate\Support\Facades\Validator;
+//認証
+use Illuminate\Support\Facades\Auth;
+
+
 //Model
 use App\Models\Shop;
+use App\Models\Profile;
 
 class ShopController extends Controller
 {
@@ -39,9 +46,27 @@ class ShopController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    // Profileにshop_id登録
     public function store(Request $request)
     {
-        //
+        // バリデーション
+        $validator = Validator::make($request->all(), [
+            'shop_id' => 'required'
+        ]);
+
+        // バリデーション:エラー
+        if ($validator->fails()) {
+            return redirect()
+                ->route('shop.create')
+                ->withInput()
+                ->withErrors($validator);
+        }
+
+        $result = Profile::where('user_id',Auth::user()->id)
+                    ->update(['shop_id' => $request->shop_id]);
+
+        return redirect('dashboard');
     }
 
     /**

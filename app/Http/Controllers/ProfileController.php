@@ -86,7 +86,7 @@ class ProfileController extends Controller
             "card_rank" => $request->card_rank,
             "dive_count" => $request->dive_count,
             "profile_image" => 'uploads/null.png',
-            "cover" => 'uploads/cover.jpg',
+            "cover_image" => 'uploads/cover.jpg',
             "user_id" => Auth::user()->id
         ]);
 

@@ -32,7 +32,6 @@ class SiteController extends Controller
      */
     public function create()
     {
-        //
         //profile.createを表示
         return view('site.create');
     }
@@ -45,7 +44,7 @@ class SiteController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         //バリデーション
         $validator = Validator::make($request->all(), [
             'site_name' => 'required',

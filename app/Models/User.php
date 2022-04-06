@@ -51,43 +51,37 @@ class User extends Authenticatable
         return $this->hasMany(Post::class)->orderBy('updated_at', 'desc');
     }
 
-    //logモデルのリレーション（多対多）
-    //$user->posts
+    //$user->posts（多対多）
     public function posts()
     {
         return $this->belongsToMany(Post::class)->withTimestamps();
     }
 
-    //Profileモデルのリレーション（1対1）
-    //$user->profile
+    //$user->profile（1対1）
     public function profile()
     {
         return $this->hasOne(Profile::class);
     }
 
-    //Profileモデルのリレーション（1対1）
-    //$user->book
+    //$user->book（1対1）
     public function book()
     {
         return $this->hasOne(Book::class);
     }
 
-    // commentモデルのリレーション（1対多）
-    //$user->comments
+    //$user->comments（1対多）
     public function comments()
     {
         return $this->hasMany(Commment::class);
     }
 
-    //Pictureモデルのリレーション（1対多）
-    //$user->pictures
+    //$user->pictures（1対多）
     public function pictures()
     {
         return $this->hasMany(Picture::class);
     }
 
-    //Logモデルのリレーション（1対多）
-    //$user->logs
+    //$user->logs（1対多）
     public function logs()
     {
         return $this->hasMany(Log::class);
@@ -99,17 +93,12 @@ class User extends Authenticatable
         return $this->hasMany(Buddy::class);
     }
 
-    //$user->shop
-    public function shop()
-    {
-        return $this->belongTo(Shop::class);
-    }
-
     //自分のuser_idのLogを抽出（1対多）
     public function mylogs()
     {
         return $this->hasMany(Log::class)->orderBy('date', 'desc');
     }
+
 
     //----3/24 livewire 移行----------------------------------------------
     //自分のuser_idのBookを抽出（1対多）

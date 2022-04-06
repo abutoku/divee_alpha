@@ -29,5 +29,11 @@ class Profile extends Model
         return $this->belongsTo(User::class);
     }
 
+    //$profile->shop
+    public function shop()
+    {
+        return $this->belongsTo(Shop::class);
+    }
+
 
 }
