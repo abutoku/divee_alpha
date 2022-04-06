@@ -77,7 +77,10 @@ class ShopController extends Controller
      */
     public function show($id)
     {
-        //
+        //profle_tableからユーザーidが一致するレコードを取得
+        $shop = Shop::find($id);
+        //profile.indexに$profileと$userを渡す
+        return view('shop.show', ['shop' => $shop]);
     }
 
     /**
