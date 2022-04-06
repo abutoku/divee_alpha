@@ -22,6 +22,8 @@ class CreateLogsTable extends Migration
             $table->integer('temp');
             $table->integer('depth');
             $table->string('image')->nullable();
+            $table->integer('point_x')->nullable();
+            $table->integer('point_y')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
