@@ -64,7 +64,7 @@
             @foreach ($logs as $log)
             <div x-data="{ open: false }" @click.away="open = false" @close.stop="open = false" class="flex justify-center ">
 
-                <div class="bg-white rounded-lg drop-shadow-md w-[400px] lg:w-11/12 mb-4 p-4  hover:bg-gray-100 cursor-pointer"  @click="open = ! open">
+                <div class="show-btn bg-white rounded-lg drop-shadow-md w-[400px] lg:w-11/12 mb-4 p-4  hover:bg-gray-100 cursor-pointer"  @click="open = ! open" id="{{ $log->id }}">
                     <div class="flex">
                         <p class="mr-4">{{ $log->date }}</p>
                         <p>{{ $log->site->site_name }}</p>
@@ -75,15 +75,21 @@
                 <div class="inset-0 w-full h-full fixed flex items-center justify-center z-20"
                 style="background-color: rgba(0,0,0,.5);" x-show="open" x-cloak>
 
-                    <div class="text-left bg-white h-auto p-4 md:max-w-xl md:p-6 lg:p-8 shadow-xl rounded mx-2 md:mx-0" @click.away="open = false">
+                    <div class="text-left bg-white h-[600px] p-6 overflow-y-auto" @click.away="open = false">
                         <h2 class="text-2xl font-bold mb-2">{{ $book->fish_name }}</h2>
                         <p class="text-xs">{{ $log->date }}</p>
                         <p>{{ $log->site->site_name }}</p>
                         <p>水温 : {{ $log->temp }} ℃</p>
                         <p class="mb-4">水深 : {{ $log->depth }} M</p>
                         @if($log->image)
+                        <div class="flex justify-center">
                         <img src="{{ Storage::url($log->image) }}" class="w-[300px] h-[200px] rounded-lg object-cover">
+                        </div>
                         @endif
+                        <div id="canvas_contents" class="mt-8">
+                            <!-- canvas入力画面 -->
+                            <canvas id="canvas" width="360" height="240" style="border:1px solid #000;"></canvas>
+                        </div><!-- canvas入力画面ここまで -->
                         <div class="flex justify-center mt-8">
                             <x-button class="bg-gray-700 text-white px-4 py-2 rounded no-outline focus:shadow-outline select-none"
                             @click="open = false">Close</x-button>
@@ -109,3 +115,32 @@
 
     </div>
 </x-app-layout>
+
+<script>
+
+    const logs = @json($logs);
+
+    //canvasについての記述
+    const can = $('#canvas')[0]; //キャンバスそのものを変数
+    const ctx = can.getContext("2d"); //canに対してgetContext関数を実行し書き込み権限を与える
+
+    //パスの開始
+    ctx.beginPath();
+
+    $('.show-btn').on('click',function(){
+
+        const target = logs.find(x => x.id = this.id);
+
+        pointX = target.point_x; //位置の横軸を変数に代入
+        pointY = target.point_y; //位置の縦軸を変数に代入
+
+        ctx.beginPath();//パスの開始
+        ctx.fillStyle = "#ff0000";//色指定
+        //Rect(座標、半径、円のスタート度、エンド度（描画）、回転)
+        ctx.arc(pointX, pointY, 5, 0, Math.PI * 2, false);
+        ctx.stroke();//実際に書く関数(枠線)
+        ctx.fill(); //塗りつぶし
+
+    });
+
+</script>

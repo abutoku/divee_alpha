@@ -65,11 +65,8 @@
 
                     {{-- 画像登録エリア --}}
                     <div class="md:mt-8 md:w-1/2">
-                        {{-- ボタン --}}
-                        <div id="add_img" class="inline-flex items-center px-4 py-2 bg-divenavy border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">写真を登録</div>
 
-                        {{-- ボタンがクリックされたら表示される部分 --}}
-                        <div id="img_input" class="w-[250px] sm:w-[300px]">
+                        <div class="w-[250px] sm:w-[300px]">
                             {{-- ファイル選択欄 --}}
                             <input type="file" name="image_data" id="log_image" class="my-6">
                             <div class="flex justify-center">
@@ -77,6 +74,13 @@
                                 <img src="{{ Storage::url('uploads/no_image.png') }}" id="demo_pic" class="mb-4 h-48 object-cover" >
                             </div>
                         </div>
+                        <div id="canvas_contents">
+                            <!-- canvas入力画面 -->
+                            <x-button id="clear_btn" class="mb-2">クリア</x-button>
+                            <canvas id="canvas" width="360" height="240" style="border:1px solid #000;"></canvas>
+                            <input type="text" id="point_x" name="point_x">
+                            <input type="text" id="point_y" name="point_y">
+                        </div><!-- canvas入力画面ここまで -->
                     </div>
                     {{-- 画像登録エリアここまで --}}
                 </div>
@@ -91,3 +95,44 @@
     <!--wrapperここまで-->
 
 </x-app-layout>
+
+<script>
+
+    //canvasについての記述
+    let posiX = 0; //一つ前の座標を代入するための変数
+    let posiY = 0; //一つ前の座標を代入するための変数
+
+    const can = $('#canvas')[0]; //キャンバスそのものを変数
+    const ctx = can.getContext("2d"); //canに対してgetContext関数を実行し書き込み権限を与える
+
+    //パスの開始
+    ctx.beginPath();
+
+    $('#clear_btn').on("click", function () {
+    ctx.closePath();
+    ctx.clearRect(0, 0, can.width, can.height);//canvasをクリア
+    })
+
+    //ダブルクリックで◯をつける
+    $(can).on("dblclick", function (e) {
+    console.log(e.offsetX);
+    console.log(e.offsetY);
+
+    ctx.closePath();
+    ctx.clearRect(0, 0, can.width, can.height);//canvasをクリア
+
+    pointX = e.offsetX; //位置の横軸を変数に代入
+    pointY = e.offsetY; //位置の縦軸を変数に代入
+
+    document.getElementById( "point_x" ).value = e.offsetX ;
+    document.getElementById( "point_y" ).value = e.offsetY;
+
+    ctx.beginPath();//パスの開始
+    ctx.fillStyle = "#ff0000";//色指定
+    //Rect(座標、半径、円のスタート度、エンド度（描画）、回転)
+    ctx.arc(pointX, pointY, 5, 0, Math.PI * 2, false);
+    ctx.stroke();//実際に書く関数(枠線)
+    ctx.fill(); //塗りつぶし
+    });
+
+</script>
