@@ -18,6 +18,7 @@ class CreateLogsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('book_id');
             $table->unsignedBigInteger('site_id');
+            $table->unsignedBigInteger('divemap_id')->nullable();
             $table->date('date');
             $table->integer('temp');
             $table->integer('depth');
@@ -28,6 +29,7 @@ class CreateLogsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
             $table->foreign('site_id')->references('id')->on('sites')->onDelete('cascade');
+            $table->foreign('divemap_id')->references('id')->on('divemaps')->onDelete('cascade');
         });
     }
 
