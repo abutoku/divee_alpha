@@ -10,6 +10,12 @@
         </a>
     </x-slot>
 
+    @if(session('status'))
+    <div id="flash_message" class="text-green-700 p-3 bg-green-300 rounded mt-16 mb-3 flex justify-center">
+        {{ session('status') }}
+    </div>
+    @endif
+
     <!--wrapper-->
     {{-- 作成ボタン --}}
     <div class="pt-16">
@@ -35,7 +41,7 @@
             @foreach ($logs as $log)
             {{-- 画像がある場合 --}}
                 @if($log->image)
-                    <div class="flex justify-between bg-white drop-shadow-md rounded-lg w-[400px] sm:w-[650px] h-40 sm:h-60 my-5">
+                    <a href="{{ route('log.show',$log->id) }}" class="flex justify-between bg-white drop-shadow-md rounded-lg w-[400px] sm:w-[650px] h-40 sm:h-60 my-5">
                         <div class="p-2 sm:p-4 w-full">
                             <div class="flex justify-between">
                                 {{-- テキスト部分 --}}
@@ -71,10 +77,10 @@
                         <div>
                             <img src="{{ Storage::url($log->image) }}" alt="picture" class="h-40 sm:h-60 w-56 sm:w-[400px] object-cover rounded-r-lg">
                         </div>
-                    </div>
+                    </a>
             {{-- サムネイル画像が無い場合 --}}
                 @else
-                    <div class="flex flex-col bg-white drop-shadow-md rounded-lg w-[400px] sm:w-[650px] h-40 sm:h-60 my-5 p-2 sm:p-4">
+                    <a href="{{ route('log.show',$log->id) }}" class="flex flex-col bg-white drop-shadow-md rounded-lg w-[400px] sm:w-[650px] h-40 sm:h-60 my-5 p-2 sm:p-4">
                         <div class="flex justify-between">
                             {{-- テキスト部分 --}}
                             <div>
@@ -103,7 +109,7 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 @endif
             @endforeach
 

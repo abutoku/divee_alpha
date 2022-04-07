@@ -22,7 +22,7 @@
             class="rounded-2xl py-1 w-[200px] mr-4 border-2 border-divenavy text-divenavy flex justify-around">
             HOME</a>
         <div class="rounded-2xl py-1 w-[200px] border-2 border-divenavy  bg-divenavy text-white flex justify-around">
-            BUDDY LOG</div>
+            MESSAGE</div>
     </section>
 
     <a href="{{ route('buddy.create') }}" >

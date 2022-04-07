@@ -15,7 +15,7 @@
         <div class="rounded-2xl py-1 w-[200px] mr-4 border-2 border-divenavy bg-divenavy text-white flex justify-around">
             HOME</div>
         <a href="{{ route('buddy.index') }}" class="rounded-2xl py-1 w-[200px] border-2 border-divenavy flex justify-around mr-2 relative">
-            BUDDY LOG
+            MESSAGE
             @if($notice >= 1)
             <span class="absolute top-0 right-0 flex h-5 w-5 ">
                 <span class="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-pink-400 opacity-75"></span>

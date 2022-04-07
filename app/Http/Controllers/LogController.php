@@ -17,6 +17,7 @@ use App\Models\Log;
 use App\Models\Book;
 use App\Models\Site;
 use App\Models\Location;
+use App\Models\Divemap;
 
 
 class LogController extends Controller
@@ -45,9 +46,11 @@ class LogController extends Controller
     public function create()
     {
         $sites = Site::all();
+        $divemaps = Divemap::all();
         //log.create（登録ページ）を表示
         return view('log.create', [
-            'sites' => $sites
+            'sites' => $sites,
+            'divemaps' => $divemaps,
         ]);
     }
 
@@ -119,6 +122,7 @@ class LogController extends Controller
         ]);
 
         // ルーティング「log.index」にリクエスト送信（一覧ページに移動）
+        session()->flash('status', '登録が完了しました');
         return redirect()->route('log.index');
     }
 
@@ -128,9 +132,32 @@ class LogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
-        //
+
+        $log = Log::find($id);
+
+        if (Auth::user()->id != $log->user_id) {
+            return abort('404');
+        }
+
+        
+        if($log->divemap_id) {
+
+        $map = Divemap::find($log->divemap_id);
+
+        return view('log.show', [
+            'log' => $log,
+            'map' => $map,
+        ]);
+
+        }
+
+        return view('log.show', [
+            'log' => $log,
+        ]);
+
     }
 
     /**
@@ -141,7 +168,8 @@ class LogController extends Controller
      */
     public function edit($id)
     {
-        //
+       //
+
     }
 
     /**

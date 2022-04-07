@@ -1,11 +1,3 @@
-<style>
-    #canvas {
-        background-image: url(../storage/uploads/map1.jpg);
-        background-size: cover;
-        background-position: center;
-    }
-</style>
-
 
 <x-app-layout>
     {{-- ヘッダーロゴ部分 --}}
@@ -73,7 +65,7 @@
             @foreach ($logs as $log)
             <div x-data="{ open: false }" @click.away="open = false" @close.stop="open = false" class="flex justify-center ">
 
-                <div class="show-btn bg-white rounded-lg drop-shadow-md w-[400px] lg:w-11/12 mb-4 p-4  hover:bg-gray-100 cursor-pointer"  @click="open = ! open" id="{{ $log->id }}">
+                <div class="show-btn bg-white rounded-lg drop-shadow-md w-[400px] lg:w-11/12 mb-4 p-4  hover:bg-gray-100 cursor-pointer"  @click="open = ! open" id="{{ $log->id }}" value="{{ $log->divemap_id }}">
                     <div class="flex">
                         <p class="mr-4">{{ $log->date }}</p>
                         <p>{{ $log->site->site_name }}</p>
@@ -92,19 +84,15 @@
                         <p class="mb-4">水深 : {{ $log->depth }} M</p>
                         @if($log->image)
                         <div class="flex justify-center">
-                        <img src="{{ Storage::url($log->image) }}" class="w-[300px] h-[200px] rounded-lg object-cover">
+                        <img src="{{ Storage::url($log->image) }}" class="w-[300px] h-[200px] rounded-lg object-cover mb-8">
                         </div>
                         @endif
-                        <div id="canvas_contents" class="mt-8">
-                            <!-- canvas入力画面 -->
-                            <canvas id="canvas" width="360" height="240" style="border:1px solid #000;"></canvas>
-                        </div><!-- canvas入力画面ここまで -->
+                        <a href="{{ route('log.show',$log->id) }}" class="">詳細へ</a>
                         <div class="flex justify-center mt-8">
                             <x-button class="bg-gray-700 text-white px-4 py-2 rounded no-outline focus:shadow-outline select-none"
                             @click="open = false">Close</x-button>
                         </div>
                     </div>
-
                 </div>
 
             </div>
@@ -124,32 +112,3 @@
 
     </div>
 </x-app-layout>
-
-<script>
-
-    const logs = @json($logs);
-
-    //canvasについての記述
-    const can = $('#canvas')[0]; //キャンバスそのものを変数
-    const ctx = can.getContext("2d"); //canに対してgetContext関数を実行し書き込み権限を与える
-
-    //パスの開始
-    ctx.beginPath();
-
-    $('.show-btn').on('click',function(){
-
-        const target = logs.find(x => x.id = this.id);
-
-        pointX = target.point_x; //位置の横軸を変数に代入
-        pointY = target.point_y; //位置の縦軸を変数に代入
-
-        ctx.beginPath();//パスの開始
-        ctx.fillStyle = "#ff0000";//色指定
-        //Rect(座標、半径、円のスタート度、エンド度（描画）、回転)
-        ctx.arc(pointX, pointY, 5, 0, Math.PI * 2, false);
-        ctx.stroke();//実際に書く関数(枠線)
-        ctx.fill(); //塗りつぶし
-
-    });
-
-</script>
