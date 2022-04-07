@@ -76,7 +76,9 @@ class BuddyController extends Controller
         $profile = Profile::find(Auth::user()->id);
         $profile->increment('dive_count', $request->dive_count);
 
+        session()->flash('status', '登録が完了しました');
         return redirect()->route('buddy.index');
+        
     }
 
     /**

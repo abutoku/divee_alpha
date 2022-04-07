@@ -10,6 +10,12 @@
         </a>
     </x-slot>
 
+    @if(session('status'))
+    <div id="flash_message" class="text-green-700 p-3 bg-green-300 rounded mt-16 mb-3 flex justify-center">
+        {{ session('status') }}
+    </div>
+    @endif
+
     <!-- 選択ボタン -->
     <section class="flex mt-14 mb-8 justify-center sm:justify-start">
         <a href="{{ route('dashboard') }}"

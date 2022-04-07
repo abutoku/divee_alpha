@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//Storege
+use Illuminate\Support\Facades\Storage;
 //Validator
 use Illuminate\Support\Facades\Validator;
 //認証
@@ -21,7 +23,11 @@ class DivemapController extends Controller
      */
     public function index()
     {
-        return view('divemap.index');
+        $divemaps = Divemap::all();
+
+        return view('divemap.index',[
+            'divemaps' => $divemaps
+        ]);
     }
 
     /**
@@ -116,6 +122,14 @@ class DivemapController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $divemap = Divemap::find($id);
+
+        //地図画像をストレージから削除
+        Storage::disk('public')->delete($divemap->image);
+
+        //データベースから削除
+        $result = Divemap::find($id)->delete();
+
+        return redirect()->route('divemap.index');
     }
 }
