@@ -46,13 +46,21 @@
                     <div class="mr-8">
                         <p class="font-bold">干潮</p>
                         <p>{{ $tide['edd'][0]['time'] }}</p>
-                        <p>{{ $tide['edd'][1]['time']}}</p>
+                        @if (isset($tide['edd'][1]))
+                            <p>{{ $tide['edd'][1]['time']}}</p>
+                        @else
+                            <p>情報無し</p>
+                        @endif
                     </div>
 
                     <div>
                         <p class="font-bold">満潮</p>
                         <p>{{ $tide['flood'][0]['time'] }}</p>
-                        <p>{{ $tide['flood'][1]['time']}}</p>
+                        @if (isset($tide['flood'][1]))
+                            <p>{{ $tide['flood'][1]['time']}}</p>
+                        @else
+                            <p>情報無し</p>
+                        @endif
                     </div>
                 </div>
             </div>
