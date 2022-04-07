@@ -17,6 +17,41 @@
     </div>
     @endif
 
+    <section class="mt-16">
+        <div class="flex flex-col items-center">
+            @foreach ($divemaps as $divemap)
+            <div class="flex items-center bg-white  drop-shadow-md rounded-md w-[350px] sm:w-[600px] h-40 my-5 overflow-hidden">
+                <img class="h-40 w-36 object-cover" src="{{ Storage::url($divemap->image) }}">
+
+                <div class="w-full flex justify-between">
+
+                    <p class="ml-6 text-lg font-bold">{{$divemap->map_name}}</p>
+
+                    <div x-data="{ open:false }" @click.away="open = false" @close.stop="open = false" class="flex flex-col items-end ml-auto">
+
+                        <button @click="open = !open" class="mr-6">
+                            <svg class="h-5 w-5 text-gray-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" />
+                                <circle cx="12" cy="12" r="1" />
+                                <circle cx="12" cy="19" r="1" />
+                                <circle cx="12" cy="5" r="1" />
+                            </svg>
+                        </button>
+
+                        {{-- 削除ボタン --}}
+                        <form x-show="open" x-cloak x-transition action="{{ route('divemap.destroy',$divemap->id )}}" method="post">
+                            @method('delete')
+                            @csrf
+                            <button type="submit" class="mt-6 py-2 px-4 border rounded-lg">削除</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            @endforeach
+
+        </div>
+    </section>
 
 </x-app-layout>
-
