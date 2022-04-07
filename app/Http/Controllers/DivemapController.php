@@ -69,6 +69,7 @@ class DivemapController extends Controller
             $result = Divemap::create($data);
         }
 
+        session()->flash('status', '登録が完了しました');
         return redirect()
             ->route('divemap.index');
     }
