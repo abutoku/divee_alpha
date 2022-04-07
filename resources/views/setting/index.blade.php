@@ -20,12 +20,10 @@
             </a>
 
             <a href="{{ route('divemap.index') }}">
-            <li>水中地図一覧</li>
+                <li>水中地図設定</li>
             </a>
 
-            <a href="{{ route('divemap.create') }}">
-            <li>水中地図登録</li>
-            </a>
+            
 
         </ul>
 

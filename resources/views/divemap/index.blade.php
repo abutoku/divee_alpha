@@ -18,6 +18,15 @@
     @endif
 
     <section class="mt-16">
+        <a href="{{ route('divemap.create') }}">
+            <x-button class="p-4">
+                <svg class="h-5 w-5 text-white mr-2"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />  <polyline points="7 10 12 15 17 10" />  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>水中地図登録
+            </x-button>
+        </a>
+    </section>
+
+    <section class="mt-16">
         <div class="flex flex-col items-center">
             @foreach ($divemaps as $divemap)
             <div class="flex items-center bg-white  drop-shadow-md rounded-md w-[350px] sm:w-[600px] h-40 my-5 overflow-hidden">
