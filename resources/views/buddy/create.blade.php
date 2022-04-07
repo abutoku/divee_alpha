@@ -29,8 +29,8 @@
 
             <select name="buddy_id" class="mt-6 rounded-lg border-2 border-divenavy">
                 <option disabled selected value>バディを選択</option>
-                @foreach ($users as $user)
-                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                @foreach ($profiles as $profile)
+                <option value="{{ $profile->user->id }}">{{ $profile->user->name }}</option>
                 @endforeach
             </select>
 

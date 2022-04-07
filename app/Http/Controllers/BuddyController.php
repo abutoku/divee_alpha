@@ -41,9 +41,10 @@ class BuddyController extends Controller
      */
     public function create()
     {
-        $users = User::all();
+        $login_user = User::find(Auth::user()->id);
+        $profiles = Profile::where('shop_id',$login_user->profile->shop_id)->get();
         return view('buddy.create',[
-            'users' => $users
+            'profiles' => $profiles
         ]);
     }
 
@@ -78,7 +79,7 @@ class BuddyController extends Controller
 
         session()->flash('status', '登録が完了しました');
         return redirect()->route('buddy.index');
-        
+
     }
 
     /**
