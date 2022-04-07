@@ -10,21 +10,20 @@
         </a>
     </x-slot>
 
+    {{-- プロフィール編集 --}}
     <section class="mt-16">
 
-        {{-- プロフィール編集メニュー --}}
-        <ul>
+            <div class="bg-white w-80 rounded-lg">
 
-            <a href="{{ route('profile.edit',Auth::user()->profile->id) }}">
-                <li>プロフィール画像変更</li>
-            </a>
+                <div class="flex justify-start items-center h-12 border-b ml-2 cursor-pointer">
+                    <a href="{{ route('profile.edit',Auth::user()->profile->id) }}">プロフィール画像変更</a>
+                </div>
 
-            <a href="{{ route('profile.cover',Auth::user()->profile->id) }}">
-                <li>プロフィールカバー画像変更</li>
-            </a>
+                <div class="flex justify-start items-center h-12 border-b ml-2 cursor-pointer">
+                    <a href="{{ route('profile.cover',Auth::user()->profile->id) }}">プロフィールカバー画像変更定</a>
+                </div>
 
-        </ul>
-
+            </div>
     </section>
 
 

@@ -12,22 +12,17 @@
 
     {{-- 各種設定一覧 --}}
     <section class="mt-16">
+        <div class="bg-white w-80 rounded-lg">
 
-        <ul>
+            <div class="flex justify-start items-center h-12 border-b ml-2 cursor-pointer">
+                <a href="{{ route('site.create') }}">ダイブサイト登録</a>
+            </div>
 
-            <a href="{{ route('site.create') }}">
-                <li class="mb-6">ダイブサイト登録</li>
-            </a>
+            <div class="flex justify-start items-center h-12 border-b ml-2 cursor-pointer">
+                <a href="{{ route('divemap.index') }}">水中地図設定</a>
+            </div>
 
-            <a href="{{ route('divemap.index') }}">
-                <li>水中地図設定</li>
-            </a>
-
-            
-
-        </ul>
-
+        </div>
     </section>
-
 
 </x-app-layout>

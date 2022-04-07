@@ -40,23 +40,23 @@
                 <ul>
 
                     <a href="{{ route('profile.index') }}">
-                        <li class="mb-6">メンバー一覧</li>
+                        <li class="mb-6 pb-2 border-b">メンバー一覧</li>
                     </a>
 
                     <a href="{{ route('profile.menu') }}">
-                        <li class="mb-6">プロフィール編集</li>
+                        <li class="mb-6 pb-2 border-b">プロフィール編集</li>
                     </a>
 
                     <a href="{{ route('setting.index') }}">
-                        <li class="mb-6">設定</li>
+                        <li class="mb-6 pb-2 border-b">設定</li>
                     </a>
 
                     <a href="#">
-                        <li class="mb-6">ヘルプ</li>
+                        <li class="mb-6 pb-2 border-b">ヘルプ</li>
                     </a>
 
                     <a href={{ route('back.index') }}>
-                        <li class="mb-6">管理者</li>
+                        <li class="mb-6 pb-2 border-b">管理者</li>
                     </a>
 
                 </ul>
