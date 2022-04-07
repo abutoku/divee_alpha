@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Log;
 use App\Models\Book;
+use App\Models\Divemap;
 
 class BookController extends Controller
 {

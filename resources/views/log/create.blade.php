@@ -1,10 +1,8 @@
 <style>
     #canvas {
-        background-image:url(../storage/uploads/map1.jpg);
         background-size: cover;
         background-position: center;
     }
-
 
 </style>
 
@@ -25,6 +23,8 @@
             <x-text-logo/>
         </a>
     </x-slot>
+
+
 
     <!--wrapper-->
     <div class="flex justify-center mt-12">
@@ -85,15 +85,25 @@
                             </div>
                         </div>
                         <div id="canvas_contents">
-                            <!-- canvas入力画面 -->
-                            <x-button id="clear_btn" class="mb-2">クリア</x-button>
-                            <canvas id="canvas" width="360" height="240" style="border:1px solid #000;" ></canvas>
+                            <p>地図を選択</p>
+                            <select name="divemap_id" id="map" class="rounded-lg border-2 border-divenavy">
+                                <option disabled selected value>マップを選択</option>
+                                @foreach ($divemaps as $divemap)
+                                    <option value="{{ $divemap->id }}">{{ $divemap->map_name }}</option>
+                                @endforeach
+                            </select>
+
+                            <canvas id="canvas" width="360" height="240" style="border:1px solid #000;" class="mt-4"></canvas>
                             <input type="hidden" id="point_x" name="point_x">
                             <input type="hidden" id="point_y" name="point_y">
                         </div><!-- canvas入力画面ここまで -->
+
+                        <x-button id="clear_btn" class="mt-4">クリア</x-button>
                     </div>
                     {{-- 画像登録エリアここまで --}}
                 </div>
+
+
 
                 {{-- 登録ボタン --}}
                 <x-button class="my-8">登録終了</x-button><br>
@@ -108,9 +118,16 @@
 
 <script>
 
-$('#date').on('click',function(){
-    $('#canvas').css('background-image','url(../storage/uploads/cover.jpg)');
-});
+    const divemaps = @json($divemaps);
+
+    console.log(divemaps);
+
+    $('#map').on('change',function () {
+        const val = $('#map').val();
+        const target = divemaps.find(x => x.id == val);
+        console.log(target);
+        $('#canvas').css(`background-image`,`url(../storage/${target.image})`);
+    });
 
     //canvasについての記述
     let posiX = 0; //一つ前の座標を代入するための変数
