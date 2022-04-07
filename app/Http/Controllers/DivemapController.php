@@ -4,6 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//Validator
+use Illuminate\Support\Facades\Validator;
+//認証
+use Illuminate\Support\Facades\Auth;
+
+//Models
+use App\Models\Divemap;
+
 class DivemapController extends Controller
 {
     /**
@@ -34,7 +42,35 @@ class DivemapController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // バリデーション
+        $validator = Validator::make($request->all(), [
+            'map_name' => 'required',
+            'map_image' => 'required|file|image',
+        ]);
+
+        // バリデーション:エラー
+        if ($validator->fails()) {
+            return redirect()
+                ->route('divemap.create')
+                ->withInput()
+                ->withErrors($validator);
+        }
+
+        //リクエストファイルの画像を取得
+        $upload_image = $request->file('map_image');
+
+        //画像をpublic直下のuploadsに保存し$pathにパスを取得
+        $path = $upload_image->store('uploads', "public");
+
+        if($path){
+            // DBに登録
+            $data = $request->merge(['image' => $path])->all();
+            $result = Divemap::create($data);
+        }
+
+        return redirect()
+            ->route('divemap.index');
     }
 
     /**
