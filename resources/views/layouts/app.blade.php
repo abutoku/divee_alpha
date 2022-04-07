@@ -43,11 +43,7 @@
                         <li class="mb-6">メンバー一覧</li>
                     </a>
 
-                    <a href="{{ route('site.create') }}">
-                        <li class="mb-6">ダイブサイト登録</li>
-                    </a>
-
-                    <a href="#">
+                    <a href="{{ route('profile.menu') }}">
                         <li class="mb-6">プロフィール編集</li>
                     </a>
 

@@ -80,9 +80,13 @@ Route::get('/post/mypage', [PostController::class, 'mydata'])->name('post.mypage
 Route::resource('post', PostController::class);
 
 //-----profile-------------------//
+
 //ステータス画面切り替え
 Route::get('/profile/{profile}/list', [ProfileController::class,'list'])
 ->name('profile.list');
+//プロフィール設定メニュー一覧
+Route::get('/profile/menu', [ProfileController::class,'menu'])
+->name('profile.menu');
 //カバー画像変更画面
 Route::get('/profile/{profile}/cover', [ProfileController::class,'cover'])
 ->name('profile.cover');

@@ -10,21 +10,17 @@
         </a>
     </x-slot>
 
-    {{-- 各種設定一覧 --}}
     <section class="mt-16">
 
+        {{-- プロフィール編集メニュー --}}
         <ul>
 
-            <a href="{{ route('site.create') }}">
-                <li class="mb-6">ダイブサイト登録</li>
+            <a href="{{ route('profile.edit',Auth::user()->profile->id) }}">
+                <li>プロフィール画像変更</li>
             </a>
 
-            <a href="{{ route('divemap.index') }}">
-            <li>水中地図一覧</li>
-            </a>
-
-            <a href="{{ route('divemap.create') }}">
-            <li>水中地図登録</li>
+            <a href="{{ route('profile.cover',Auth::user()->profile->id) }}">
+                <li>プロフィールカバー画像変更</li>
             </a>
 
         </ul>

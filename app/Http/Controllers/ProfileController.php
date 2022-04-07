@@ -54,7 +54,6 @@ class ProfileController extends Controller
     //プロフィール登録画面を表示する
     public function create()
     {
-        //profile.createを表示
         return view('profile.create');
     }
 
@@ -237,6 +236,11 @@ class ProfileController extends Controller
     {
         //
 
+    }
+
+    public function menu()
+    {
+        return view('profile.menu');
     }
 
     public function ranking()

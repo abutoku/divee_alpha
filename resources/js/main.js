@@ -1,6 +1,6 @@
 'use strict';
 
-//---ハンバーガーメニューボタンの動き-----------------------------//
+//---ハンバーガーメニューボタンの動き-----------------//
 
 //初期設定
 $('#mask').hide(); //メニュー背景隠す
@@ -28,9 +28,19 @@ $('#profile_image').on('change', function (e) {
     reader.readAsDataURL(e.target.files[0]);
 });
 
-//---カバー写真が選択されたらプレビューを表示---//
+//---カバー写真が選択されたらプレビューを表示---------//
 
 $('#cover').on('change', function (e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $("#demo_img").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+});
+
+//---水中地図が選択されたらプレビューを表示-----------//
+
+$('#dive_map').on('change', function (e) {
     var reader = new FileReader();
     reader.onload = function (e) {
         $("#demo_img").attr('src', e.target.result);
@@ -48,7 +58,17 @@ $('#post_picture').on('change', function (e) {
     reader.readAsDataURL(e.target.files[0]);
 });
 
-//---サムネイル変更画面-----------------------------//
+//---生物写真が選択されたらプレビューを表示-----------//
+
+$('#log_image').on('change', function (e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $("#demo_pic").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+});
+
+//---サムネイル変更画面-------------------------------//
 
 //一覧画面は消しておく
 $('#thumbnail_view').hide();
@@ -64,11 +84,6 @@ $('#delete_picture').on('click', function () {
     $('#delete_view').show();
 })
 
-//---地図を表示-----------------------------------//
-
-
-
-
 //---生物ログ投稿画面-----------------------------//
 
 //画像投稿フォームは消しておく
@@ -78,12 +93,3 @@ $('#img_input').hide();
 $('#add_img').on('click', function () {
     $('#img_input').show();
 })
-
-//生物写真が選択されたらプレビューを表示
-$('#log_image').on('change', function (e) {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-        $("#demo_pic").attr('src', e.target.result);
-    }
-    reader.readAsDataURL(e.target.files[0]);
-});
