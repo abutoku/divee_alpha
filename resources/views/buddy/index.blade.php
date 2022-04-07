@@ -47,7 +47,7 @@
                     <p class="mt-8">{!! nl2br(e($buddy->message)) !!}</p>
                 </div>
             @empty
-                <p class="mt-12">ログはありません</p>
+                <p class="mt-12">メッセージはありません</p>
             @endforelse
         </div>
     </section>
