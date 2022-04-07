@@ -142,8 +142,8 @@ class LogController extends Controller
             return abort('404');
         }
 
-        
-        if($log->divemap_id) {
+
+        if($log->divemap_id !== null) {
 
         $map = Divemap::find($log->divemap_id);
 
@@ -152,11 +152,15 @@ class LogController extends Controller
             'map' => $map,
         ]);
 
+        }else{
+            
+            return view('log.show', [
+                'log' => $log,
+                'map' => [],
+            ]);
+
         }
 
-        return view('log.show', [
-            'log' => $log,
-        ]);
 
     }
 

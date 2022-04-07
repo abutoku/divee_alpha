@@ -37,7 +37,11 @@
         </div>
         <img src="{{ Storage::url($log->image) }}" class="h-56 w-80 object-cover rounded-lg">
 
-        <canvas id="canvas" width="360" height="240" style="border:1px solid #000;" class="mt-4"></canvas>
+        @if($map !== [])
+            <canvas id="canvas" width="360" height="240" style="border:1px solid #000;" class="mt-4"></canvas>
+        @endif
+
+
 
     </section>
 
@@ -47,6 +51,7 @@
 
     const log = @json($log);
     const map = @json($map);
+
 
     $('#canvas').css(`background-image`,`url(../storage/${map.image})`);
 
