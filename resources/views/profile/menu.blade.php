@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="flex justify-start items-center h-12 border-b cursor-pointer hover:bg-gray-100">
-                    <a href="{{ route('profile.cover',Auth::user()->profile->id) }}" class="ml-2">プロフィールカバー画像変更定</a>
+                    <a href="{{ route('profile.cover',Auth::user()->profile->id) }}" class="ml-2">プロフィールカバー画像変更</a>
                 </div>
 
             </div>

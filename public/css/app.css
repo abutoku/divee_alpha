@@ -662,6 +662,9 @@ select {
 .m-6 {
   margin: 1.5rem;
 }
+.m-12 {
+  margin: 3rem;
+}
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -995,6 +998,9 @@ select {
 }
 .w-10 {
   width: 2.5rem;
+}
+.w-3 {
+  width: 0.75rem;
 }
 .max-w-7xl {
   max-width: 80rem;
@@ -1962,6 +1968,11 @@ select {
     padding-top: 0px;
   }
 
+  .sm\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
   .sm\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
@@ -1970,11 +1981,6 @@ select {
   .sm\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
-  }
-
-  .sm\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
   }
 }
 @media (min-width: 768px) {
