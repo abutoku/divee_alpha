@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Log;
 use App\Models\Book;
+use App\Models\Site;
 use App\Models\Divemap;
 
 class BookController extends Controller
@@ -72,6 +73,7 @@ class BookController extends Controller
     public function show($id)
     {
         $book = Book::find($id);
+        $sites = Site::all();
 
         //ログインユーザー以外の情報は表示しない
         if (Auth::user()->id != $book->user_id) {
@@ -84,6 +86,7 @@ class BookController extends Controller
         return view('book.show', [
             'book' => $book,
             'logs' => $logs,
+            'sites' => $sites,
         ]);
     }
 
@@ -164,4 +167,24 @@ class BookController extends Controller
     {
         //
     }
+
+    public function search(Request $request)
+    {
+        $sites = Site::all();
+
+        $logs = Log::where('user_id',Auth::user()->id)
+                    ->where('site_id',$request->site_id)->get();
+
+        $book = Book::find($request->book_id);
+
+        $val = Site::find($request->site_id);
+
+        return view('book.show', [
+            'logs' => $logs,
+            'sites' => $sites,
+            'book' => $book,
+            'val' => $val
+        ]);
+    }
+
 }

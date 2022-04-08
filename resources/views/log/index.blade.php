@@ -30,15 +30,36 @@
         </a>
 
     {{-- 検索欄 --}}
-        <section class="flex flex-col w-[200px]">
-            <input type="text" class="rounded-lg border-2 border-divenavy my-2" placeholder="場所検索">
-            <input type="text" class="rounded-lg border-2 border-divenavy" placeholder="日時検索">
+        <section class="flex justify-start items-center">
+            <form action="{{ route('log.search') }}" method="post">
+                @csrf
+                <select name="site_id" class="rounded-lg border-2 border-divenavy my-2">
+                    <option>
+                    <option disabled selected value>ポイントを選択</option>
+                    @foreach ($sites as $site)
+                    <option value="{{ $site->id }}">{{ $site->site_name }}</option>
+                    @endforeach
+                    </option>
+                </select>
+
+                <!--工事中-->
+                {{-- <select name="site" class="rounded-lg border-2 border-divenavy my-2">
+                    <option>
+                    <option disabled selected value>月を選択</option>
+                    @foreach ($dates as $date)
+                    <option value="{{ $date }}">{{ $date->date }}</option>
+                    @endforeach
+                    </option>
+                </select> --}}
+
+                <x-button>検索</x-button>
+            </form>
         </section>
 
     {{-- 表示部分 --}}
         <section class="mt-8">
             <div class="flex flex-col items-center">
-            @foreach ($logs as $log)
+            @forelse ($logs as $log)
             {{-- 画像がある場合 --}}
                 @if($log->image)
                     <div class="flex justify-between bg-white drop-shadow-md rounded-lg w-[400px] sm:w-[650px] h-40 sm:h-60 my-5">
@@ -113,7 +134,9 @@
                         </div>
                     </div>
                 @endif
-            @endforeach
+            @empty
+            <p>情報はありません</p>
+            @endforelse
 
             </div>
         </section>

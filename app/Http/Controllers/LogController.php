@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Validator;
 //認証
 use Illuminate\Support\Facades\Auth;
 
+use Carbon\Carbon;
+
 //Model
 use App\Models\User;
 use App\Models\Log;
@@ -32,9 +34,17 @@ class LogController extends Controller
         // Userモデルに定義したmylogs関数を実行する．
         //結果を$logsに受け取る
         $logs = User::find(Auth::user()->id)->mylogs;
-        //$logsをlog.indexに渡す
+
+        $sites = Site::all();
+
+        //工事中
+        // $dates = Log::where('user_id',Auth::user()->id)->groupBy('date')->get('date');
+
+
         return view('log.index', [
-            'logs' => $logs
+            'logs' => $logs,
+            'sites' => $sites,
+            // 'dates' => $dates
         ]);
     }
 
@@ -153,7 +163,7 @@ class LogController extends Controller
         ]);
 
         }else{
-            
+
             return view('log.show', [
                 'log' => $log,
                 'map' => [],
@@ -209,5 +219,15 @@ class LogController extends Controller
         return redirect()->route('log.index');
     }
 
+    public function search (Request $request) {
 
+        $sites = Site::all();
+        $logs = Log::where('user_id',Auth::user()->id)
+                    ->where('site_id',$request->site_id)->get();
+
+        return view('log.index', [
+            'logs' => $logs,
+            'sites' => $sites,
+        ]);
+    }
 }
