@@ -19,8 +19,6 @@
     @livewireStyles
 </head>
 <body>
-    <a href="{{ route('dashboard') }}">戻る</a>
-
         <main class="ml-4 mt-4 w-full">
             @foreach($shops as $shop)
                 <div class="flex justify-between bg-slate-200 mb-6 w-80">
@@ -36,6 +34,10 @@
                 </div>
             @endforeach
         </main>
+
+        <a href="{{ route('dashboard') }}">
+            <x-button class="ml-4">戻る</x-button>
+        </a>
 <!-- jquery,main.js 読み込み -->
 <x-readjs />
 

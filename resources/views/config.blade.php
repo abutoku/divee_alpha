@@ -21,16 +21,9 @@
 </head>
 
 <body>
-    <form method="POST" action="{{ route('logout') }}" class="ml-8 flex justify-start">
-        @csrf
-        <x-button class="w-40 h-12 flex justify-center mt-12" :href="route('logout')" onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-            {{ __('ログアウト') }}
-        </x-button>
-    </form>
 
     <main class="mt-8">
-        <ul>
+        <ul class="ml-4">
             <a href="{{ route('master.index') }}">
                 <li>ショップ一覧</li>
             </a>
@@ -39,6 +32,14 @@
             </a>
         </ul>
     </main>
+
+    <form method="POST" action="{{ route('logout') }}" class="ml-8 flex justify-start">
+        @csrf
+        <x-button class="w-40 h-12 flex justify-center mt-12" :href="route('logout')" onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+            {{ __('ログアウト') }}
+        </x-button>
+    </form>
 
     <!-- jquery,main.js 読み込み -->
     <x-readjs />
