@@ -14,12 +14,12 @@
     <section class="mt-16">
         <div class="bg-white w-80 rounded-lg">
 
-            <div class="flex justify-start items-center h-12 border-b ml-2 cursor-pointer hover:bg-gray-100">
-                <a href="{{ route('site.create') }}">ダイブサイト登録</a>
+            <div class="flex justify-start items-center h-12 border-b cursor-pointer hover:bg-gray-100">
+                <a href="{{ route('site.create') }}" class="ml-2">ダイブサイト登録</a>
             </div>
 
-            <div class="flex justify-start items-center h-12 border-b ml-2 cursor-pointer hover:bg-gray-100">
-                <a href="{{ route('divemap.index') }}">水中地図設定</a>
+            <div class="flex justify-start items-center h-12 border-b cursor-pointer hover:bg-gray-100">
+                <a href="{{ route('divemap.index') }}" class="ml-2">水中地図設定</a>
             </div>
 
         </div>
