@@ -41,7 +41,7 @@
             @foreach ($logs as $log)
             {{-- 画像がある場合 --}}
                 @if($log->image)
-                    <a href="{{ route('log.show',$log->id) }}" class="flex justify-between bg-white drop-shadow-md rounded-lg w-[400px] sm:w-[650px] h-40 sm:h-60 my-5">
+                    <div class="flex justify-between bg-white drop-shadow-md rounded-lg w-[400px] sm:w-[650px] h-40 sm:h-60 my-5">
                         <div class="p-2 sm:p-4 w-full">
                             <div class="flex justify-between">
                                 {{-- テキスト部分 --}}
@@ -50,7 +50,8 @@
                                     <div class="font-bold text-lg">{{  $log->book->fish_name }}</div>
                                     <div class="text-sm sm:text-base">{{  $log->site->site_name }}</div>
                                     <div class="text-sm sm:text-base">水深 : {{  $log->depth }}M</div>
-                                    <div class="text-sm sm:text-base">水温 : {{  $log->temp }}℃</div>
+                                    <div class="text-sm sm:text-base mb-2 sm:mb-8">水温 : {{  $log->temp }}℃</div>
+                                    <a href="{{ route('log.show',$log->id) }}">詳細へ</a>
                                 </div>
                                 {{-- 縦三点リーダー --}}
                                 <div x-data="{ open:false }" @click.away="open = false" @close.stop="open = false" class="flex flex-col items-end">
@@ -67,7 +68,7 @@
                                     <form x-show="open" x-transition action="{{ route('log.destroy',$log->id )}}" method="post" x-cloak>
                                         @method('delete')
                                         @csrf
-                                        <button type="submit" class="mt-6 py-2 px-4 border rounded-lg">削除</button>
+                                        <button type="submit" class="m-6 py-2 px-4 border rounded-lg">削除</button>
                                     </form>
                                 </div>
 
@@ -77,10 +78,10 @@
                         <div>
                             <img src="{{ Storage::url($log->image) }}" alt="picture" class="h-40 sm:h-60 w-56 sm:w-[400px] object-cover rounded-r-lg">
                         </div>
-                    </a>
+                    </div>
             {{-- サムネイル画像が無い場合 --}}
                 @else
-                    <a href="{{ route('log.show',$log->id) }}" class="flex flex-col bg-white drop-shadow-md rounded-lg w-[400px] sm:w-[650px] h-40 sm:h-60 my-5 p-2 sm:p-4">
+                    <div class="flex flex-col bg-white drop-shadow-md rounded-lg w-[400px] sm:w-[650px] h-40 sm:h-60 my-5 p-2 sm:p-4">
                         <div class="flex justify-between">
                             {{-- テキスト部分 --}}
                             <div>
@@ -88,7 +89,8 @@
                                 <div class="font-bold text-lg">{{  $log->book->fish_name }}</div>
                                 <div class="text-sm sm:text-base">{{  $log->site->site_name }}</div>
                                 <div class="text-sm sm:text-base">水深 : {{  $log->depth }}M</div>
-                                <div class="text-sm sm:text-base">水温 : {{  $log->temp }}℃</div>
+                                <div class="text-sm sm:text-base mb-2 sm:mb-8">水温 : {{  $log->temp }}℃</div>
+                                <a href="{{ route('log.show',$log->id) }}">詳細へ</a>
                             </div>
                             {{-- 縦三点リーダー --}}
                             <div x-data="{ open:false }" @click.away="open = false" @close.stop="open = false" class="flex flex-col items-end">
@@ -109,7 +111,7 @@
                                 </form>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 @endif
             @endforeach
 
