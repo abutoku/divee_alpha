@@ -1,7 +1,14 @@
 <x-app-layout>
     {{-- ヘッダーロゴ部分 --}}
+    {{-- ヘッダーロゴ部分 --}}
     <x-slot name="iconLeft">
-        <x-hamburger />
+        <a href="{{ route('setting.index') }}" class="flex">
+            <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6" />
+            </svg>
+            <span class="ml-2 text-divenavy">back</span>
+        </a>
     </x-slot>
 
     <x-slot name="iconRight">
@@ -10,9 +17,8 @@
         </a>
     </x-slot>
 
-    <section class="mt-8 flex justify-center items-center flex-col">
-        <h1 class="text-xl font-bold mb-4">ダイブサイト登録</h1>
-        <div class="py-10 rounded-lg shadow-lg bg-white flex justify-center w-[400px] sm:w-[600px]">
+    <section class="mt-12 flex justify-center items-center flex-col">
+        <div class="py-6 rounded-lg shadow-lg bg-white flex justify-center w-[400px] sm:w-[600px]">
             <form action="{{ route('site.store') }}" method="POST">
                 @csrf
                     <p>サイト名</p>
@@ -23,11 +29,7 @@
                     <div id="target" class="h-[300px] w-[300px] sm:h-[500px] sm:w-[500px] "></div>
 
                     {{-- 登録ボタン --}}
-                <x-button class="my-12">登録</x-button><br>
-                {{-- ログ一覧に戻るボタン --}}
-                <a href="{{ route('dashboard') }}" >back</a>
-
-
+                <x-button class="mt-12">登録</x-button><br>
             </form>
         </div>
     </section>

@@ -28,13 +28,13 @@
 
     <!--wrapper-->
     <div class="flex justify-center mt-12">
-        <div class="mt-6 px-2 pb-8 flex justify-center w-[400px] md:w-[900px]">
+        <div class="px-2 flex justify-center w-[400px] md:w-[900px]">
             <form action="{{ route('log.store') }}" method="POST" enctype="multipart/form-data" class="md:w-full">
                 @csrf
 
                 <div class="md:flex md:w-full">
                     {{-- 入力欄 --}}
-                    <div class="mt-8 md:w-1/2">
+                    <div class="md:w-1/2">
                         {{-- 日付 --}}
                         <div>
                             <div id='date' class="pr-8">日付</div>
@@ -74,7 +74,7 @@
                     {{-- <a href="#" id="add_tag" class="inline-flex items-center px-4 py-2 bg-divenavy border border-transparent rounded-md font-semibold text-xs text-white  hover:bg-gray-700 disabled:opacity-25 transition ease-in-out duration-150">タグを追加</a> --}}
 
                     {{-- 画像登録エリア --}}
-                    <div class="md:mt-8 md:w-1/2">
+                    <div class="md:w-1/2">
 
                         <div class="w-[250px] sm:w-[300px]">
                             {{-- ファイル選択欄 --}}
@@ -98,7 +98,7 @@
                             <input type="hidden" id="point_y" name="point_y">
                         </div><!-- canvas入力画面ここまで -->
 
-                        <x-button id="clear_btn" class="mt-4">クリア</x-button>
+                        <div id="clear_btn" class="mt-4 p-2 flex justify-center items-center bg-divenavy text-sm font-bold text-white w-36 rounded-lg cursor-pointer">MAPをクリア</div>
                     </div>
                     {{-- 画像登録エリアここまで --}}
                 </div>
@@ -112,6 +112,7 @@
         {{-- ログ一覧に戻るボタン --}}
 
     </div>
+
     <!--wrapperここまで-->
 
 </x-app-layout>
@@ -142,6 +143,10 @@
     $('#clear_btn').on("click", function () {
     ctx.closePath();
     ctx.clearRect(0, 0, can.width, can.height);//canvasをクリア
+
+    $('#canvas').css(`background-image`,`none`);
+    $('#map').val('');
+
     })
 
     //ダブルクリックで◯をつける
