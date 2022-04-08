@@ -21,8 +21,6 @@
 </head>
 
 <body>
-    <a href="{{ route('dashboard') }}"><x-button>戻る</x-button></a>
-
     <main class="mt-12 p-4">
         <form action="{{ route('master.store') }}" method="post" enctype="multipart/form-data">
             @csrf
@@ -42,6 +40,9 @@
         </form>
     </main>
 
+    <a href="{{ route('dashboard') }}">
+        <x-button class="ml-4">戻る</x-button>
+    </a>
     <!-- jquery,main.js 読み込み -->
     <x-readjs />
 
