@@ -53,16 +53,28 @@
     </section>
 
     {{-- 検索欄 --}}
-    <section class="mt-12 flex flex-col w-[200px]">
-        <input type="text" class="rounded-lg border-2 border-divenavy my-2" placeholder="場所検索">
-        <input type="text" class="rounded-lg border-2 border-divenavy" placeholder="日時検索">
+    <section class="mt-12 flex flex-col w-[300px]">
+        <form action="{{ route('book.search') }}" method="post" class="flex justify-start items-center">
+            @csrf
+            <select name="site_id" class="rounded-lg border-2 border-divenavy my-2">
+                <option>
+                <option disabled selected value>ポイントを選択</option>
+                @foreach ($sites as $site)
+                <option value="{{ $site->id }}">{{ $site->site_name }}</option>
+                @endforeach
+                </option>
+            </select>
+            <input type="hidden" name="book_id" value="{{ $book->id }}">
+            {{-- <input type="text" class="rounded-lg border-2 border-divenavy" placeholder="日時検索"> --}}
+            <x-button class="ml-4">検索</x-button>
+        </form>
     </section>
 
     {{-- -----ログ表示部分----- --}}
     <div class="md:flex md:justify-center">
 
         <section class="mt-12 lg:w-1/2">
-            @foreach ($logs as $log)
+            @forelse ($logs as $log)
             <div x-data="{ open: false }" @click.away="open = false" @close.stop="open = false" class="flex justify-center ">
 
                 <div class="show-btn bg-white rounded-lg drop-shadow-md w-[400px] lg:w-11/12 mb-4 p-4  hover:bg-gray-100 cursor-pointer"  @click="open = ! open" id="{{ $log->id }}" value="{{ $log->divemap_id }}">
@@ -96,7 +108,9 @@
                 </div>
 
             </div>
-            @endforeach
+            @empty
+                <p class="ml-6">情報がありません</p>
+            @endforelse
         </section>
 
         {{-- 写真の表示部分 --}}

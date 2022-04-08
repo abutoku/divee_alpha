@@ -12,6 +12,7 @@
 
     <!-- 選択ボタン -->
     <section class="flex mt-16 mb-8 justify-center sm:justify-start">
+        
         <a href="{{ route('map.site') }}"
             class="rounded-2xl py-1 w-[200px] mr-4 border-2 border-divenavy  text-divenavy flex justify-around">
             場所</a>
@@ -19,7 +20,6 @@
         <div
             class="rounded-2xl py-1 w-[200px] mr-4 border-2 border-divenavy bg-divenavy text-white flex justify-around">
             生物名</div>
-
 
     </section>
 

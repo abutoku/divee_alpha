@@ -112,6 +112,9 @@ Route::delete('comment/{comment}', [CommentController::class,'destroy'])
 ->name('comment.destroy');
 
 //-----log-------------------//
+Route::post('log/search', [LogController::class,'search'])
+->name('log.search');
+
 Route::resource('log', LogController::class);
 
 //-----divemaps--------------//
@@ -129,6 +132,9 @@ Route::get('book/{book}/select', [BookController::class,'select'])
 //図鑑画像変更のルート
 Route::post('book/{book}/change', [BookController::class,'change'])
 ->name('book.change');
+
+Route::post('book/search', [BookController::class,'search'])
+->name('book.search');
 
 Route::resource('book', BookController::class);
 
