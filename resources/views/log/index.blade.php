@@ -26,11 +26,11 @@
             <path d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
             <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
             <line x1="16" y1="5" x2="19" y2="8" />
-            </svg>ログ作成</x-button>
+            </svg>記録を残す</x-button>
         </a>
 
     {{-- 検索欄 --}}
-        <section class="flex justify-start items-center">
+        <section class="flex justify-start items-center mt-2">
             <form action="{{ route('log.search') }}" method="post">
                 @csrf
                 <select name="site_id" class="rounded-lg border-2 border-divenavy my-2">
@@ -57,7 +57,7 @@
         </section>
 
     {{-- 表示部分 --}}
-        <section class="mt-8">
+        <section class="mt-2">
             <div class="flex flex-col items-center">
             @forelse ($logs as $log)
             {{-- 画像がある場合 --}}

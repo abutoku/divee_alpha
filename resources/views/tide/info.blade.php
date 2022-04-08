@@ -11,7 +11,7 @@
     </x-slot>
 
     {{-- ポイント選択部分 --}}
-    <section class="mt-24">
+    <section class="mt-12">
         <form action="{{ route('tide.select') }}" method="post">
             @csrf
             <select name="site" class="rounded-lg border-2 border-divenavy">
@@ -28,8 +28,8 @@
     </section>
 
     {{-- 情報表示部分 --}}
-    <section class="mt-8 flex justify-center">
-        <div class="bg-white drop-shadow-md rounded-lg w-[480px] sm:w-[600px] h-54 my-8 p-8">
+    <section class="mt-2 flex justify-center">
+        <div class="bg-white drop-shadow-md rounded-lg w-[480px] sm:w-[600px] h-54 mt-4 mb-6 p-8">
 
             {{-- @dd($tide); --}}
             <h1 class="font-bold text-2xl mb-8">{{ $name }}</h1>

@@ -55,9 +55,11 @@
                         <li class="mb-6 pb-2 border-b">ヘルプ</li>
                     </a>
 
+                    @if(Auth::user()->profile->card_rank == 'Pro')
                     <a href={{ route('back.index') }}>
                         <li class="mb-6 pb-2 border-b">管理者</li>
                     </a>
+                    @endif
 
                 </ul>
                 <!-- ログアウトボタン -->
