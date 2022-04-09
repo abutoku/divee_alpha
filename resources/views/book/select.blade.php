@@ -25,14 +25,16 @@
             {{ session('status') }}
         </div>
         @endif
-        
+
         <form action="{{ route('book.change',$book->id ) }}" method="post" class="flex justify-around flex-wrap">
             @csrf
             <input type="hidden" id="log_id" name="log_id">
                 @foreach ($logs as $log)
-                <button>
-                    <img src="{{ Storage::url($log->image) }}" id="{{ $log->id }}" class="h-48 mt-8 object-cover">
-                </button>
+                    @if($log->image)
+                    <button>
+                        <img src="{{ Storage::url($log->image) }}" id="{{ $log->id }}" class="h-48 mt-8 object-cover">
+                    </button>
+                    @endif
                 @endforeach
         </form>
 
