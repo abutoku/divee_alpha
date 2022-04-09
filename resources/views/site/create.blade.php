@@ -21,7 +21,7 @@
         <div class="py-6 rounded-lg shadow-lg bg-white flex justify-center w-[400px] sm:w-[600px]">
             <form action="{{ route('site.store') }}" method="POST">
                 @csrf
-                    <p>サイト名</p>
+                    <p>ポイント名</p>
                     <input type="text" name="site_name" class="w-[250px] sm:w-[300px] rounded-lg border-2 border-divenavy mb-8">
                     <input type="hidden" name="latitude" id="latitude">
                     <input type="hidden" name="longitude" id="longitude">
