@@ -26,7 +26,7 @@
             </header>
 
                 @forelse ($pro as $x)
-                    <a href="{{ route('profile.show',$x->id) }}" method="get">
+                    <a href="{{ route('profile.show',$x->user_id) }}" method="get">
                         <div class="flex items-center px-5 py-4 hover:bg-gray-100">
                             <img src="{{ Storage::url($x->profile_image) }}" class="rounded-lg h-12 w-12">
                             <div class="mx-4">{{ $x->user->name }}</div>
@@ -43,7 +43,7 @@
             </header>
 
                 @forelse ($dm as $x)
-                    <a href="{{ route('profile.show',$x->id) }}" method="get">
+                    <a href="{{ route('profile.show',$x->user_id) }}" method="get">
                         <div class="flex items-center px-5 py-4 hover:bg-gray-100">
                             <img src="{{ Storage::url($x->profile_image) }}" class="rounded-lg h-12 w-12">
                             <div class="mx-4">{{ $x->user->name }}</div>
@@ -60,7 +60,7 @@
             </header>
 
                 @forelse ($msd as $x)
-                <a href="{{ route('profile.show',$x->id) }}" method="get">
+                <a href="{{ route('profile.show',$x->user_id) }}" method="get">
                     <div class="flex items-center px-5 py-4 hover:bg-gray-100">
                         <img src="{{ Storage::url($x->profile_image) }}" class="rounded-lg h-12 w-12">
                         <div class="mx-4">{{ $x->user->name }}</div>
@@ -77,7 +77,7 @@
             </header>
 
                 @forelse ($aow as $x)
-                <a href="{{ route('profile.show',$x->id) }}" method="get">
+                <a href="{{ route('profile.show',$x->user_id) }}" method="get">
                     <div class="flex items-center px-5 py-4 hover:bg-gray-100">
                         <img src="{{ Storage::url($x->profile_image) }}" class="rounded-lg h-12 w-12">
                         <div class="mx-4">{{ $x->user->name }}</div>
@@ -94,7 +94,7 @@
             </header>
 
                 @forelse($ow as $x)
-                <a href="{{ route('profile.show',$x->id) }}" method="get">
+                <a href="{{ route('profile.show',$x->user_id) }}" method="get">
                     <div class="flex items-center px-5 py-4 hover:bg-gray-100">
                         <img src="{{ Storage::url($x->profile_image) }}" class="rounded-lg h-12 w-12 ">
                         <div class="mx-4">{{ $x->user->name }}</div>
