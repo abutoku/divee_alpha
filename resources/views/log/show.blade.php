@@ -28,18 +28,20 @@
     {{-- -----ログの詳細ページ ---}}
 
     <section class="mt-16 flex justify-center">
-        <div class="bg-white drop-shadow-md rounded-lg p-10">
+        <div class="bg-white drop-shadow-md rounded-lg p-10 w-[400px] sm:w-[650px]">
             <div>
                 <div>
-                    <p class="text-xs">{{ $log->date }}</p>
+                    <p class="text-xs">{{ $log->date->format('Y-m-d') }}</p>
                     <p class="font-bold">{{ $log->book->fish_name }}</p>
                     <p>{{ $log->site->site_name }}</p>
                     <p>水温 : {{ $log->temp }}℃</p>
                     <p>水深 : {{ $log->depth }} M</p>
                 </div>
+                @if($log->image)
                 <div class="mt-10 flex justify-center">
                     <img src="{{ Storage::url($log->image) }}" class="h-56 w-80 object-cover rounded-lg">
                 </div>
+                @endif
             </div>
 
             @if($map !== [])

@@ -56,11 +56,11 @@
                         <div class="flex justify-between items-center bg-white rounded-lg drop-shadow-md h-36  w-[400px] mb-4">
 
                             <div class="p-4">
-                                <p class="text-xs">{{ $log->date }}</p>
-                                <div class="flex justify-start items-center mb-4">
+                                <p class="text-xs">{{ $log->date->format('Y-m-d') }}</p>
+                                <a href="{{ route('profile.show',$log->user->id) }}" class="flex justify-start items-center mb-4">
                                     <img src="{{  Storage::url($log->user->profile->profile_image)  }}" class="mr-2 w-8 h-8 rounded-full">
                                     <p>{{ $log->user->name }}</p>
-                                </div>
+                                </a>
                                 <p>{{ $log->book->fish_name }}</p>
                             </div>
 
@@ -69,11 +69,11 @@
                         </div>
                     @else
                         <div class="p-4 w-[400px] mb-4  bg-white rounded-lg drop-shadow-md">
-                            <p class="text-xs">{{ $log->date }}</p>
-                            <div class="flex justify-start items-center mb-4">
+                            <p class="text-xs">{{ $log->date->format('Y-m-d') }}</p>
+                            <a href="{{ route('profile.show',$log->user->id) }}" class="flex justify-start items-center mb-4">
                                 <img src="{{  Storage::url($log->user->profile->profile_image)  }}" class="mr-2 w-8 h-8 rounded-full">
                                 <p>{{ $log->user->name }}</p>
-                            </div>
+                            </a>
                             <p>{{ $log->book->fish_name }}</p>
                         </div>
                     @endif

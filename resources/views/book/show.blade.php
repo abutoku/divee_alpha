@@ -79,7 +79,7 @@
 
                 <div class="show-btn bg-white rounded-lg drop-shadow-md w-[400px] lg:w-11/12 mb-4 p-4  hover:bg-gray-100 cursor-pointer"  @click="open = ! open" id="{{ $log->id }}" value="{{ $log->divemap_id }}">
                     <div class="flex">
-                        <p class="mr-4">{{ $log->date }}</p>
+                        <p class="mr-4">{{ $log->date->format('Y-m-d') }}</p>
                         <p>{{ $log->site->site_name }}</p>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
 
                     <div class="text-left bg-white h-[600px] p-6 overflow-y-auto" @click.away="open = false">
                         <h2 class="text-2xl font-bold mb-2">{{ $book->fish_name }}</h2>
-                        <p class="text-xs">{{ $log->date }}</p>
+                        <p class="text-xs">{{ $log->date->format('Y-m-d') }}</p>
                         <p>{{ $log->site->site_name }}</p>
                         <p>水温 : {{ $log->temp }} ℃</p>
                         <p class="mb-4">水深 : {{ $log->depth }} M</p>
