@@ -26,7 +26,7 @@
             @foreach ($posts as $post)
             {{-- サムネイル画像がある場合 --}}
             @if($post->thumbnail)
-            <div class="bg-white  drop-shadow-md rounded-md w-[350px] sm:w-[600px] h-40 my-5 overflow-hidden">
+            <a href="{{ route('post.show',$post->id) }}" class="bg-white  drop-shadow-md rounded-md w-[350px] sm:w-[600px] h-40 my-5 overflow-hidden">
                 <div class="flex justify-between">
                     <div class="p-4">
                         <div class="flex items-center mb-4">
@@ -37,14 +37,13 @@
                         <p class="mb-2 text-xs">{{$post->date}}</p>
                         <p class="mb-2 font-bold">{{$post->title}}</p>
                         <p>{!! nl2br(e($post->message)) !!}</p>
-                        <a href="{{ route('post.show',$post->id) }}">詳細へ</a>
                     </div>
                     <img class="h-40 w-36 object-cover rounded-r-lg" src="{{ Storage::url($post->thumbnail) }}">
                 </div>
-            </div>
+            </a>
             {{-- サムネイル画像が無い場合 --}}
             @else
-            <div href="{{ route('post.show',$post->id) }}"
+            <a href="{{ route('post.show',$post->id) }}"
                 class="bg-white drop-shadow-md rounded-lg w-[350px] sm:w-[600px] h-36 my-5 p-4 overflow-hidden">
                 <div class="flex items-center mb-4">
                     <img src="{{ Storage::url($post->user->profile->profile_image) }}" alt="profilepic"
@@ -53,8 +52,7 @@
                 </div>
                 <p class="mb-2">{{$post->date}}</p>
                 <p>{!! nl2br(e($post->message)) !!}</p>
-                <a href="{{ route('post.show',$post->id) }}">詳細へ</a>
-            </div>
+            </a>
             @endif
             @endforeach
 
