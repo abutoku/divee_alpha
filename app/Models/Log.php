@@ -9,6 +9,10 @@ class Log extends Model
 {
     use HasFactory;
 
+    protected $dates =[
+        'date'
+    ];
+
     protected $guarded = [
         'id',
         'created_at',

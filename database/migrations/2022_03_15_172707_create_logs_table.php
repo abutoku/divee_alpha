@@ -19,7 +19,7 @@ class CreateLogsTable extends Migration
             $table->unsignedBigInteger('book_id');
             $table->unsignedBigInteger('site_id');
             $table->unsignedBigInteger('divemap_id')->nullable();
-            $table->date('date');
+            $table->dateTime('date');
             $table->integer('temp');
             $table->integer('depth');
             $table->string('image')->nullable();

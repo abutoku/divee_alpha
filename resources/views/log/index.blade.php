@@ -67,7 +67,7 @@
                             <div class="flex justify-between">
                                 {{-- テキスト部分 --}}
                                 <div>
-                                    <div class="mt-4 text-xs sm:text-base">{{  $log->date }}</div>
+                                    <div class="mt-4 text-xs sm:text-base">{{  $log->date->format('Y-m-d') }}</div>
                                     <div class="font-bold text-lg">{{  $log->book->fish_name }}</div>
                                     <div class="text-sm sm:text-base">{{  $log->site->site_name }}</div>
                                     <div class="text-sm sm:text-base">水深 : {{  $log->depth }}M</div>
@@ -106,7 +106,7 @@
                         <div class="flex justify-between">
                             {{-- テキスト部分 --}}
                             <div>
-                                <div class="mt-4 text-xs sm:text-base">{{  $log->date }}</div>
+                                <div class="mt-4 text-xs sm:text-base">{{  $log->date->format('Y-m-d') }}</div>
                                 <div class="font-bold text-lg">{{  $log->book->fish_name }}</div>
                                 <div class="text-sm sm:text-base">{{  $log->site->site_name }}</div>
                                 <div class="text-sm sm:text-base">水深 : {{  $log->depth }}M</div>
