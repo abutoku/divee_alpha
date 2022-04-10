@@ -37,7 +37,7 @@
             <p class="mt-6">message</p>
             <textarea name="message" class="rounded-lg border-2 border-divenavy h-[200px]"></textarea>
 
-            <x-button class="mt-6 flex justify-center">投稿</x-button>
+            <x-button class="mt-6 flex justify-center">送信</x-button>
         </form>
     </section>
 
