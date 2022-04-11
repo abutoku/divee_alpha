@@ -20,11 +20,7 @@
         {{-- プレビュー表示場所 --}}
         <img src="{{ Storage::url('uploads/no_image.png') }}" id="demo_picture" class="mb-4 h-48 object-cover">
         {{-- 登録ボタン --}}
-        <x-button wire:click="add" class="mb-12">登録</x-button>
-
-        <div wire:loading>
-            loding・・・・・
-        </div>
+        <x-button class="mb-12">登録</x-button>
 
     </form>
     {{-- 入力フォームここまで --}}
