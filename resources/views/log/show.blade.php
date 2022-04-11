@@ -45,7 +45,9 @@
             </div>
 
             @if($map !== [])
+            <div class="mt-10 flex justify-center">
                 <canvas id="canvas" width="400" height="300" style="border:1px solid #000;" class="mt-4"></canvas>
+            </div>
 
             @endif
         </div>

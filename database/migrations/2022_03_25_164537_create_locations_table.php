@@ -15,9 +15,11 @@ class CreateLocationsTable extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('log_id');
             $table->string('name');
             $table->double('latitude', 9, 7);
             $table->double('longitude', 10, 7);
+            $table->foreign('log_id')->references('id')->on('logs')->onDelete('cascade');
             $table->timestamps();
         });
     }
