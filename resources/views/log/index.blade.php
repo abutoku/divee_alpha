@@ -34,22 +34,20 @@
             <form action="{{ route('log.search') }}" method="post">
                 @csrf
                 <select name="site_id" class="rounded-lg border-2 border-divenavy my-2">
-                    <option>
                     <option disabled selected value>ポイントを選択</option>
                     @foreach ($sites as $site)
                     <option value="{{ $site->id }}">{{ $site->site_name }}</option>
                     @endforeach
-                    </option>
                 </select>
 
                 <!--工事中-->
                 {{-- <select name="site" class="rounded-lg border-2 border-divenavy my-2">
-                    <option>
+
                     <option disabled selected value>月を選択</option>
-                    @foreach ($dates as $date)
-                    <option value="{{ $date }}">{{ $date->date }}</option>
+                    @foreach ($dates->unique('date') as $date)
+                    <option value="{{ $date }}">{{ $date->date->format('Y-m') }}</option>
                     @endforeach
-                    </option>
+
                 </select> --}}
 
                 <x-button>検索</x-button>

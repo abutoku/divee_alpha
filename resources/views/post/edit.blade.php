@@ -1,7 +1,13 @@
 <x-app-layout>
     {{-- ヘッダーロゴ部分 --}}
     <x-slot name="iconLeft">
-        <x-hamburger />
+        <a href="{{ route('map.post') }}" class="flex">
+            <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6" />
+            </svg>
+            <span class="ml-2 text-divenavy">back</span>
+        </a>
     </x-slot>
 
     <x-slot name="iconRight">
@@ -33,13 +39,13 @@
     {{-- ------入力フォームここまで-------------- --}}
 
 <hr>
-<div class="flex justify-center items-center mt-10">
+<div class="flex flex-col justify-center items-center mt-10">
 
-    <x-button id="select_picture" class="mr-6">サムネイル変更</x-button>
-    <x-button id="delete_picture">写真を削除</x-button>
+    <x-button id="select_picture" class="mb-2">サムネイル変更</x-button>
 
     <div id="thumbnail_view">
         <p>一覧画面に表示する画像を選択してください</p>
+        <div class="flex justify-center">
         @foreach ($post->pictures as $picture)
         <form action="{{ route('picture.change',$picture->id)}}" method="post">
             @csrf
@@ -48,12 +54,14 @@
             </button>
         </form>
         @endforeach
+        </div>
     </div>
 
+    <x-button id="delete_picture">写真を削除</x-button>
 
     <div id="delete_view">
         <p>削除する画像を選んでください</p>
-
+        <div class="flex justify-center">
         @foreach ($post->pictures as $picture)
         <form action="{{ route('picture.destroy',$picture->id ) }}" method="post">
             @method('DELETE')
@@ -63,13 +71,10 @@
             </button>
         </form>
         @endforeach
+        </div>
 
     </div>
 </div>
 
-<div class="flex justify-center mt-10">
-    {{-- 戻るボタン --}}
-    <a href="{{ route('post.index') }}"><x-button>back</x-button></a>
-</div>
 
 </x-app-layout>
