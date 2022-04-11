@@ -29,6 +29,11 @@
             </div>
 
             <div>
+                <div>title</div>
+                <div><input type="text" name="title" value="{{ $post->title}}" class="rounded-lg border-2 border-divenavy w-[250px] sm:w-[300px] mb-6"></div>
+            </div>
+
+            <div>
                 <div>コメント</div>
                 <div><textarea name="message" class="rounded-lg border-2 border-divenavy h-36 w-[250px] sm:w-[300px]">{{ $post->message}}</textarea></div>
             </div>

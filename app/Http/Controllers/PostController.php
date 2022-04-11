@@ -153,6 +153,7 @@ class PostController extends Controller
         // updateは更新する情報がなくても更新が走る（updated_atが更新される）
         $result = Post::find($id)->update($request->all());
         // fill()save()は更新する情報がない場合は更新が走らない（updated_atが更新されない）
+        
         // $redult = Post::find($id)->fill($request->all())->save();
         return redirect()->route('post.index');
     }
