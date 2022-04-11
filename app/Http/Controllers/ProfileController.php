@@ -228,7 +228,7 @@ class ProfileController extends Controller
         if ($path) {
         //DBを書き換え
         $oldpath = Profile::find($id)->cover_image;
-        if($oldpath !== 'uploads/cover.png'){
+        if($oldpath !== 'uploads/cover.jpg'){
                 Storage::disk('public')->delete($oldpath);
         }
 
