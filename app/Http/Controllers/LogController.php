@@ -37,7 +37,7 @@ class LogController extends Controller
 
         $sites = Site::all();
 
-        //工事中
+        // 工事中
         // $dates = Log::where('user_id',Auth::user()->id)->groupBy('date')->get('date');
 
 
