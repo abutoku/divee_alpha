@@ -91,6 +91,9 @@
     .sigin-in {
         font-size: 12px;
     }
+    #top_message {
+        font-size:24px;
+    }
 
     }
     </style>

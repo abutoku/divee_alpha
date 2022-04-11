@@ -11,6 +11,7 @@
     </x-slot>
 
 {{-- -----プロフィールの写真登録----- --}}
+<div>
     <div class="w-[400px] sm:w-[600px] mx-auto">
 
         <div class="p-12">
@@ -30,6 +31,8 @@
             {{-- 入力フォームここまで --}}
         </div>
     </div>
+
+</div>
 
 
 </x-app-layout>

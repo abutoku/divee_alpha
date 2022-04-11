@@ -126,6 +126,7 @@ class LogController extends Controller
 
         //locationを作成
         $location = Location::create([
+        'log_id' => $result->id,
         'name' => $result->book->fish_name,
         'latitude' => $result->site->latitude,
         'longitude' => $result->site->longitude
