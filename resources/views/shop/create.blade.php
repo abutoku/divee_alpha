@@ -17,7 +17,7 @@
                     @csrf
                     <button class="mt-4 p-4 h-24 w-[400px] rounded-md bg-cover bg-center" style="background-image: url({{ Storage::url($shop->cover) }});">
                         <div class="flex justify-center items-center">
-                            <img src="{{ Storage::url($shop->logo ) }}" class="rounded-full h-8 w-8 object-cover mr-2">
+                            <img src="{{ Storage::url($shop->logo ) }}" class="rounded-full h-8 w-8 object-cover mr-2 bg-white">
                             <p class="text-white font-bold bg-black bg-opacity-50 px-2">{{ $shop->shop_name }}</p>
                         </div>
                         <input type="hidden" name="shop_id" value="{{ $shop->id }}">

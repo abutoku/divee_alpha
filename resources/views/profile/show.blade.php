@@ -65,7 +65,7 @@
                     <div class="mt-6">
                         <div class="flex items-center w-300 h-300" >
                             <p class="mr-2">{{ $profile->shop->shop_name }}</p>
-                            <img src="{{ Storage::url($profile->shop->logo ) }}" class="rounded-full h-8 w-8 object-cover mr-2">
+                            <img src="{{ Storage::url($profile->shop->logo ) }}" class="rounded-full h-8 w-8 object-cover mr-2 bg-white">
                         </div>
                     </div>
                     </a>
