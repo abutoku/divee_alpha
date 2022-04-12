@@ -32,7 +32,7 @@
         <section class="flex justify-around lg:flex-col lg:items-center lg:w-1/2">
                 <!-- ユーザー名表示 -->
                 <a href="{{ route('profile.show', Auth::user()->id ) }}"
-                    class="flex flex-col justify-end mb-10 lg:mb-6 p-6 bg-slate-50 rounded-lg drop-shadow-md w-11/12 h-64 lg:h-80 bg-cover bg-center "
+                    class="flex flex-col justify-end mb-10 lg:mb-6 p-6 bg-slate-50 rounded-lg drop-shadow-md w-11/12 h-64 md:h-80 bg-cover bg-center "
                     style="background-image: url({{ Storage::url(Auth::user()->profile->cover_image) }});">
                     <img src="{{ Storage::url(Auth::user()->profile->profile_image) }}"
                         class="h-24 w-24 rounded-full object-cover bg-white mr-4 mb-2">
