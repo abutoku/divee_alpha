@@ -80,7 +80,7 @@
         //33.5867214193664, 130.3946010116519
         map = new google.maps.Map(target,{
             center:fukuoka,
-            zoom:14,
+            zoom:10,
             disableDefaultUI:true,
         });
 
