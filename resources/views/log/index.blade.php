@@ -1,27 +1,27 @@
 <style>
-    .button{
-    border-radius: 10px;
-    position: fixed;
-    right: 10;
-    bottom: 10;
-    font-size: 30px;
-    color: #fff;
-    background: #3E5155;
-    padding: 10px;
-    cursor: pointer;
-    transition: .3s;
 
-    /*デフォルトで非表示にする*/
-    opacity: 0;
-    visibility: hidden;
+    .button {
+        border-radius: 10px;
+        position: fixed;
+        right: 10;
+        bottom: 10;
+        font-size: 30px;
+        color: #fff;
+        background: #3E5155;
+        padding: 10px;
+        cursor: pointer;
+        transition: .3s;
+
+        /*デフォルトで非表示にする*/
+        opacity: 0;
+        visibility: hidden;
     }
 
     /*このクラスが付与されると表示する*/
-    .active{
-    opacity: 1;
-    visibility: visible;
+    .active {
+        opacity: 1;
+        visibility: visible;
     }
-
 </style>
 
 <x-app-layout>
@@ -166,12 +166,11 @@
         </section>
     {{-- 表示部分ここまで --}}
     </div>
-    <p class="button">TOP</p>
     <!--wrapperここまで-->
+    <p class="button">TOP</p>
 </x-app-layout>
 
 <script>
-
     $(function() {
     // 変数にクラスを入れる
     var btn = $('.button');

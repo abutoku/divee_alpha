@@ -1,3 +1,4 @@
+
 <x-app-layout>
     {{-- ヘッダーロゴ部分 --}}
     <x-slot name="iconLeft">
@@ -15,11 +16,10 @@
 
     <div class="flex flex-col justify-center h-full ">
         <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200 p-6">
-
-            <div class="flex justify-center items-center">
+            <a href="{{ route('shop.show',$shop->id) }}" class="flex justify-center items-center">
                 <img src="{{ Storage::url($shop->logo)}}" class="object-cover mr-4 h-24 w-24">
                 <p class="font-bold text-xl">{{ $shop->shop_name }}</p>
-            </div>
+            </a>
 
             <header class="mt-2 mx-2 px-5 py-4 border-b border-t border-gray-100 bg-gradient-to-r from-blue-700 via-purple-500 to-blue-900 text-white font-bold rounded-xl drop-shadow-md">
                 <h2>Pro</h2>
@@ -110,5 +110,31 @@
         </div>
     </div>
 </section>
-
+{{-- <p class="button">TOP</p> --}}
 </x-app-layout>
+
+{{-- <script>
+
+    $(function() {
+    // 変数にクラスを入れる
+    var btn = $('.button');
+
+    //スクロールしてページトップから100に達したらボタンを表示
+    $(window).on('load scroll', function(){
+    if($(this).scrollTop() > 100) {
+    btn.addClass('active');
+    }else{
+    btn.removeClass('active');
+    }
+    });
+
+    //スクロールしてトップへ戻る
+    btn.on('click',function () {
+    $('body,html').animate({
+    scrollTop: 0
+    });
+    });
+    });
+
+
+</script> --}}

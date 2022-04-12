@@ -1967,6 +1967,11 @@ select {
     line-height: 2.5rem;
   }
 
+  .sm\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
   .sm\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
@@ -1975,11 +1980,6 @@ select {
   .sm\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
-  }
-
-  .sm\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
   }
 }
 @media (min-width: 768px) {
@@ -2058,10 +2058,6 @@ select {
 
   .lg\:hidden {
     display: none;
-  }
-
-  .lg\:h-80 {
-    height: 20rem;
   }
 
   .lg\:h-40 {
