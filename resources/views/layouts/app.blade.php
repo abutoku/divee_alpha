@@ -39,9 +39,11 @@
             <div class="mt-12">
                 <ul>
 
+                    @if(Auth::user()->profile->shop_id)
                     <a href="{{ route('profile.index') }}">
                         <li class="mb-6 pb-2 border-b">メンバー一覧</li>
                     </a>
+                    @endif
 
                     <a href="{{ route('profile.menu') }}">
                         <li class="mb-6 pb-2 border-b">プロフィール編集</li>
