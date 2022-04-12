@@ -36,9 +36,13 @@
             <div class="flex justify-between">
                 <div>
                     <p class="font-bold text-3xl mb-4" >{{ $tide['moon']['title'] }}</p>
-                    <div class="flex items-end">
-                        <p>現在の水温 :  </p>
-                        <p class="font-bold text-3xl">{{ $temp }}℃</p>
+                    <div class="flex justify-center">
+                        <p class="text-sm">現在の水温 :
+                            <span class="font-bold text-xl sm:text-3xl">
+                                {{ $temp }}℃
+                            </span>
+                        </p>
+
                     </div>
                 </div>
 

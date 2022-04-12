@@ -756,9 +756,6 @@ select {
 .mb-6 {
   margin-bottom: 1.5rem;
 }
-.mr-6 {
-  margin-right: 1.5rem;
-}
 .mt-24 {
   margin-top: 6rem;
 }
@@ -791,6 +788,9 @@ select {
 }
 .ml-6 {
   margin-left: 1.5rem;
+}
+.mr-6 {
+  margin-right: 1.5rem;
 }
 .mr-10 {
   margin-right: 2.5rem;
@@ -1975,6 +1975,11 @@ select {
   .sm\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .sm\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 }
 @media (min-width: 768px) {
