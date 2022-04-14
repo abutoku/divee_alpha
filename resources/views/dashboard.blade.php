@@ -27,93 +27,119 @@
         </a>
     </section>
 
+    <!-- メニュー部分 -->
     <div class="lg:flex">
-        <!-- profile -->
-        <section class="flex justify-around lg:flex-col lg:items-center lg:w-1/2">
-                <!-- ユーザー名表示 -->
-                <a href="{{ route('profile.show', Auth::user()->id ) }}"
-                    class="flex flex-col justify-end mb-10 lg:mb-6 p-6 bg-slate-50 rounded-lg drop-shadow-md w-11/12 h-64 md:h-80 bg-cover bg-center "
-                    style="background-image: url({{ Storage::url(Auth::user()->profile->cover_image) }});">
-                    <img src="{{ Storage::url(Auth::user()->profile->profile_image) }}"
-                        class="h-24 w-24 rounded-full object-cover bg-white mr-4 mb-2">
-                    <div class="text-2xl font-bold text-white bg-black bg-opacity-50 pl-4 md:pt-6">{{ Auth::user()->name }}</div>
-                    <div class="text-lg text-white bg-black bg-opacity-50 pl-4">{{ Auth::user()->profile->dive_count }}DIVE</div>
-                    <div class="text-lg text-white bg-black bg-opacity-50 pl-4 md:pb-6">card rank : {{ Auth::user()->profile->card_rank }}</div>
-                </a>
+        {{-- dashboard left-side --}}
+        <section class="lg:w-1/2 flex flex-col">
 
-                <div class="hidden lg:block w-full">
-                    <p class="mb-3 font-bold">海の情報</p>
-                    <hr class="mb-6 w-11/12">
-
-                    <div class="flex justify-around w-full">
-
-                        <!-- 陸の情報 -->
-                        <a href="{{ route('tide.info') }}"
-                            class="flex justify-center items-center mb-10 p-6  rounded-lg drop-shadow-md w-11/12 h-32 lg:h-40 bg-cover bg-center"
-                            style="background-image: url('storage/uploads/tide.jpg');">
-                            <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">今日の潮</span>
-                        </a>
-
-                    </div>
-                </div>
-
-        </section>
-
-        <!-- 各種ボタン -->
-
-        <section class="lg:w-1/2">
-
-            <p class="mb-3 font-bold">記録を残す</p>
-            <hr class="mb-6">
-
-            <div class="flex justify-around">
+            <div class="flex justify-around mt-8">
                 <!-- 生物ログ-->
-                <a href="{{ route('log.index') }}" class=" rounded-lg drop-shadow-md w-5/12  h-32 lg:h-40  mb-6 flex justify-center items-center bg-cover bg-center" style="background-image: url('storage/uploads/log.jpg');">
-                    <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">生物ログ</span>
+                <a href="{{ route('log.index') }}"
+                    class=" rounded-lg drop-shadow-md w-11/12  h-32 lg:h-40  mb-6 flex justify-center items-center bg-cover bg-center"
+                    style="background-image: url('storage/uploads/picture.jpg');">
+                    <span class="text-white text-xl font-bold bg-black bg-opacity-50 rounded-lg py-2 px-6">生物ログ</span>
                 </a>
-                <!-- 図鑑 -->
+                {{-- <!-- 図鑑 -->
                 <a href="{{ route('book.index') }}"
                     class="rounded-lg drop-shadow-md w-5/12 2 h-32 lg:h-40 mb-6 flex justify-center items-center bg-cover bg-center"
                     style="background-image: url('storage/uploads/picture.jpg');">
                     <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">図鑑</span>
-                </a>
-
+                </a> --}}
             </div>
 
             <p class="mb-3 font-bold">記録のシェア</p>
             <hr class="mb-6">
 
-            <div class="flex justify-around ">
+            <div class="flex flex-col items-center">
                 <!-- Map -->
-                <a href="{{ route('map.site') }}" class="rounded-lg drop-shadow-md w-5/12  h-32  lg:h-40 mb-6 flex justify-center items-center bg-cover bg-center" style="background-image: url('storage/uploads/map.jpg');">
-                    <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">Map</span>
+                <a href="{{ route('map.site') }}"
+                    class="rounded-lg drop-shadow-md w-11/12 h-32 lg:h-40 mb-6 flex justify-center items-center bg-cover bg-center"
+                    style="background-image: url('storage/uploads/map.jpg');">
+                    <span class="text-white text-xl font-bold bg-black bg-opacity-50 rounded-lg py-2 px-6">全国の生物Map</span>
                 </a>
-
-                <!-- 陸の情報 -->
-                <a href="{{ route('map.post') }}"
-                    class="rounded-lg drop-shadow-md w-5/12  h-32 lg:h-40 mb-6 flex justify-center items-center bg-cover bg-center"
-                    style="background-image: url('storage/uploads/aft.jpg');">
-                    <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">SPOT</span>
-                </a>
-
             </div>
 
-            <p class="mb-3 font-bold lg:hidden">海の情報</p>
-            <hr class="mb-6 lg:hidden">
+            <hr class="mb-6">
+            <div class="flex flex-col items-center">
+                <!-- 陸の情報 -->
+                <a href="{{ route('map.post') }}"
+                    class="rounded-lg drop-shadow-md w-11/12 h-32 lg:h-40 mb-6 flex justify-center items-center bg-cover bg-center"
+                    style="background-image: url('storage/uploads/aft.jpg');">
+                    <span class="text-white text-xl font-bold bg-black bg-opacity-50 rounded-lg py-2 px-6">アフターダイビングスポット</span>
+                </a>
+            </div>
 
-            <div class="flex justify-around w-full lg:hidden">
-
+            <p class="mb-3 font-bold">海</p>
+            <hr class="mb-6">
+            <div class="flex justify-around w-full">
                 <!-- 陸の情報 -->
                 <a href="{{ route('tide.info') }}"
                     class="flex justify-center items-center mb-10 p-6  rounded-lg drop-shadow-md w-11/12 h-32 lg:h-40 bg-cover bg-center"
                     style="background-image: url('storage/uploads/tide.jpg');">
-                    <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">今日の潮</span>
+                    <span class="text-white text-xl font-bold bg-black bg-opacity-50 rounded-lg py-2 px-6">今日の潮</span>
                 </a>
+            </div>
+
+        </section>
+
+        {{-- dashboard right-side --}}
+        <section class="lg:w-1/2 flex justify-center">
+            <!-- profile -->
+            <div class="w-11/12 bg-white p-8 rounded-lg shadow-xl hidden lg:block">
+                <img src="{{ Storage::url(Auth::user()->profile->cover_image) }}" class="w-full h-80 object-cover bg-white rounded-lg shadow-xl">
+                {{-- プロフィール表示部分 --}}
+                <section class="pt-10">
+                    <div class="flex justify-center items-end w-full">
+                        {{-- プロフィール画像 --}}
+                        <div class="mr-10 flex justify-center items-center flex-col w-full relative">
+                            @if(Auth::user()->profile->card_rank !== 'Pro')
+                            <img src="{{ Storage::url(Auth::user()->profile->profile_image) }}"
+                                class="absolute bottom-2 h-36 w-36 sm:h-48 sm:w-48 mb-2 rounded-full object-cover bg-white border-2 border-paper">
+                            @else
+                            <img src="{{ Storage::url(Auth::user()->profile->profile_image) }}"
+                                class="absolute right-2 h-36 w-36 sm:h-48 sm:w-48 mb-2 rounded-full object-cover bg-white border-2 border-paper">
+                            @endif
+                        </div>
+
+                        {{-- カードランク表示 Proの場合は表示なし --}}
+                        @if(Auth::user()->profile->card_rank !== 'Pro')
+                        <div class="flex items-end self-end">
+                            <b class="text-7xl">{{ Auth::user()->profile->dive_count }}</b>
+                            <p>DIVE</p>
+                        </div>
+                        @endif
+                    </div>
+
+                    {{-- ユーザー名 --}}
+                    <div class="flex justify-between items-end">
+                        <h1 class="text-4xl mt-10 mr-8"><b>{{ Auth::user()->profile->user->name }}</h1>
+                    </div>
+
+                    {{-- カードランク --}}
+                    <div class="mt-6">
+                        <div class="flex items-end w-300 h-300">
+                            <p class="mr-2 text-base">CARD RANK:</p>
+                            <b class="text-3xl">{{ Auth::user()->profile->card_rank }}</b>
+                        </div>
+                    </div>
+
+                    @if(Auth::user()->profile->shop_id !== null)
+                    <a href="{{ route('shop.show',Auth::user()->profile->shop->id) }}">
+                        <div class="mt-6">
+                            <div class="flex items-center w-300 h-300">
+                                <p class="mr-2">{{ Auth::user()->profile->shop->shop_name }}</p>
+                                <img src="{{ Storage::url(Auth::user()->profile->shop->logo ) }}"
+                                    class="rounded-full h-8 w-8 object-cover mr-2 bg-white">
+                            </div>
+                        </div>
+                    </a>
+                    @endif
+                </section>
+                {{-- マイプロフィール表示部分ここまで --}}
 
             </div>
         </section>
-
-
         <!-- 各種ボタンここまで -->
     </div>
+    {{-- 全体のフレックスここまで --}}
 </x-app-layout>

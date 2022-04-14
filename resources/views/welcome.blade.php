@@ -82,7 +82,13 @@
         font-family: 'Press Start 2P', cursive;
     }
 
-    @media screen and (max-width: 480px) {
+    #info {
+    font-size:4px;
+    color:white;
+    text-align: left;
+    }
+
+    @media screen and (max-width: 500px) {
     /* 480px以下に適用されるCSS（スマホ用） */
     .top-btn {
         width: 120px;
@@ -94,6 +100,7 @@
     #top_message {
         font-size:24px;
     }
+
 
     }
     </style>
@@ -133,6 +140,8 @@
             </div>
             {{-- headerここまで --}}
             <p id="top_message">Welcome!!</p>
+            <p id="top_message">New Posts map</p>
+            <p id="info">直近3日以内に投稿があったポイント</p>
         </div>
         {{-- wrapperここまで --}}
         <!-- 地図 -->

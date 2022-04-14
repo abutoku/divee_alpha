@@ -46,13 +46,25 @@
     {{-- 作成ボタン --}}
     <div class="pt-16">
         <a href="{{ route('log.create') }}"><x-button>
-            <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+            <svg class="h-5 w-5 mr-2 text-white" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
             stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" />
             <path d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
             <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
             <line x1="16" y1="5" x2="19" y2="8" />
             </svg>記録を残す</x-button>
+        </a>
+
+        <a href="{{ route('book.index') }}"><x-button>
+            <svg class="h-5 w-5 mr-2 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" />
+                <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                <line x1="3" y1="6" x2="3" y2="19" />
+                <line x1="12" y1="6" x2="12" y2="19" />
+                <line x1="21" y1="6" x2="21" y2="19" />
+            </svg>図鑑を見る</x-button>
         </a>
 
     {{-- 検索欄 --}}
