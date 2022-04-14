@@ -21,7 +21,7 @@
     @livewireStyles
 </head>
 
-<body>
+<body class="font-body">
     {{-- 全体の背景色 --}}
     <div class="bg-paper min-h-[1000px]">
 
