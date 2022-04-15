@@ -140,7 +140,6 @@
             </div>
             {{-- headerここまで --}}
             <p id="top_message">Welcome!!</p>
-            <p id="top_message">New Posts map</p>
             <p id="info">直近3日以内に投稿があったポイント</p>
         </div>
         {{-- wrapperここまで --}}
