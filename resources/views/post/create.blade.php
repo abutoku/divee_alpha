@@ -20,7 +20,7 @@
     {{-- ------入力フォーム-------------- --}}
     <div class="flex justify-center mt-16">
 
-        <div class="px-2 pb-8 rounded-lg shadow-lg bg-white flex justify-center w-[400px] sm:w-[600px] p-2 ">
+        <div class="px-2 pb-8 rounded-lg shadow-lg bg-white flex justify-center w-[400px] sm:w-[600px] p-2">
 
             <form action="{{ route('post.store') }}" method="POST">
                 @csrf

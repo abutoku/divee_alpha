@@ -27,27 +27,49 @@
         </a>
     </section>
 
+    <section class="flex justify-around">
+            <a  href="{{ route('profile.show', Auth::user()->id ) }}" class="flex justify-between bg-white drop-shadow-md rounded-lg sm:hidden p-2 mb-6 w-11/12">
+                <div class="flex justify-center items-center">
+                    <img src="{{ Storage::url(Auth::user()->profile->profile_image) }}"
+                        class="h-12 w-12 mr-2 sm:h-48 sm:w-48 mb-2 rounded-full object-cover bg-white border-2 border-paper">
+                    <p class="text-xl mr-8"><b>{{ Auth::user()->profile->user->name }}</p>
+                </div>
+                    @if(Auth::user()->profile->card_rank !== 'Pro')
+                    <div class="flex items-end self-end">
+                        <b class="text-5xl">{{ Auth::user()->profile->dive_count }}</b>
+                        <p>DIVE</p>
+                    </div>
+                    @endif
+                </a>
+        </a>
+    </section>
+
     <!-- メニュー部分 -->
     <div class="lg:flex">
         {{-- dashboard left-side --}}
         <section class="lg:w-1/2 flex flex-col">
 
-            <div class="flex justify-around mt-8">
+            <p class="mb-3 font-bold">自分の記録</p>
+            <hr class="mb-6">
+
+            <div class="flex justify-around">
                 <!-- 生物ログ-->
                 <a href="{{ route('log.index') }}"
                     class=" rounded-lg drop-shadow-md w-11/12  h-32 lg:h-40  mb-6 flex justify-center items-center bg-cover bg-center"
                     style="background-image: url('storage/uploads/picture.jpg');">
                     <span class="text-white text-xl font-bold bg-black bg-opacity-50 rounded-lg py-2 px-6">生物ログ</span>
                 </a>
+
                 {{-- <!-- 図鑑 -->
                 <a href="{{ route('book.index') }}"
                     class="rounded-lg drop-shadow-md w-5/12 2 h-32 lg:h-40 mb-6 flex justify-center items-center bg-cover bg-center"
                     style="background-image: url('storage/uploads/picture.jpg');">
                     <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">図鑑</span>
                 </a> --}}
+
             </div>
 
-            <p class="mb-3 font-bold">記録のシェア</p>
+            <p class="mb-3 font-bold">自分のシェア</p>
             <hr class="mb-6">
 
             <div class="flex flex-col items-center">
