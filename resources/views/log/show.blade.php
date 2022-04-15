@@ -32,7 +32,7 @@
             <div>
                 <div>
                     <p class="text-xs">{{ $log->date->format('Y-m-d') }}</p>
-                    <p class="font-bold">{{ $log->book->fish_name }}</p>
+                    <a href="{{ route('book.show',$log->book->id) }}" class="text-2xl font-bold">{{ $log->book->fish_name }}</a>
                     <p>{{ $log->site->site_name }}</p>
                     <p>水温 : {{ $log->temp }}℃</p>
                     <p>水深 : {{ $log->depth }} M</p>
