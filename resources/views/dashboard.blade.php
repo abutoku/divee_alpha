@@ -60,16 +60,9 @@
                     <span class="text-white text-xl font-bold bg-black bg-opacity-50 rounded-lg py-2 px-6">生物ログ</span>
                 </a>
 
-                {{-- <!-- 図鑑 -->
-                <a href="{{ route('book.index') }}"
-                    class="rounded-lg drop-shadow-md w-5/12 2 h-32 lg:h-40 mb-6 flex justify-center items-center bg-cover bg-center"
-                    style="background-image: url('storage/uploads/picture.jpg');">
-                    <span class="text-white text-xl font-bold bg-black bg-opacity-50 px-2">図鑑</span>
-                </a> --}}
-
             </div>
 
-            <p class="mb-3 font-bold">自分のシェア</p>
+            <p class="mb-3 font-bold">記録のシェア</p>
             <hr class="mb-6">
 
             <div class="flex flex-col items-center">
