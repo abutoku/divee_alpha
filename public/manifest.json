@@ -2,10 +2,10 @@
     "name": "Divee",
     "short_name": "Divee",
     "start_url": "/index.php",
-    "background_color": "#6777ef",
+    "background_color": "#015DC6",
     "description": "Divee Web App",
     "display": "fullscreen",
-    "theme_color": "#6777ef",
+    "theme_color": "#015DC6",
     "icons": [
         {
             "src": "icon_512.png",
