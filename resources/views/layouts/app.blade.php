@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <meta name="theme-color" content="#6777ef" />
+    <meta name="theme-color" content="#015DC6" />
     <link rel="apple-touch-icon" href="{{ asset('icon_512.png') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
