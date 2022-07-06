@@ -11,6 +11,16 @@
     <link rel="apple-touch-icon" href="{{ asset('icon_512.png') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('app.google_tag') }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '{{ config('app.google_tag') }}');
+    </script>
+{{-- {{ config('app.google_tag') }} --}}
     <title>Divee</title>
 
     <!-- Fonts -->
